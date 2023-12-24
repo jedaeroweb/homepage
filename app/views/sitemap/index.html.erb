@@ -1,0 +1,10 @@
+<% breadcrumb :sitemap %>
+<section id="section_sitemap" class="row">
+  <h2 class="col-12 no-display-title"><%= t(:sitemap) %></h2>
+  <article class="col-12">
+    <h3>메인메뉴</h3>
+    <ul>
+      <li><%= link_to t(:report, scope: [:activerecord, :models]), reports_path %></li>
+    </ul>
+  </article>
+</section>

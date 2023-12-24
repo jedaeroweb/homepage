@@ -1,0 +1,14 @@
+<% breadcrumb :service_intro %>
+<section id="service">
+  <div class="row">
+  <h2 class="col-12 no-display-title">서비스</h2>
+  <% @product_categories.each do |product_category| %>
+  <article class="col-12">
+    <div class="media mt-3 p-3 rounded-2">
+    <h3><%=product_category.title %></h3>
+    <p><%=simple_format(product_category.product_category_content.content) %></p>
+    </div>
+  </article>
+  <% end %>
+  </div>
+</section>

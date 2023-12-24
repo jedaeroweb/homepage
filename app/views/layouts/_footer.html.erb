@@ -1,0 +1,71 @@
+<%
+  l_class='dropdown-item d-flex align-items-center'
+
+  ko_class=l_class+' ko'
+  en_class=l_class+' en'
+  zh_cn_class=l_class+' zh-CN'
+
+  case session[:locale].to_s
+    when 'en'
+      en_class+=' active'
+    when 'zh-CN'
+      zh_cn_class+=' active'
+    else
+      ko_class+=' active'
+  end
+
+  puts session[:locale]
+%>
+<footer>
+  <div class="container">
+    <ul class="row">
+      <li class="col-6 col-lg-4"><%= link_to t(:sitemap), sitemap_index_path %></li>
+      <li class="col-6 col-lg-4 dropdown">
+        <%= link_to '#', { class: 'dropdown-toggle',role:"button",'data-bs-toggle': "dropdown",'aria-expanded':"false"} do %>
+          <%=t(:language) %>
+        <% end %>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <%=link_to '한국어', url_for(:locale => 'ko'),:class=>ko_class,:'aria-pressed'=>"true" %>
+          </li>
+          <li>
+            <%=link_to 'English', url_for( :locale => 'en'),:class=>en_class,:'aria-pressed'=>"false" %>
+          </li>
+          <li>
+            <%=link_to '汉语', url_for( :locale => 'zh-CN'),:class=>zh_cn_class,:'aria-pressed'=>"false" %>
+          </li>
+        </ul>
+      </li>
+      <li class="col-6 col-lg-4 dropdown">
+        <%= link_to '#', { class: 'dropdown-toggle',role:"button",'data-bs-toggle': "dropdown",'aria-expanded':"false"} do %>
+          <%=t(:theme) %>
+        <% end %>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+              <%=t(:light) %>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+              <%=t(:dark) %>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+              <%=t(:auto) %>
+            </button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="row">
+      <address class="col-12">
+        <%=t(:email) %>:<%= mail_to t(:email_webmaster) %>
+        사업자등록번호 670-31-01025 /
+        <%=t(:jedearoweb) %>
+        &nbsp;&nbsp; CopyLeft. 2020, SL. All wrongs reserved.
+      </address>
+    </div>
+  </div>
+</footer>
