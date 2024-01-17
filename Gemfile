@@ -36,18 +36,9 @@ gem 'sitemap_generator'
 gem 'meta-tags'
 gem 'gretel'
 gem 'nokogiri', '>= 1.12.5'
-gem 'net-smtp', require: false
-gem 'net-imap', require: false
-gem 'net-pop', require: false
-
 gem 'impressionist'
 gem 'acts_as_votable'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'i18n-js'
 gem 'globalize'
-gem 'dotenv-rails'
-
 gem 'acts-as-taggable-on', '~> 9.0'
 
 gem 'omniauth'

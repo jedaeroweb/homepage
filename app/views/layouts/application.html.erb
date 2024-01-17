@@ -17,7 +17,7 @@
   } %>
   <meta name="author" content="Sleeping-Lion">
   <link rel="canonical" href="<%= t(:site_full_url) %>">
-  <link rel="alternate" type="application/rss+xml" title="Anti-KB RSS Feed" href="<%= t(:site_full_url) %>/feed?format=rss">
+  <link rel="alternate" type="application/rss+xml" title="jedaroweb RSS Feed" href="<%= t(:site_full_url) %>/feed?format=rss">
   <%= stylesheet_link_tag "front/application", :media => "all", "data-turbolinks-track" => true %>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
@@ -31,6 +31,9 @@
     <% unless current_page?(root_path) %>
       <%= render :partial => 'layouts/page_header' %>
     <% end %>
+      <div class="row">
+        <%= render :partial => 'layouts/ad' %>
+      </div>
     <%= render :partial => 'layouts/notice', :locals => { :notice => notice, :alert => alert } %>
     <%= yield %>
     </div>
