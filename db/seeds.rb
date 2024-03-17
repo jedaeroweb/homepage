@@ -11,8 +11,8 @@ Product.create!(id: 1, product_category_id: 1, title: '제대로웹 프로그램
 Product.create!(id: 2, product_category_id: 1, title: '제대로웹 프로그램 단독사용-서버이전(광고없이 사용 포함)', price: 10000)
 Product.create!(id: 3, product_category_id: 1, title: '제대로웹 프로그램 기능수정-커스텀제작(단독사용-서버이전 포함)', price: 100000)
 
-Product.create!(id: 4, product_category_id: 2, title: '', price: 2000)
-Product.create!(id: 5, product_category_id: 2, title: '신규 프로그램 제작', price: 2000)
+Product.create!(id: 4, product_category_id: 2, title: '제대로웹 프로그램 사용 제작', price: 2000)
+Product.create!(id: 5, product_category_id: 2, title: '기타 신규 프로그램 제작', price: 2000)
 
 Product.create!(id: 6, product_category_id: 3, title: '문제점개선', price: 2000)
 Product.create!(id: 7, product_category_id: 3, title: '속도개선', price: 2000)
@@ -41,8 +41,8 @@ ProgramCategory.create!(:id=>8,:program_language_id=>4,:title=>'Jquery',:link=>'
 Program.create!(:id=>1,:title=>'제대로웹 홈페이지',:description=>'현재 보고계시는 제대로웹의 홈페이지입니다. 회사 소개용')
 Program.create!(:id=>2,:title=>'카페(매점)주문,관리 프로그램',:description=>'카페,매점등에서 회원,상품,주문등을 관리하는 프로그램입니다.')
 Program.create!(:id=>3,:title=>'헬스장관리 프로그램',:description=>'헬스장에서 회원,수강,대여등을 관리하는 프로그램입니다.')
-Program.create!(:id=>3,:title=>'커뮤니티 프로그램',:description=>'회원끼리 소통하는 커뮤니티 프로그램')
-Program.create!(:id=>4,:title=>'쇼핑몰 프로그램',:description=>'쇼핑몰 프로그램입니다')
+Program.create!(:id=>4,:title=>'커뮤니티 프로그램',:description=>'회원끼리 소통하는 커뮤니티 프로그램')
+Program.create!(:id=>5,:title=>'쇼핑몰 프로그램',:description=>'쇼핑몰 프로그램입니다')
 
 
 ProgramCategoriesProgram.create!(:id=>1,:program_category_id=>1,:program_id=>1)
