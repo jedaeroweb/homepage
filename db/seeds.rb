@@ -2,10 +2,11 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 #
-ProductCategory.create!(id: 1, title: '제대로웹 프로그램사용 관련',product_category_content_attributes: {content: 'Ruby on Rails를 이용하여 만들어지 프로그램들로 서버에 올리면 바로 멋진 웹사이트를 작동시킬수 있습니다.'})
-ProductCategory.create!(id: 2, title: '신규 시스템 제작',product_category_content_attributes: {content: 'Ruby on Rails를 이용하여 만들어지 프로그램들로 서버에 올리면 바로 멋진 웹사이트를 작동시킬수 있습니다.'})
-ProductCategory.create!(id: 3, title: '프로그램 유지보수',product_category_content_attributes: {content: 'Ruby on Rails를 이용하여 만들어지 프로그램들로 서버에 올리면 바로 멋진 웹사이트를 작동시킬수 있습니다.'})
-ProductCategory.create!(id: 4, title: '서버관련',product_category_content_attributes: {content: 'Ruby on Rails를 이용하여 만들어지 프로그램들로 서버에 올리면 바로 멋진 웹사이트를 작동시킬수 있습니다.'})
+ProductCategory.create!(id: 1, title: '단독사용',product_category_content_attributes: {content: '제대로웹의 프로그램으로 웹사이트를 단독, 나의 도메인으로 작동시킬수 있습니다.'})
+ProductCategory.create!(id: 2, title: '단독사용+커스텀 수정,제작',product_category_content_attributes: {content: '제대로웹 프로그램 단독 사용과 더해서 내가 원하는 방식으로 수정,제작 합니다.'})
+ProductCategory.create!(id: 3, title: '신규 시스템 제작',product_category_content_attributes: {content: '내가 필요한 새로운 시스템을 제작합니다.'})
+ProductCategory.create!(id: 4, title: '프로그램 유지보수',product_category_content_attributes: {content: '기존에 가지고 있는 홈페이지를 유지보수'})
+ProductCategory.create!(id: 5, title: '서버관련',product_category_content_attributes: {content: '서버 설치,설정, 이전등의 작업'})
 
 Product.create!(id: 1, product_category_id: 1, title: '제대로웹 프로그램 광고없이 사용신청', price: 5000)
 Product.create!(id: 2, product_category_id: 1, title: '제대로웹 프로그램 단독사용-서버이전(광고없이 사용 포함)', price: 10000)
@@ -73,7 +74,7 @@ FaqCategory.create!(id: 1, title: '프로그램')
 FaqCategory.create!(id: 2, title: '서비스')
 FaqCategory.create!(id: 3, title: '기타')
 
-Faq.create!(id: 1,:faq_category_id=>1, title: '프로그램은 어떤것 인가요?',faq_content_attributes: {content: 'Ruby on Rails를 이용하여 만들어지 프로그램들로 서버에 올리면 바로 멋진 웹사이트를 작동시킬수 있습니다.'})
+Faq.create!(id: 1,:faq_category_id=>1, title: '프로그램은 어떤것 인가요?',faq_content_attributes: {content: 'Ruby on Rails를 이용하여 만들어진 프로그램들로 서버에 올리면 바로 멋진 웹사이트를 작동시킬수 있습니다.'})
 Faq.create!(id: 2,:faq_category_id=>1, title: '서버는 어떤것을 해야되나요?',faq_content_attributes: {content: '이곳의 프로그램은 서버는 어떤것이라도 상관없지만 웹호스팅 방식이 아닌 단독서버 또는 가상서버 방식이여야 웹사이트를 작동시킬수 있습니다'})
 Faq.create!(id: 3,:faq_category_id=>1, title: '설정, 설치는 어떻게 해야되나요?',faq_content_attributes: {content: '설치, 설정이 다소 어려울 수 있지만 여기를 보면서 따라하면 누구라도 설치, 설정을 완료할 수 있습니다.  또한 이 과정이 힘들거나 투입할 노력-시간이 없다면 서비스 신청을 하시면 바로 처리 가능합니다'})
 Faq.create!(id: 4,:faq_category_id=>2, title: '신규 제작도 해주나요?',faq_content_attributes: {content: '이곳의 프로그램을 수정하는 사이트라면 물론 가능하고 그 밖에 어떤 형태의 웹사이트가 필요한지 말씀해주시면 최대한 상담, 제작해드립니다'})
