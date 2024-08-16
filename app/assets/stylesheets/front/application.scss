@@ -1,0 +1,383 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+@charset "utf-8";
+
+@import '../jquery.fancybox';
+@import 'bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: 'Nanum Gothic';
+  src: local('☺'),url('NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),url('NanumGothic-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src:  url('material-icon.woff2') format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+$default-bg : #ddd;
+$default-color: $body-color;
+$secondary-bg :#f1f1f1;
+$color-mode-type: data;
+
+
+[data-bs-theme="light"] {
+  --bs-border-color : #ccc;
+}
+
+html,body {margin:0;padding:0; height:100%}
+body {background-color:$default-bg;color: $default-color; font-family: "Nanum Gothic", "나눔고딕", "Malgun Gothic", "맑은 고딕", "gulim","굴림","Dotum", "돋움", Arial, Helvetica, sans-serif}
+
+label {vertical-align:middle;cursor:pointer}
+a img {border:none}
+input {vertical-align:middle}
+fieldset {border:none}
+legend {display:none}
+a{text-decoration:none;}
+a:active {color:red}
+a:hover{text-decoration:underline;}
+a img {border:none}
+
+h1 {font-size :180%}
+h2 {font-size :160%}
+h3 {font-size :140%}
+h4,h5,h6 {font-size : 120%}
+
+/* Getting the new tags to behave */
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {display:block;}
+mark, rp, rt, ruby, summary, time {display:inline;}
+
+/* layout */
+#mom {clear:both;float:left;width:100%;padding:0}
+.page-header {margin-top:30px}
+.page-header div {border-bottom:1px solid #999;margin-bottom:40px}
+.page-header h2 {float:left;margin:0.4em 0;padding:0;font-weight:bold;color:#666}
+.page-header nav  {float:right;margin:0}
+.page-header nav ol {margin:0;padding-right:0}
+.alert-success {clear:both}
+.container {max-width:2500px}
+.modal-header {background:#37474f;color:#fff}
+.modal-header * {color:#eee}
+.modal-body,.modal-footer {background:#eee}
+.thead-default th {
+    background-color: #868e96;
+    color: #fff;
+    font-weight:600;
+}
+
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.nav-pills > li > a {
+  border-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.no-display-title {font-size:18px;text-indent:-9999px;line-height: 0;height:1px;margin:0;padding:0}
+
+.jumbotron {margin:2rem 0}
+
+.jumbotron, .media {
+  background:$secondary-bg
+}
+
+
+.sl-dropdown-menu {z-index:999;}
+
+
+#main-menu .nav .sub-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    min-width: 220px;
+    max-width: 320px;
+    top: 100%;
+    background: #2F3C43;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 0;
+    z-index: 9999;
+}
+
+.main-menu .sub-menu > li > a {
+    padding: 5px 20px;
+    display: block;
+    color: #8a8f94;
+    text-decoration: none;
+    position: relative;
+}
+
+#main-menu .nav > li > a:hover,
+#main-menu  .nav > li > a:focus {
+    background-color: #333;
+}
+
+/* Common Class */
+$red_default : #f95090;
+$red_hover : #ff96b4;
+$blue_default : #50b9d8;
+$blue_hover : #78dcff;
+$green_default : #8dc63f;
+$green_hover : #c8dc5c;
+$blue_amicogen : #073683;
+
+.arial {font-family:Arial}
+.noneData {text-align:center}
+.clear{clear:both}
+.none{display:none}
+.number {font-family:Arial;letter-spacing:0}
+.clear{clear:both}
+.none{display:none}
+.wrapper {margin:0 auto;width:728px}
+.ad_test {background:red}
+.jumbotron {margin:30px 0}
+.sl_categories span.hidden-xs {display:inline!important}
+.c_pointer {cursor:pointer}
+.card {margin-bottom:15px}
+
+/* header */
+header {position:relative;border-bottom:3px solid var(--bs-primary);background-color:$secondary-bg}
+header h1 a {display:block;margin-top:1rem}
+header h1 a:hover {text-decoration:none}
+header nav {  z-index: 999; margin:0; padding:0}
+header nav ul { float: right; margin: 12px 0 0 0; padding: 0}
+header nav li { float: left; list-style: none; margin: 0 0 0 20px}
+header nav ul.nav-pills > li + li {margin-left:20px}
+header nav a { float: left; font-size:1.3em; text-decoration: none;text-transform: capitalize}
+header nav ul li ul {position:absolute;display:none}
+
+/* footer */
+footer {clear:both;float:left;width:100%;margin:0;text-align:left;font-size:14px;background-color: $secondary-bg}
+footer ul {padding:0.5rem;padding-left:0;list-style: none}
+footer div {margin:0}
+
+.alert-success {clear:both}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+#top-menu {position:absolute;top:10px;right:10px;margin:0;padding:0;list-style:none;z-index:9999}
+#top-menu li {float:left;margin:0;padding:0}
+#top-menu li a {text-decoration: none;vertical-align: bottom;}
+#top-menu li a i {text-align: center;vertical-align: bottom;}
+
+.page-header {float:left;width:100%;margin:1rem 0;padding-bottom:7px;border-bottom:1px solid var(--bs-border-color)}
+.page-header h2 {float:left;margin-top:0.5rem;margin-bottom:0.5rem;font-weight:bold;text-transform: capitalize}
+.page-header .breadcrumb  {float:right;margin:0;padding:0.5rem 1rem;background-color: $secondary-bg;border-radius:0.5rem }
+
+
+.media {background-color: var(--bs-secondary-bg)}
+.hidden-title {text-indent: -9999px}
+
+
+/* FAQ Category*/
+
+/* FAQ List */
+#faqCategoryList {margin-bottom:2rem}
+#faqList dt {border-top:1px solid var(--bs-border-color);margin:0;padding:0;border-bottom:1px solid var(--bs-border-color);margin-bottom:10px}
+#faqList dt a {display:block;padding:20px;position:relative;background:#fff}
+#faqList dt.on a {background:#eee}
+#faqList dt a span {position:absolute;top:15px;right:10px;font-weight:bold}
+#faqList dd {background:$secondary-bg;padding:20px;margin-bottom:30px}
+
+
+#select_language_layer {position:absolute;z-index:9;top:0;right:0}
+#select_language_layer a {display:block;float:left;width:50px;height:30px;margin-right:2px;text-indent:-9999px;background-image:url(image-path('flag.png'));background-repeat:no-repeat}
+#select_language_layer a.ko {background-position:0 0}
+#select_language_layer a.en {background-position:0 -30px}
+#select_language_layer a.zh-CN {background-position:0 -60px}
+
+
+@media all and (min-width: 992px) {
+  html,body {font-size:18px}
+  header {position: relative}
+
+    #top-menu nav ul li.nav-item {display:block;width:50%;margin:0;padding:0}
+
+    header {position:relative;z-index:8;height:86px;border-bottom:4px solid #4992c4}
+    header.red {border-color:$red_default}
+    header nav {margin-top:31px}
+    header nav ul {position: absolute; bottom:0;margin:0;padding:0}
+    header nav ul.nav-pills > li.active > a, header nav ul.nav-pills > li.active > a:hover, header nav ul.nav-pills > li.active > a:focus  {background:none}
+    header nav ul.nav-pills li.red a, header nav ul.nav-pills > li.red > a:focus,header nav ul.nav-pills > li.active.red > a, {background:$red_default;border-bottom-left-radius:0;border-bottom-right-radius:0;color:#fff}
+    header nav ul.nav-pills li.red a:hover {background-color:$red_hover;color:#fff}
+    header nav ul.nav-pills li.blue a, header nav ul.nav-pills > li.blue > a:focus,header nav ul.nav-pills > li.active.blue > a, {background:$blue_default;border-bottom-left-radius:0;border-bottom-right-radius:0}
+    header nav ul.nav-pills li.blue a:hover {background-color:$blue_hover}
+    header nav ul li.open ul.sl-dropdown-menu {display:block}
+    header nav ul li a {white-space:nowrap;font-weight:bold}
+    header nav ul li ul {top:70px;margin:0}
+    header nav ul li ul li {width:100%;margin-left:13px;margin-bottom:5px}
+    header nav ul li ul li a {font-size:16px}
+    header nav ul.nav li.sl-dropdown {margin-left:20px;margin-right:20px}
+
+  .menu_back {
+    display: none;
+    position: absolute;
+    top: 86px;
+    left: 0;
+    background: $secondary-bg;
+    width: 100%;
+    height: 120px;
+    z-index: 7;
+    box-shadow: 0 2px 4px #999;
+  }
+
+  footer {height:100px;border-top:1px solid var(--bs-border-color)}
+}
+
+@media (max-width: 991px) {
+
+}
+
+@media (min-width: 992px) {
+  header nav {
+    display: flex;
+    align-items: end;
+    justify-content: end
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    #mom {clear:both;float:left;width:100%;padding:0;margin:-86px 0 -100px;min-height:100%}
+    #main {padding-top:86px;padding-bottom:100px}
+    .sub-main {margin-top:1em;margin-bottom:1em}
+    #top-menu nav ul li.nav-item {display:block;width:20%;margin:0;padding:0}
+    #top-menu { height: 92px;}
+    .top-menu {
+        z-index: 1015;
+        position:absolute;
+        bottom:0;
+        width:100%;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.14);
+    }
+    #users .user_sub nav .nav-item {width:24%;text-align:center;margin:0 5px 5px 0}
+}
+
+@media (min-width: 1200px) {
+  .container {width:1150px;}
+    .top-menu {
+        z-index: 1015;
+        position:absolute;
+        bottom:0;
+        width:100%;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.14);
+    }
+
+    #mom {width:100%;padding:0;margin:-86px 0 -100px;min-height:100%}
+    #main {padding-top:86px;padding-bottom:100px}
+    .sub-main {margin-top:1em;margin-bottom:1em}
+    .top-menu { height: 46px;}
+}
+
+@media (max-width: 1499px) {
+  h1 {text-align:center}
+  h1 a {display:block;width:100%;}
+  header nav li a {font-size:16px}
+  .sub-main {;margin-bottom:1em}
+}
+
+@media (min-width: 1500px) {
+
+  #mom {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: -5em;
+  }
+  #main {
+    padding-top: 5em
+  }
+  .container {
+    width: 1450px
+  }
+}
+
+@media (max-width: 2299px) {
+  #top-menu li  {margin-left:15px}
+  .sub-main {padding-bottom:2rem}
+}
+
+@media (min-width: 2300px) {
+  header { height: 5em;margin-bottom:0}
+  header nav li a {font-size:20px}
+  .sub-main {padding-bottom:3rem}
+  #top-menu li {display:inline-block;margin:0 0 0 20px;padding:0;line-height:40px}
+  #top-menu .material-icons {font-size:30px;vertical-align:middle}
+  .section-header {margin-top:2rem;padding-top:1.5rem;margin-bottom:1rem}
+}
+
+.form-group {
+  margin-bottom:1.5rem
+}
+
+@include color-mode(dark) {
+  body {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+  }
+
+  #faqList dt.on a {background:#ccc}
+  .page-header h1, .page-header h2 {color: var(--bs-body-color)}
+  header,footer,.jumbotron,.media,.card-body,aside article,#faqList dt a.title,.modal-body, .modal-footer,.sl_content_header,.thead-default th,.breadcrumb,.box_content, header nav,.menu_back,,#faqList dd {background-color:var(--bs-secondary-bg)}
+  .box_header {background: #666;border-color:var(--bs-border-color)}
+  .box_header h2 {text-shadow: none;color:#ccc}
+}
+
+@include color-mode(light) {
+  a {
+    color: #666
+  }
+  a:hover {
+    color: #333
+  }
+  a:visited {
+    color: #999
+  }
+  a:active {
+    color: #000
+  }
+
+  header a {color:#333}
+  header a:visited {color:#333}
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link,.nav-tabs {border-color:#ccc}
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {border-bottom-color:#f1f1f1}
+  a.btn-primary,a.btn-primary:visited {color:#fff}
+}

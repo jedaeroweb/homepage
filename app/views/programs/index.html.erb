@@ -1,0 +1,28 @@
+<% breadcrumb :programs %>
+<div id="intro">
+  <section class="row">
+    <h1 class="col-12 no-display-title"><%= t(:intro_program) %></h1>
+    <p class="col-12 page-description">
+      제대로웹 프로그램들
+    </p>
+  </section>
+  <section class="row">
+    <% @programs.each do |program| %>
+      <div class="col-12">
+      <article class="media rounded p-3 mb-3">
+        <h2><%=program.title %></h2>
+        <p><%=raw program.description %>
+        </p>
+        <dl>
+          <dt><%= t(:program) %></dt>
+          <dd><%= t(:ror) %></dd>
+          <dt><%= t(:source) %></dt>
+          <dd><%= link_to t(:source), '' %></dd>
+          <dt><%= t(:service_site) %></dt>
+          <dd><%= link_to t(:survey_program), 'https://survey.sleepinglion.pe.kr' %></dd>
+        </dl>
+      </article>
+      </div>
+    <% end %>
+  </section>
+</div>
