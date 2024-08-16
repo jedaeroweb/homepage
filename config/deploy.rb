@@ -3,12 +3,13 @@
 
 set :application, "company"
 set :repo_url, "git@github.com:jedaeroweb/homepage.git"
+set :branch, "main"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/html/company"
+set :deploy_to, "/home/deploy/company"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
