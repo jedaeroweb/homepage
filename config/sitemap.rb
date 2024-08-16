@@ -15,11 +15,11 @@ SitemapGenerator::Sitemap.create do
   #
   # Examples:
 
-  add notices_path
+  #add notices_path
 
-  Notice.find_each do |notice|
-    add notice_path(notice), :lastmod => notice.updated_at
-  end
+  #Notice.find_each do |notice|
+  #  add notice_path(notice), :lastmod => notice.updated_at
+  #end
 
   add faqs_path, :priority => 0.9, :changefreq => 'monthly'
 
