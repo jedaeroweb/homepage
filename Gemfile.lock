@@ -153,6 +153,7 @@ GEM
       net-http
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86_64-darwin)
     globalid (1.2.1)
       activesupport (>= 6.1)
     globalize (6.3.0)
@@ -242,6 +243,8 @@ GEM
     nokogiri (1.16.6-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.16.6-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.6-x86_64-darwin)
       racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)
@@ -374,6 +377,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.7.3-aarch64-linux)
     sqlite3 (1.7.3-arm64-darwin)
+    sqlite3 (1.7.3-x86_64-darwin)
     sshkit (1.23.0)
       base64
       net-scp (>= 1.1.2)
@@ -413,6 +417,7 @@ GEM
 PLATFORMS
   aarch64-linux
   arm64-darwin
+  x86_64-darwin-21
 
 DEPENDENCIES
   acts-as-taggable-on
