@@ -14,6 +14,8 @@ ko:
   site_url: 'www.jedaeroweb.co.kr'
   site_full_url: 'https://www.jedaeroweb.co.kr'
   email_webmaster: 'admin@jedaeroweb.co.kr'
+  title_separator : '-'
+  default_title : '깨끗한 웹세상을 만들어가는 제대로웹'
 
   search : "검색"
   submit : "제출"
