@@ -25,7 +25,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-gem "redis", ">= 4.0.1"
+# gem "redis", ">= 4.0.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -97,3 +97,15 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+group :production do
+  gem 'asset_sync'
+  gem 'fog-azure-rm', git: 'https://github.com/sleepinglion/fog-azure-rm'
+  gem 'mysql2'
+  gem "redis", "~> 5.0" # Redis client for Ruby
+  gem "redis-actionpack", "~> 5.3" # Redis session store for ActionPack
+  gem 'dotenv-rails'
+  gem 'recaptcha', :require => 'recaptcha/rails'
+  gem 'rails-letsencrypt'
+end
+

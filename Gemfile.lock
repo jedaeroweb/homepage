@@ -1,6 +1,27 @@
+GIT
+  remote: https://github.com/sleepinglion/fog-azure-rm
+  revision: d20da616d0724011db72573d922b26a06bbdf31d
+  specs:
+    fog-azure-rm (0.3.2)
+      azure-storage (>= 0.11.5.preview, < 1.0)
+      azure_mgmt_compute (~> 0.9.0)
+      azure_mgmt_dns (~> 0.9.0)
+      azure_mgmt_key_vault (~> 0.9.0)
+      azure_mgmt_network (~> 0.9.0)
+      azure_mgmt_resources (~> 0.9.0)
+      azure_mgmt_sql (~> 0.9.0)
+      azure_mgmt_storage (~> 0.9.0)
+      azure_mgmt_traffic_manager (~> 0.9.0)
+      fog-core (~> 1.43.0)
+      fog-json (~> 1.0)
+      rest-client (~> 2.0.0)
+      vhd (= 0.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
+    acme-client (2.0.9)
+      faraday (>= 0.17, < 2.0.0)
     actioncable (7.1.4)
       actionpack (= 7.1.4)
       activesupport (= 7.1.4)
@@ -88,13 +109,44 @@ GEM
     aes_key_wrap (1.1.0)
     airbrussh (1.5.3)
       sshkit (>= 1.6.1, != 1.7.0)
+    asset_sync (2.19.2)
+      activemodel (>= 4.1.0)
+      fog-core
+      mime-types (>= 2.99)
+      unf
     awesome_nested_set (3.7.0)
       activerecord (>= 4.0.0, < 8.0)
+    azure-core (0.1.15)
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.10)
+      nokogiri (~> 1.6)
+    azure-storage (0.15.0.preview)
+      azure-core (~> 0.1)
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.10)
+      nokogiri (~> 1.6, >= 1.6.8)
+    azure_mgmt_compute (0.9.0)
+      ms_rest_azure (~> 0.7.0)
+    azure_mgmt_dns (0.9.0)
+      ms_rest_azure (~> 0.7.0)
+    azure_mgmt_key_vault (0.9.0)
+      ms_rest_azure (~> 0.7.0)
+    azure_mgmt_network (0.9.0)
+      ms_rest_azure (~> 0.7.0)
+    azure_mgmt_resources (0.9.0)
+      ms_rest_azure (~> 0.7.0)
+    azure_mgmt_sql (0.9.0)
+      ms_rest_azure (~> 0.7.0)
+    azure_mgmt_storage (0.9.0)
+      ms_rest_azure (~> 0.7.0)
+    azure_mgmt_traffic_manager (0.9.0)
+      ms_rest_azure (~> 0.7.0)
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.1.8)
     bindata (2.5.0)
     bindex (0.8.1)
+    bit-struct (0.17)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
     builder (3.3.0)
@@ -146,15 +198,21 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    domain_name (0.6.20240107)
+    dotenv (3.1.4)
+    dotenv-rails (3.1.4)
+      dotenv (= 3.1.4)
+      railties (>= 6.1)
     drb (2.2.1)
     erubi (1.13.0)
-    faraday (2.11.0)
-      faraday-net_http (>= 2.0, < 3.4)
-      logger
-    faraday-follow_redirects (0.3.0)
-      faraday (>= 1, < 3)
-    faraday-net_http (3.3.0)
-      net-http
+    excon (0.111.0)
+    faraday (0.17.6)
+      multipart-post (>= 1.2, < 3)
+    faraday-cookie_jar (0.0.7)
+      faraday (>= 0.8.0)
+      http-cookie (~> 1.0.0)
+    faraday_middleware (0.14.0)
+      faraday (>= 0.7.4, < 1.0)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-aarch64-linux-musl)
     ffi (1.17.0-arm-linux-gnu)
@@ -165,6 +223,14 @@ GEM
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
     ffi (1.17.0-x86_64-linux-musl)
+    fog-core (1.43.0)
+      builder
+      excon (~> 0.49)
+      formatador (~> 0.2)
+    fog-json (1.2.0)
+      fog-core
+      multi_json (~> 1.10)
+    formatador (0.3.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     globalize (6.3.0)
@@ -175,6 +241,9 @@ GEM
       actionview (>= 6.1)
       railties (>= 6.1)
     hashie (5.0.0)
+    http-cookie (1.0.7)
+      domain_name (~> 0.5)
+    httpclient (2.8.3)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.13.0)
@@ -193,13 +262,11 @@ GEM
     jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json-jwt (1.16.6)
+    json-jwt (1.15.3.1)
       activesupport (>= 4.2)
       aes_key_wrap
-      base64
       bindata
-      faraday (~> 2.0)
-      faraday-follow_redirects
+      httpclient
     jwt (2.8.2)
       base64
     kaminari (1.2.2)
@@ -227,16 +294,28 @@ GEM
     matrix (0.4.2)
     meta-tags (2.22.0)
       actionpack (>= 6.0.0, < 8.1)
+    mime-types (3.5.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2024.0903)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.1)
+    ms_rest (0.6.4)
+      concurrent-ruby (~> 1.0)
+      faraday (~> 0.9)
+      timeliness (~> 0.3)
+    ms_rest_azure (0.7.0)
+      concurrent-ruby (~> 1.0)
+      faraday (~> 0.9)
+      faraday-cookie_jar (~> 0.0.6)
+      ms_rest (~> 0.6.3)
     msgpack (1.7.2)
     multi_json (1.15.0)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
+    multipart-post (2.4.1)
     mutex_m (0.2.0)
-    net-http (0.4.1)
-      uri
+    mysql2 (0.5.6)
     net-imap (0.4.15)
       date
       net-protocol
@@ -251,6 +330,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     net-ssh (7.2.3)
+    netrc (0.11.0)
     nio4r (2.7.3)
     nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
@@ -348,6 +428,16 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails-letsencrypt (0.11.3)
+      acme-client (~> 2.0.0)
+      actionmailer (>= 6.1)
+      actionpack (>= 6.1)
+      actionview (>= 6.1)
+      activemodel (>= 6.1)
+      activerecord (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      redis
     railties (7.1.4)
       actionpack (= 7.1.4)
       activesupport (= 7.1.4)
@@ -359,10 +449,20 @@ GEM
     rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
+    recaptcha (5.17.0)
     redis (5.3.0)
       redis-client (>= 0.22.0)
+    redis-actionpack (5.4.0)
+      actionpack (>= 5, < 8)
+      redis-rack (>= 2.1.0, < 4)
+      redis-store (>= 1.1.0, < 2)
     redis-client (0.22.2)
       connection_pool
+    redis-rack (3.0.0)
+      rack-session (>= 0.2.0)
+      redis-store (>= 1.2, < 2)
+    redis-store (1.11.0)
+      redis (>= 4, < 6)
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
@@ -371,6 +471,10 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rexml (3.3.6)
       strscan
     ruby-vips (2.2.2)
@@ -412,6 +516,7 @@ GEM
     stringio (3.1.1)
     strscan (3.1.0)
     thor (1.3.2)
+    timeliness (0.4.5)
     timeout (0.4.1)
     turbo-rails (2.0.6)
       actionpack (>= 6.0.0)
@@ -419,8 +524,10 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uri (0.13.1)
+    unf (0.2.0)
     version_gem (1.1.4)
+    vhd (0.0.4)
+      bit-struct
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -457,6 +564,7 @@ DEPENDENCIES
   acts-as-taggable-on
   acts_as_commentable_with_threading
   acts_as_votable
+  asset_sync
   bootsnap
   cancancan
   capistrano
@@ -469,6 +577,8 @@ DEPENDENCIES
   carrierwave (~> 2.0)
   debug
   devise
+  dotenv-rails
+  fog-azure-rm!
   globalize
   gretel
   importmap-rails
@@ -477,6 +587,7 @@ DEPENDENCIES
   kaminari
   meta-tags
   mini_magick
+  mysql2
   nokogiri (>= 1.14.2)
   oauth2 (= 1.4.11)
   omniauth
@@ -490,7 +601,10 @@ DEPENDENCIES
   omniauth-twitter
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.4)
-  redis (>= 4.0.1)
+  rails-letsencrypt
+  recaptcha
+  redis (~> 5.0)
+  redis-actionpack (~> 5.3)
   selenium-webdriver
   sitemap_generator
   sprockets-rails
