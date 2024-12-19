@@ -18,7 +18,7 @@ gem "puma", ">= 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+# gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -53,7 +53,7 @@ gem 'acts_as_votable'
 gem 'globalize'
 
 gem 'omniauth'
-gem 'oauth2', '1.4.11'
+gem 'oauth2'
 gem 'omniauth-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-facebook'
