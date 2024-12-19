@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edca6098-89d8-40a2-a297-7abf4d40ef67" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/app/javascript/add_jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/javascript/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/javascript/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/company.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/company.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/controllers/application.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/controllers/hello_controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/controllers/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/session_store.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/session_store.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -352,7 +348,7 @@
       <workItem from="1734509881079" duration="2413000" />
       <workItem from="1734604068576" duration="1104000" />
       <workItem from="1734605291568" duration="440000" />
-      <workItem from="1734618638461" duration="304000" />
+      <workItem from="1734618638461" duration="651000" />
     </task>
     <servers />
   </component>

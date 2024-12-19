@@ -521,6 +521,9 @@ GEM
     thor (1.3.2)
     timeliness (0.4.5)
     timeout (0.4.1)
+    turbo-rails (2.0.11)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unf (0.2.0)
@@ -608,6 +611,7 @@ DEPENDENCIES
   sitemap_generator
   sprockets-rails
   sqlite3 (~> 1.4)
+  turbo-rails
   tzinfo-data
   web-console
 
