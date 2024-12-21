@@ -9,5 +9,3 @@ window.Modal = bootstrap.Modal;
 import './add_jquery'
 import './common'
 import './index'
-
-
