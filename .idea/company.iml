@@ -47,6 +47,7 @@
     <orderEntry type="library" scope="PROVIDED" name="aes_key_wrap (v1.1.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="airbrussh (v1.5.3, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="asset_sync (v2.19.2, ruby-3.3.4-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v10.4.19.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="awesome_nested_set (v3.7.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="azure-core (v0.1.15, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="azure-storage (v0.15.0.preview, ruby-3.3.4-p94) [gem]" level="application" />
@@ -66,6 +67,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bit-struct (v0.17, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.18.4, ruby-3.3.4-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bootstrap (v5.3.3, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.3.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.5.18, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cancancan (v3.6.1, ruby-3.3.4-p94) [gem]" level="application" />
@@ -89,6 +91,7 @@
     <orderEntry type="library" scope="PROVIDED" name="drb (v2.2.1, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.13.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="excon (v0.111.0, ruby-3.3.4-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="execjs (v2.10.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday (v0.17.6, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday-cookie_jar (v0.0.7, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday_middleware (v0.14.0, ruby-3.3.4-p94) [gem]" level="application" />
@@ -159,6 +162,7 @@
     <orderEntry type="library" scope="PROVIDED" name="omniauth-rails_csrf_protection (v1.0.2, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="omniauth-twitter (v1.4.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.5.0, ruby-3.3.4-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="popper_js (v2.11.8, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="psych (v5.1.2, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v6.0.1, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v6.4.2, ruby-3.3.4-p94) [gem]" level="application" />
@@ -189,6 +193,8 @@
     <orderEntry type="library" scope="PROVIDED" name="rexml (v3.3.6, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-vips (v2.2.2, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v2.3.2, ruby-3.3.4-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sassc (v2.4.0, ruby-3.3.4-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sassc-rails (v2.1.2, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="securerandom (v0.4.1, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.24.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sitemap_generator (v6.3.0, ruby-3.3.4-p94) [gem]" level="application" />
@@ -198,8 +204,10 @@
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.7.3, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sshkit (v1.23.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ssrf_filter (v1.1.2, ruby-3.3.4-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.1, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="strscan (v3.1.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.2, ruby-3.3.4-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v2.5.0, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timeliness (v0.4.5, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timeout (v0.4.1, ruby-3.3.4-p94) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbo-rails (v2.0.11, ruby-3.3.4-p94) [gem]" level="application" />

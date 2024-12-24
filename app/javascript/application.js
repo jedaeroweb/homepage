@@ -1,11 +1,10 @@
+// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
-import Rails from '@rails/ujs';
-window.Rails = Rails;
+import "rails-ujs"
 
-import "trix"
+//import "trix"
 import * as bootstrap from 'bootstrap';
 window.Modal = bootstrap.Modal;
 
-import './add_jquery'
-import './common'
-import './index'
+import 'common'
+import 'index'

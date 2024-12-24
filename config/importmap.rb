@@ -2,7 +2,8 @@
 
 pin "application"
 pin "@hotwired/turbo-rails", to: "turbo.min.js"
-pin "@hotwired/stimulus", to: "stimulus.min.js"
-pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
-pin_all_from "app/javascript/controllers", under: "controllers"
+pin "rails-ujs", to: "rails-ujs.js"
 pin "jquery" # @3.7.1
+pin "bootstrap", to: "bootstrap.min.js"
+pin "common", to: "common.js"
+pin "index", to: "index.js"
