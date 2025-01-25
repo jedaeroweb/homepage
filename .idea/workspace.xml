@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edca6098-89d8-40a2-a297-7abf4d40ef67" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/company.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/company.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/uploaders/admin_picture_uploader.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/uploaders/admin_picture_uploader.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/uploaders/product_picture_uploader.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/uploaders/product_picture_uploader.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +45,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/toughjjh/Projects/community",
+    "last_opened_file_path": "/home/toughjjh/Projects/sleepinglion",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -361,7 +356,7 @@
       <workItem from="1737537846748" duration="4000" />
       <workItem from="1737560549988" duration="43000" />
       <workItem from="1737697162798" duration="5741000" />
-      <workItem from="1737773435149" duration="1333000" />
+      <workItem from="1737773435149" duration="2677000" />
     </task>
     <servers />
   </component>
