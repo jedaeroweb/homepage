@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="edca6098-89d8-40a2-a297-7abf4d40ef67" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/session_store.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/session_store.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +45,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.lang.ruby.rbs.tools.collection.workspace.sync.RbsCollectionUpdateProjectActivity#LAST_UPDATE_TIMESTAMP": "1749397367044",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/toughjjh/Projects/sleepinglion",
     "node.js.detected.package.eslint": "true",
@@ -303,7 +305,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-RM-243.23654.112" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-RM-251.26094.122" />
       </set>
     </attachedChunks>
   </component>
@@ -357,6 +359,8 @@
       <workItem from="1737560549988" duration="43000" />
       <workItem from="1737697162798" duration="5741000" />
       <workItem from="1737773435149" duration="2677000" />
+      <workItem from="1749361741474" duration="631000" />
+      <workItem from="1749397306151" duration="604000" />
     </task>
     <servers />
   </component>
