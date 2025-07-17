@@ -26,38 +26,46 @@
         <% end %>
         <ul class="dropdown-menu dropdown-menu-end">
           <li>
-            <%=link_to '한국어', url_for(:locale => 'ko'),:class=>ko_class,:'aria-pressed'=>"true" %>
+            <%=link_to '🇰🇷 한국어', url_for(:locale => 'ko'),:class=>ko_class,:'aria-pressed'=>"true" %>
           </li>
           <li>
-            <%=link_to 'English', url_for( :locale => 'en'),:class=>en_class,:'aria-pressed'=>"false" %>
+            <%=link_to '🇺🇸 english', url_for( :locale => 'en'),:class=>en_class,:'aria-pressed'=>"false" %>
           </li>
           <li>
-            <%=link_to '汉语', url_for( :locale => 'zh-CN'),:class=>zh_cn_class,:'aria-pressed'=>"false" %>
+            <%=link_to '🇨🇳 汉语', url_for( :locale => 'zh-CN'),:class=>zh_cn_class,:'aria-pressed'=>"false" %>
           </li>
         </ul>
       </li>
-      <li class="col-6 col-lg-4 dropdown">
-        <%= link_to '#', { class: 'dropdown-toggle',role:"button",'data-bs-toggle': "dropdown",'aria-expanded':"false"} do %>
-          <%=t(:theme) %>
+      <li class="col-6 col-lg-4">
+        <%= link_to '#', { class: 'dropdown-toggle d-flex align-items-center gap-2',
+                           role: "button",
+                           'data-bs-toggle': "dropdown",
+                           'aria-expanded': "false" } do %>
+          <span><%=t(:theme) %></span>
+          <span class="current-theme-icon"></span>
         <% end %>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+        <ul class="dropdown-menu">
           <li>
-            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <button class="dropdown-item d-flex align-items-center gap-2" data-bs-theme-value="light">
+              <i class="bi bi-sun-fill"></i>
               <%=t(:light) %>
             </button>
           </li>
           <li>
-            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <button class="dropdown-item d-flex align-items-center gap-2" data-bs-theme-value="dark">
+              <i class="bi bi-moon-stars-fill"></i>
               <%=t(:dark) %>
             </button>
           </li>
           <li>
-            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <button class="dropdown-item d-flex align-items-center gap-2" data-bs-theme-value="auto">
+              <i class="bi bi-circle-half"></i>
               <%=t(:auto) %>
             </button>
           </li>
         </ul>
       </li>
+
     </ul>
     <div class="row">
       <address class="col-12">
@@ -69,3 +77,4 @@
     </div>
   </div>
 </footer>
+

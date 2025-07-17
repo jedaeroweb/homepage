@@ -58,6 +58,29 @@ $color-mode-type: data;
   --bs-border-color : #ccc;
 }
 
+.theme-switch {
+  .current-theme-icon {
+    display: inline-flex;
+    align-items: center;
+    .bi {
+      font-size: 1.1em;
+    }
+  }
+}
+
+.dropdown-item {
+  cursor: pointer;
+
+  &.active {
+    background-color: var(--bs-secondary-bg);
+  }
+
+  .bi {
+    width: 1.2em;
+    text-align: center;
+  }
+}
+
 html,body {margin:0;padding:0; height:100%}
 body {background-color:$default-bg;color: $default-color; font-family: "Nanum Gothic", "나눔고딕", "Malgun Gothic", "맑은 고딕", "gulim","굴림","Dotum", "돋움", Arial, Helvetica, sans-serif}
 

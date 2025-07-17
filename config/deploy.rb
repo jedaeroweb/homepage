@@ -27,7 +27,7 @@ set :default_env, {'NODE_OPTIONS'=>'--openssl-legacy-provider'}
 set :bundle_path, '/usr/local/bundle'
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", "config/master.key", ".env"
+append :linked_files, "config/database.yml", "config/master.key", ".env", ".ruby-version"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/uploads"
