@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edca6098-89d8-40a2-a297-7abf4d40ef67" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/front/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/front/application.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/_footer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_footer.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/deploy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/deploy.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/assets/fonts/bootstrap-icons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/assets/fonts/bootstrap-icons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/assets/stylesheets/bootstrap-icons.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,7 +377,7 @@
       <workItem from="1752680502541" duration="3312000" />
       <workItem from="1752716080609" duration="1889000" />
       <workItem from="1752743699970" duration="2048000" />
-      <workItem from="1752798786285" duration="1848000" />
+      <workItem from="1752798786285" duration="3388000" />
     </task>
     <servers />
   </component>

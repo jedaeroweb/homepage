@@ -17,19 +17,7 @@
         const iconElement = document.querySelector('.current-theme-icon')
         if (!iconElement) return
 
-        let icon
-        switch (theme) {
-            case 'light':
-                icon = '<i class="bi bi-sun-fill"></i>'
-                break
-            case 'dark':
-                icon = '<i class="bi bi-moon-stars-fill"></i>'
-                break
-            case 'auto':
-                icon = '<i class="bi bi-circle-half"></i>'
-                break
-        }
-        iconElement.innerHTML = icon
+        iconElement.innerHTML = document.querySelector('.dropdown-item[data-bs-theme-value="'+theme+'"] .icon')?.textContent.trim();
     }
 
     const setTheme = (theme) => {
