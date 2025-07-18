@@ -19,7 +19,7 @@ set :deploy_to, "/home/deploy/company"
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 
 # Default value for :pty is false
-#set :pty, true
+set :pty, true
 set :rbenv_type, :user
 set :rbenv_ruby, "3.3.4"
 set :ssh_options, verify_host_key: :never
