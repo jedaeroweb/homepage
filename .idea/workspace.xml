@@ -7,12 +7,7 @@
     <list default="true" id="edca6098-89d8-40a2-a297-7abf4d40ef67" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/front/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/front/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_footer.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_footer.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/deploy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/deploy.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/assets/fonts/bootstrap-icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/assets/fonts/bootstrap-icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/assets/stylesheets/bootstrap-icons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +46,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.intellij.lang.ruby.rbs.tools.collection.workspace.sync.RbsCollectionUpdateProjectActivity#LAST_UPDATE_TIMESTAMP": "1752798845993",
+    "com.intellij.lang.ruby.rbs.tools.collection.workspace.sync.RbsCollectionUpdateProjectActivity#LAST_UPDATE_TIMESTAMP": "1753023743607",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/toughjjh/Projects/company/app/assets/fonts",
     "node.js.detected.package.eslint": "true",
@@ -377,7 +372,14 @@
       <workItem from="1752680502541" duration="3312000" />
       <workItem from="1752716080609" duration="1889000" />
       <workItem from="1752743699970" duration="2048000" />
-      <workItem from="1752798786285" duration="3388000" />
+      <workItem from="1752798786285" duration="4000000" />
+      <workItem from="1752820969876" duration="728000" />
+      <workItem from="1752902155898" duration="3176000" />
+      <workItem from="1752985831159" duration="56000" />
+      <workItem from="1752985964137" duration="605000" />
+      <workItem from="1752987502463" duration="33000" />
+      <workItem from="1752987549696" duration="2253000" />
+      <workItem from="1753023683345" duration="771000" />
     </task>
     <servers />
   </component>
@@ -385,6 +387,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/company@company.rcov" NAME="company 커버리지 결과" MODIFIED="1752800391918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="company" />
+    <SUITE FILE_PATH="coverage/company@company.rcov" NAME="company 커버리지 결과" MODIFIED="1752909935611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="company" />
   </component>
 </project>

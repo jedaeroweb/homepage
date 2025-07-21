@@ -40,10 +40,11 @@ ProgramCategory.create!(:id=>8,:program_language_id=>4,:title=>'Jquery',:link=>'
 
 
 Program.create!(:id=>1,:title=>'제대로웹 홈페이지',:description=>'현재 보고계시는 제대로웹의 홈페이지입니다. 회사 소개용')
-Program.create!(:id=>2,:title=>'카페(매점)주문,관리 프로그램',:description=>'카페,매점등에서 회원,상품,주문등을 관리하는 프로그램입니다.')
-Program.create!(:id=>3,:title=>'헬스장관리 프로그램',:description=>'헬스장에서 회원,수강,대여등을 관리하는 프로그램입니다.')
-Program.create!(:id=>4,:title=>'커뮤니티 프로그램',:description=>'회원끼리 소통하는 커뮤니티 프로그램')
+Program.create!(:id=>2,:title=>'커뮤니티 프로그램',:description=>'회원끼리 소통하는 커뮤니티 프로그램')
+Program.create!(:id=>3,:title=>'역경매 쇼핑몰 프로그램',:description=>'구매자가 판매자들의 입찰중 마음에 드는 것을 골라 진행 하는 프로그램입니다.')
+Program.create!(:id=>4,:title=>'카페(매점)주문,관리 프로그램',:description=>'카페,매점등에서 회원,상품,주문등을 관리하는 프로그램입니다.')
 Program.create!(:id=>5,:title=>'쇼핑몰 프로그램',:description=>'쇼핑몰 프로그램입니다')
+Program.create!(:id=>6,:title=>'헬스장관리 프로그램',:description=>'헬스장에서 회원,수강,대여등을 관리하는 프로그램입니다.')
 
 
 ProgramCategoriesProgram.create!(:id=>1,:program_category_id=>1,:program_id=>1)
