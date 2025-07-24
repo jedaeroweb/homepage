@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="edca6098-89d8-40a2-a297-7abf4d40ef67" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/front/application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/front/application.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +45,9 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.intellij.lang.ruby.rbs.tools.collection.workspace.sync.RbsCollectionUpdateProjectActivity#LAST_UPDATE_TIMESTAMP": "1753023743607",
+    "com.intellij.lang.ruby.rbs.tools.collection.workspace.sync.RbsCollectionUpdateProjectActivity#LAST_UPDATE_TIMESTAMP": "1753285081888",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/toughjjh/Projects/company/app/assets/fonts",
+    "last_opened_file_path": "/home/toughjjh/Projects/pamphlet",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -380,6 +379,8 @@
       <workItem from="1752987502463" duration="33000" />
       <workItem from="1752987549696" duration="2253000" />
       <workItem from="1753023683345" duration="771000" />
+      <workItem from="1753153722520" duration="1797000" />
+      <workItem from="1753285022271" duration="182000" />
     </task>
     <servers />
   </component>
