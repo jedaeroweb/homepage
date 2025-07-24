@@ -2,7 +2,7 @@
 
 [www.jedaeroweb.co.kr](https://www.jedaeroweb.co.kr) source
 
-[www.jedaeroweb.co.kr](https://www.jedaeroweb.co.kr)) is jedaeroweb company homepage
+[www.jedaeroweb.co.kr](https://www.jedaeroweb.co.kr) is jedaeroweb company homepage
 
 this application is composed of [Rails](http://rubyonrails.org/) + UI [Boostrap](http://getbootstrap.com)
 
