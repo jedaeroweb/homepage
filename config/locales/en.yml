@@ -7,8 +7,8 @@ en:
   meta_url : 'https://www.jedaeroweb.co.kr'
 
   language : 'language'
-  korean: '한국어'
-  chineses: '汉语'
+  korean: 'korean'
+  chineses: 'chineses'
   english: 'english'
 
   site_url: 'www.jedaeroweb.co.kr'

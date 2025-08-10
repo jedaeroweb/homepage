@@ -186,7 +186,7 @@ header nav ul li ul {position:absolute;display:none}
 
 /* footer */
 footer {clear:both;float:left;width:100%;margin:0;text-align:left;font-size:14px;background-color: $secondary-bg}
-footer ul {padding:0.5rem;padding-left:0;list-style: none}
+footer ul {margin-bottom:0.3rem;padding:0.9rem;padding-left:0;list-style: none}
 footer div {margin:0}
 
 .alert-success {clear:both}
@@ -204,7 +204,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 .page-header {float:left;width:100%;margin:1rem 0;padding-bottom:7px;border-bottom:1px solid var(--bs-border-color)}
 .page-header h2 {float:left;margin-top:0.5rem;margin-bottom:0.5rem;font-weight:bold;text-transform: capitalize}
-.page-header .breadcrumb  {float:right;margin:0;padding:0.5rem 1rem;background-color: $secondary-bg;border-radius:0.5rem }
+.page-header .breadcrumb  {float:right;margin:0;padding:0.5rem 1rem;background-color:#fff ;border-radius:0.5rem }
 
 
 .media {background-color: var(--bs-secondary-bg)}
@@ -227,6 +227,8 @@ h1, .h1, h2, .h2, h3, .h3 {
 #select_language_layer a.ko {background-position:0 0}
 #select_language_layer a.en {background-position:0 -30px}
 #select_language_layer a.zh-CN {background-position:0 -60px}
+
+
 
 
 @media all and (min-width: 992px) {
@@ -376,6 +378,9 @@ h1, .h1, h2, .h2, h3, .h3 {
   a:active {
     color: #000
   }
+
+  footer a,footer a:visited {color:#333}
+  footer a:hover {text-decoration:none;}
 
   header a {color:#333}
   header a:visited {color:#333}

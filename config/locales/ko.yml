@@ -6,10 +6,12 @@ ko:
   meta_image : 'https://assets.sleepinglion.pe.kr/sl.jpg'
   meta_url : 'https://www.jedaeroweb.co.kr'
 
-  language : '언어선택'
+  language : '언어'
   korean: '한국어'
   chineses: '汉语'
   english: 'english'
+
+  jedaeroweb : '제대로웹'
 
   site_url: 'www.jedaeroweb.co.kr'
   site_full_url: 'https://www.jedaeroweb.co.kr'

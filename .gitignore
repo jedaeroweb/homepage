@@ -68,5 +68,6 @@ yarn-debug.log*
 !/storage/.keep
 /public/uploads
 
+.ruby-version
 .idea
 *.sql
