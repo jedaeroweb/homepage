@@ -51,7 +51,7 @@ ko:
   email_webmaster: 'admin@jedaeroweb.co.kr'
   intro_description : '장인정신의 웹페이지 제작'
   contact_description : '상담,문의가 필요하시면 여기에 적어서 제출해주세요'
-  company_since : '설립연도'
+  company_since : '개업일시'
 
   sitemap : '사이트맵'
   theme : '모양'

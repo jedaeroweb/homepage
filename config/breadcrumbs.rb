@@ -22,13 +22,18 @@ crumb :reports do
   link t(:menu_program), reports_path
 end
 
-crumb :programs do
-  link t(:menu_program), reports_path
-end
-
 crumb :report do |report|
   link report.title, report_path(report)
   parent :reports
+end
+
+crumb :programs do
+  link t(:menu_program), programs_path
+end
+
+crumb :program do |program|
+  link program.title, program_path(program)
+  parent :programs
 end
 
 crumb :faqs do

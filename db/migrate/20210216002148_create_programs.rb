@@ -5,7 +5,8 @@ class CreatePrograms < ActiveRecord::Migration[4.2]
       t.string :description, :limit=>200
       t.string :service_link, :limit=>200
       t.boolean :use_database, :null=>false, :default=>true
-      t.integer :program_categories_programs_count, :null=>false, :default=>0      
+      t.integer :program_categories_programs_count, :null=>false, :default=>0
+      t.integer :program_pictures_count, :null=>false, :default=>0
       t.boolean :enable, :null=>false, :default=>true
       t.timestamps :null=>false
     end

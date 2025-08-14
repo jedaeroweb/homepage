@@ -2,25 +2,22 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 #
-ProductCategory.create!(id: 1, title: '단독사용',product_category_content_attributes: {content: '제대로웹의 프로그램으로 웹사이트를 단독, 나의 도메인으로 작동시킬수 있습니다.'})
-ProductCategory.create!(id: 2, title: '단독사용+커스텀 수정,제작',product_category_content_attributes: {content: '제대로웹 프로그램 단독 사용과 더해서 내가 원하는 방식으로 수정,제작 합니다.'})
-ProductCategory.create!(id: 3, title: '신규 시스템 제작',product_category_content_attributes: {content: '내가 필요한 새로운 시스템을 제작합니다.'})
-ProductCategory.create!(id: 4, title: '프로그램 유지보수',product_category_content_attributes: {content: '기존에 가지고 있는 홈페이지를 유지보수'})
-ProductCategory.create!(id: 5, title: '서버관련',product_category_content_attributes: {content: '서버 설치,설정, 이전등의 작업'})
+ProductCategory.create!(id: 1, title: '제대로웹 프로그램 설치, 설정',product_category_content_attributes: {content: '제대로웹의 프로그램으로 웹사이트를, 나의 도메인으로 작동시킬수 있습니다.'})
+ProductCategory.create!(id: 2, title: '제대로웹 프로그램 수정, 커스텀 서비스',product_category_content_attributes: {content: '제대로웹 프로그램을 내가 원하는 방식으로 수정하여 맞춤 제작 합니다.'})
+ProductCategory.create!(id: 3, title: '웹,앱 제작, 유지보수',product_category_content_attributes: {content: '새로운 웹 또는 앱 프로그램 제작, 기존에 가지고 있는 프로그램 유지보수'})
+ProductCategory.create!(id: 4, title: '서버관련',product_category_content_attributes: {content: '서버 설치,설정, 이전등의 작업'})
 
-Product.create!(id: 1, product_category_id: 1, title: '제대로웹 프로그램 광고없이 사용신청', price: 5000)
-Product.create!(id: 2, product_category_id: 1, title: '제대로웹 프로그램 단독사용-서버이전(광고없이 사용 포함)', price: 10000)
-Product.create!(id: 3, product_category_id: 1, title: '제대로웹 프로그램 기능수정-커스텀제작(단독사용-서버이전 포함)', price: 100000)
+Product.create!(id: 1, product_category_id: 1, title: '기본 제대로웹 프로그램 설치, 설정', price: 550000)
 
 Product.create!(id: 4, product_category_id: 2, title: '제대로웹 프로그램 사용 제작', price: 2000)
 Product.create!(id: 5, product_category_id: 2, title: '기타 신규 프로그램 제작', price: 2000)
 
-Product.create!(id: 6, product_category_id: 3, title: '문제점개선', price: 2000)
-Product.create!(id: 7, product_category_id: 3, title: '속도개선', price: 2000)
+Product.create!(id: 6, product_category_id: 3, title: '문제점개선', price: 300000)
+Product.create!(id: 7, product_category_id: 3, title: '속도개선', price: 300000)
 
-Product.create!(id: 8, product_category_id: 4, title: '서버 설치,설정', price: 2000)
-Product.create!(id: 9, product_category_id: 4, title: '서버 이전', price: 2000)
-Product.create!(id: 10, product_category_id: 4, title: '서버 기술지원', price: 2000)
+Product.create!(id: 8, product_category_id: 4, title: '서버 설치,설정', price: 300000)
+Product.create!(id: 9, product_category_id: 4, title: '서버 이전', price: 300000)
+Product.create!(id: 10, product_category_id: 4, title: '서버 기술지원', price: 300000)
 
 
 ProgramLanguage.create!(:id=>1,:title=>'ruby',:link=>'https://www.ruby-lang.org/',:enable=>1)
@@ -39,12 +36,12 @@ ProgramCategory.create!(:id=>7,:program_language_id=>3,:title=>'Boostrap',:link=
 ProgramCategory.create!(:id=>8,:program_language_id=>4,:title=>'Jquery',:link=>'https://jquery.com/',:main=>false)
 
 
-Program.create!(:id=>1,:title=>'제대로웹 홈페이지',:description=>'현재 보고계시는 제대로웹의 홈페이지입니다. 회사 소개용')
-Program.create!(:id=>2,:title=>'커뮤니티 프로그램',:description=>'회원끼리 소통하는 커뮤니티 프로그램')
-Program.create!(:id=>3,:title=>'역경매 쇼핑몰 프로그램',:description=>'구매자가 판매자들의 입찰중 마음에 드는 것을 골라 진행 하는 프로그램입니다.')
-Program.create!(:id=>4,:title=>'카페(매점)주문,관리 프로그램',:description=>'카페,매점등에서 회원,상품,주문등을 관리하는 프로그램입니다.')
-Program.create!(:id=>5,:title=>'쇼핑몰 프로그램',:description=>'쇼핑몰 프로그램입니다')
-Program.create!(:id=>6,:title=>'헬스장관리 프로그램',:description=>'헬스장에서 회원,수강,대여등을 관리하는 프로그램입니다.')
+Program.create!(:id=>1,:title=>'제대로웹 홈페이지',:description=>'현재 보고계시는 제대로웹의 홈페이지입니다. 회사 소개용',program_pictures_attributes: [{ picture: File.open(Rails.root.join("app", "assets", "images", "company1.jpg")) }])
+Program.create!(:id=>2,:title=>'제대로웹 커뮤니티',:description=>'회원끼리 소통하는 커뮤니티 프로그램',program_pictures_attributes: [{ picture: File.open(Rails.root.join("app", "assets", "images", "community1.jpg")) }])
+Program.create!(:id=>3,:title=>'역경매 쇼핑몰',:description=>'구매자가 판매자들의 입찰중 마음에 드는 것을 골라 진행 하는 프로그램입니다.',program_pictures_attributes: [{ picture: File.open(Rails.root.join("app", "assets", "images", "interior1.jpg")) }])
+Program.create!(:id=>4,:title=>'헬스장관리',:description=>'헬스장에서 회원,수강,대여등을 관리하는 프로그램입니다.')
+Program.create!(:id=>5,:title=>'카페(매점)주문,관리',:description=>'카페,매점등에서 회원,상품,주문등을 관리하는 프로그램입니다.')
+Program.create!(:id=>6,:title=>'쇼핑몰',:description=>'쇼핑몰 프로그램입니다')
 
 
 ProgramCategoriesProgram.create!(:id=>1,:program_category_id=>1,:program_id=>1)
@@ -56,18 +53,27 @@ ProgramLinkCategory.create!(:id=>1, :title=>'service')
 ProgramLinkCategory.create!(:id=>2, :title=>'repository')
 ProgramLinkCategory.create!(:id=>3, :title=>'download')
 
-ProgramLink.create!(:program_link_category_id=>1, :program_id=>1, :title=>'카페(매점) 주문,관리 프로그램 체험',:link=>'https://cafe.jedaeroweb.com')
-ProgramLink.create!(:program_link_category_id=>2, :program_id=>1, :title=>'카페(매점) 주문,관리 프로그램',:link=>'httpss://github.com/sleepinglion/anti-kb')
-ProgramLink.create!(:program_link_category_id=>3, :program_id=>1, :title=>'카페(매점) 주문,관리 프로그램 다운로드',:link=>'https://github.com/sleepinglion/sleepinglion')
-ProgramLink.create!(:program_link_category_id=>1, :program_id=>2, :title=>'헬스장관리 프로그램 체험',:link=>'https://github.com/sleepinglion/anti-kb')
-ProgramLink.create!(:program_link_category_id=>2, :program_id=>2, :title=>'헬스장관리 프로그램 ',:link=>'https://github.com/sleepinglion/sleepinglion')
-ProgramLink.create!(:program_link_category_id=>3, :program_id=>2, :title=>'헬스장관리 프로그램 다운로드',:link=>'https://github.com/sleepinglion/anti-kb')
-ProgramLink.create!(:program_link_category_id=>1, :program_id=>3, :title=>'',:link=>'https://github.com/sleepinglion/sleepinglion')
-ProgramLink.create!(:program_link_category_id=>2, :program_id=>3, :title=>'',:link=>'https://github.com/sleepinglion/anti-kb')
-ProgramLink.create!(:program_link_category_id=>3, :program_id=>3, :title=>'',:link=>'https://github.com/sleepinglion/sleepinglion')
-ProgramLink.create!(:program_link_category_id=>1, :program_id=>4, :title=>'',:link=>'https://github.com/sleepinglion/anti-kb')
-ProgramLink.create!(:program_link_category_id=>2, :program_id=>4, :title=>'',:link=>'https://github.com/sleepinglion/sleepinglion')
-ProgramLink.create!(:program_link_category_id=>3, :program_id=>4, :title=>'',:link=>'https://github.com/sleepinglion/anti-kb')
+ProgramLink.create!(:program_link_category_id=>1, :program_id=>1, :title=>'체험(현재 서비스 중)',:link=>'https://www.jedaeroweb.co.kr')
+ProgramLink.create!(:program_link_category_id=>2, :program_id=>1, :title=>'github',:link=>'https://github.com/jedaeroweb/homepage')
+ProgramLink.create!(:program_link_category_id=>3, :program_id=>1, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/homepage/archive/refs/heads/main.zip')
+
+ProgramLink.create!(:program_link_category_id=>1, :program_id=>2, :title=>'체험(현재 서비스 중)',:link=>'https://community.jedaeroweb.co.kr')
+ProgramLink.create!(:program_link_category_id=>2, :program_id=>2, :title=>'github ',:link=>'https://github.com/jedaeroweb/community')
+ProgramLink.create!(:program_link_category_id=>3, :program_id=>2, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/community/archive/refs/heads/master.zip')
+
+ProgramLink.create!(:program_link_category_id=>1, :program_id=>3, :title=>'체험(데모)',:link=>'https://interior.jedaeroweb.co.kr')
+ProgramLink.create!(:program_link_category_id=>2, :program_id=>3, :title=>'github ',:link=>'https://github.com/jedaeroweb/home_renovation')
+ProgramLink.create!(:program_link_category_id=>3, :program_id=>3, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/home_renovation/archive/refs/heads/main.zip')
+
+ProgramLink.create!(:program_link_category_id=>1, :program_id=>5, :title=>'체험(데모)',:link=>'https://cafe.jedaeroweb.co.kr')
+ProgramLink.create!(:program_link_category_id=>2, :program_id=>5, :title=>'github ',:link=>'https://github.com/jedaeroweb/cafe')
+ProgramLink.create!(:program_link_category_id=>3, :program_id=>5, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/cafe/archive/refs/heads/master.zip')
+
+ProgramLink.create!(:program_link_category_id=>1, :program_id=>4, :title=>'체험(데모)',:link=>'https://fitness.jedaeroweb.co.kr')
+ProgramLink.create!(:program_link_category_id=>2, :program_id=>4, :title=>'github ',:link=>'https://github.com/jedaeroweb/fitness')
+ProgramLink.create!(:program_link_category_id=>3, :program_id=>4, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/fitness/archive/refs/heads/master.zip')
+
+
 
 
 

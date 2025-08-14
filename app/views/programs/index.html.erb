@@ -10,16 +10,29 @@
     <% @programs.each do |program| %>
       <div class="col-12">
       <article class="media rounded p-3 mb-3">
-        <h2><%=program.title %></h2>
-        <p><%=raw program.description %>
+        <h2><%=link_to program_path(program.id) do %><%=program.title %><% end %></h2>
+        <p><%=link_to program_path(program.id) do %><%=raw program.description %><% end %>
         </p>
+        <% unless program.program_pictures_count.zero? %>
+          <ul class="row">
+            <% program.program_pictures.each do |program_picture| %>
+              <li class="col-6 col-lg-4 col-xxl-3" style="padding:30px<% if @simulation_material.present? %><% if @simulation_material.id==simulation_material.id %>;border:3px solid red<% end %><% end %>">
+                  <figure>
+                    <%=image_tag program_picture.picture.small_thumb.url,class: 'figure-img img-fluid'  %>
+                  </figure>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+
         <dl>
-          <dt><%= t(:program) %></dt>
-          <dd><%= t(:ror) %></dd>
-          <dt><%= t(:source) %></dt>
-          <dd><%= link_to t(:source), '' %></dd>
-          <dt><%= t(:service_site) %></dt>
-          <dd><%= link_to t(:survey_program), 'https://survey.sleepinglion.pe.kr' %></dd>
+          <% @program_link_category.each do |program_link_category| %>
+            <% program.program_links.each do |program_link| %>
+              <% if program_link.program_link_category_id==program_link_category.id %>
+          <dt><%=link_to program_link.title,program_link.link, target: "_blank" %></dt>
+                <% end %>
+            <% end %>
+          <% end %>
         </dl>
       </article>
       </div>

@@ -1,6 +1,44 @@
 <section class="row">
   <div class="col-12">
 
+
+    <div id="carouselExample" class="carousel slide">
+      <% unless @slide_count.zero? %>
+        <div class="carousel-inner">
+          <% @slides.each_with_index do |slide,index| %>
+            <div class="carousel-item<% if index.zero? %> active<% end %>">
+              <h1><%=link_to slide.title, program_path(id: slide.id) %></h1>
+              <%=link_to  program_path(id: slide.id) do %>
+                <figure>
+                  <%=image_tag slide.program_pictures[0].picture.large_thumb.url,{class: "img-fluid"} %>
+                </figure>
+                <% if slide.description.present? %>
+                  <span><%=raw slide.description %></span>
+                <% end %>
+                <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class="carousel-indicators">
+          <% @slides.each_with_index do |slide,index| %>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%=index %>" <% if index.zero? %>class="active" aria-current="true"<% end %> aria-label="Slide <%=index %>"></button>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      <% else %>
+        <article class="review col-12">
+          <%= t(:no_data) %>
+        </article>
+      <% end %>
+    </div>
+
   </div>
 </section>
   <section class="row">

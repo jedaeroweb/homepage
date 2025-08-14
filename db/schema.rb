@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2021_03_01_164532) do
+ActiveRecord::Schema[7.1].define(version: 2021_11_30_084307) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_category_id", null: false
     t.integer "user_id"
@@ -255,12 +255,23 @@ ActiveRecord::Schema[7.1].define(version: 2021_03_01_164532) do
     t.index ["program_link_category_id"], name: "index_program_links_on_program_link_category_id"
   end
 
+  create_table "program_pictures", force: :cascade do |t|
+    t.integer "program_id", null: false
+    t.string "picture", null: false
+    t.string "caption", limit: 60
+    t.boolean "enable", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_program_pictures_on_program_id"
+  end
+
   create_table "programs", force: :cascade do |t|
     t.string "title", limit: 60, null: false
     t.string "description", limit: 200
     t.string "service_link", limit: 200
     t.boolean "use_database", default: true, null: false
     t.integer "program_categories_programs_count", default: 0, null: false
+    t.integer "program_pictures_count", default: 0, null: false
     t.boolean "enable", default: true, null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false

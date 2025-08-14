@@ -28,9 +28,6 @@
     <% unless current_page?(root_path) %>
       <%= render :partial => 'layouts/page_header' %>
     <% end %>
-      <div class="row">
-        <%= render :partial => 'layouts/ad' %>
-      </div>
     <%= render :partial => 'layouts/notice', :locals => { :notice => notice, :alert => alert } %>
     <%= yield %>
     </div>

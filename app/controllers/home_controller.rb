@@ -2,8 +2,8 @@ class HomeController < ApplicationController
   before_action :authenticate_user!, except: [ :index]
 
   def index
-
-
+    @slide_count = Program.where(enable: true).where.not(program_pictures_count: 0).count
+    @slides = Program.where(enable: true).where.not(program_pictures_count: 0).order('id desc')
   end
 
   def initialize(*params)
