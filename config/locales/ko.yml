@@ -42,11 +42,12 @@ ko:
   home_description1: '네!!?? <strong class="text-danger">무료</strong>요???!! <strong class="text-danger">무료</strong>가 맞나요??<br>
       네, 제대로웹의 모든 프로그램은 <strong class="text-danger">무료</strong>로 마음껏 사용가능합니다.'
   home_title2: '제대로웹의 모든 프로그램은 <strong class="text-danger">공개</strong>되어 내려받아서 마음껏 수정,사용 할 수 있습니다'
-  home_description2: '제대로웹의 프로그램들은 모든 소스코드가 공개되어 있어서 필요한 대로 마음껏 수정하여서 사용하면 됩니다.'
+  home_description2: '제대로웹의 프로그램들은 모든 소스코드가 공개되어 있어서 필요한 대로 마음껏 수정하여서 사용하면 됩니다. <br >
+  <a href="https://github.com/orgs/jedaeroweb/repositories" target="_blank">제대로웹 github repository</a>'
   home_title3: '프로그램이 정말 좋네요<br>그런데 서버에 올리고, 프로그램 수정 작업을 못 할 것 같은데 어떻게 해야되나요?'
   home_description3: '<a href="https://community.jedaeroweb.co.kr" target="_blank">여기</a> 설명들을 보시면 초보자들도 해당 프로그램들을 서버에 올리고 프로그램을 수정할 수 있을겁니다.
         <br>
-        그래도 어려워서 못 하겠다면 <a href="/orders/new">지원요청</a> 을 통해 지원을 요청하여 작동하는 웹사이트를 만들 수 있어요'
+        그래도 어려워서 못 하겠다면 <a href="/orders">지원요청</a> 을 통해 지원을 요청하여 작동하는 웹사이트를 만들 수 있어요'
 
   email_webmaster: 'admin@jedaeroweb.co.kr'
   intro_description : '장인정신의 웹페이지 제작'

@@ -43,19 +43,20 @@
                 <% end %>><%= link_to t(:menu_report), reports_path %></li>
             </ul>
           </li>
-          <li class="sl-dropdown
+
+          <li class="dropdown
             <% if params[:controller] == 'faqs' || params[:controller] == 'contacts' %> active
             <% end %>">
-            <%= link_to faqs_path do %>
+            <%= link_to faqs_path, { class: 'dropdown-toggle',role:"button",'data-bs-toggle': "dropdown",'aria-expanded':"false"} do %>
               <%= t(:menu_support) %>
             <% end %>
-            <ul class="sl-dropdown-menu">
+            <ul class="dropdown-menu">
               <li
-              <% if current_page?(faqs_path) %> class="active"
-              <% end %>><%= link_to t(:menu_faq), faqs_path %></li>
+                <% if current_page?(faqs_path) %> class="active"
+                <% end %>><%= link_to t(:menu_faq), faqs_path %></li>
               <li
-              <% if current_page?(contacts_path) %> class="active"
-              <% end %>><%= link_to t(:menu_contact), contacts_path %></li>
+                <% if current_page?(contacts_path) %> class="active"
+                <% end %>><%= link_to t(:menu_contact), contacts_path %></li>
             </ul>
           </li>
             <li class="red
