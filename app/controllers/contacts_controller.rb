@@ -25,15 +25,11 @@ class ContactsController < ApplicationController
         @controller_name = t(:menu_contact)
         @contact = Contact.new(contact_params)
 
-        respond_to do |format|
             if @contact.save
-                format.html { redirect_to complete_contacts_path }
-                format.json { render json: @contact, status: :created, location: @contact }
+              redirect_to @contact, notice: "Contact created"
             else
-                format.html { render :index }
-                format.json { render json: @contact.errors, status: :unprocessable_entity }
+              render :index, status: :unprocessable_entity, formats: [:html]
             end
-        end
     end
 
     private
