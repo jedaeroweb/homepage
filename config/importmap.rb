@@ -7,3 +7,5 @@ pin "jquery" # @3.7.1
 pin "bootstrap", to: "bootstrap.min.js"
 pin "common", to: "common.js"
 pin "index", to: "index.js"
+pin "trix"
+pin "@rails/actiontext", to: "actiontext.esm.js"

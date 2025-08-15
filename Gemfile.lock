@@ -614,6 +614,7 @@ DEPENDENCIES
   fog-azure-rm!
   globalize
   gretel
+  image_processing (~> 1.2)
   importmap-rails
   impressionist
   jbuilder

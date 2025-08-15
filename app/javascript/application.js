@@ -11,3 +11,6 @@ window.Modal = bootstrap.Modal;
 
 import 'common'
 import 'index'
+
+import "trix"
+import "@rails/actiontext"

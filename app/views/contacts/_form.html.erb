@@ -7,8 +7,8 @@
 			<%= form_with model: contact, data: { turbo_frame: "contact_form_frame" } do |f| %>
 
 				<% if contact.errors.any? %>
-					<div id="error_explanation" class="alert alert-danger">
-						<a href="#" class="close" data-dismiss="alert">&times;</a>
+					<div id="error_explanation" class="alert alert-danger" role="alert">
+						<button type="button" class="btn-close close" data-bs-dismiss="alert" aria-label="Close"></button>
 						<h2><%= pluralize(contact.errors.count, "개의 문제") %>로 진행할 수 없습니다.</h2>
 						<ul>
 							<% contact.errors.full_messages.each do |msg| %>
