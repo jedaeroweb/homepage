@@ -3,9 +3,10 @@
 pin "application"
 pin "@hotwired/turbo-rails", to: "turbo.min.js"
 pin "rails-ujs", to: "rails-ujs.js"
+pin "trix"
+pin "@rails/actiontext", to: "actiontext.js"
 pin "jquery" # @3.7.1
 pin "bootstrap", to: "bootstrap.min.js"
 pin "common", to: "common.js"
 pin "index", to: "index.js"
-pin "trix"
-pin "@rails/actiontext", to: "actiontext.esm.js"
+

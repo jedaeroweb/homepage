@@ -1,0 +1,22 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this report from being saved:</h2>
+      <ul>
+        <% order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.fields_for :order_content do |c| %>
+    <div class="form-group">
+      <%= c.label :content, :class => 'form-label' %>
+      <%= c.text_area :content, :class => 'form-control input-lg', :rows => 7 %>
+    </div>
+  <% end %>
+  <div class="d-grid gap-2">
+    <%= form.submit :class => 'btn btn-lg btn-primary' %>
+  </div>
+<% end %>

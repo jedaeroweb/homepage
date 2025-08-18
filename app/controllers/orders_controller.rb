@@ -23,7 +23,10 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    @controller_name = t(:menu_order)
+    @product=Product.find(params[:product])
 
+    @order = Order.new
   end
 
   # GET /orders/1/edit

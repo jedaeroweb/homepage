@@ -3,5 +3,6 @@ class Product < ApplicationRecord
   belongs_to :product_category, counter_cache: true
   has_many :orders, :through => :orders_products
   has_one :product_picture, dependent: :destroy
+  has_one :product_content, dependent: :destroy
   accepts_nested_attributes_for :product_picture, :allow_destroy => true
 end

@@ -164,6 +164,8 @@ header nav ul li ul {position:absolute;display:none}
   border-bottom-left-radius: 4px;
 }
 
+header nav ul li ul li a {float:none; display:block;}
+
 
 /* footer */
 footer {clear:both;float:left;width:100%;margin:0;text-align:left;font-size:14px;background-color: #f1f1f1}

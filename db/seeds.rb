@@ -9,15 +9,38 @@ ProductCategory.create!(id: 4, title: '서버관련',product_category_content_at
 
 Product.create!(id: 1, product_category_id: 1, title: '기본 제대로웹 프로그램 설치, 설정', price: 550000)
 
-Product.create!(id: 4, product_category_id: 2, title: '제대로웹 프로그램 사용 제작', price: 2000)
-Product.create!(id: 5, product_category_id: 2, title: '기타 신규 프로그램 제작', price: 2000)
+Product.create!(id: 2, product_category_id: 2, title: '제대로웹 프로그램 맞춤 수정', price: 950000)
 
-Product.create!(id: 6, product_category_id: 3, title: '문제점개선', price: 300000)
-Product.create!(id: 7, product_category_id: 3, title: '속도개선', price: 300000)
+Product.create!(id: 3, product_category_id: 3, title: '문제점개선', price: 300000)
+Product.create!(id: 4, product_category_id: 3, title: '속도개선', price: 300000)
 
-Product.create!(id: 8, product_category_id: 4, title: '서버 설치,설정', price: 300000)
-Product.create!(id: 9, product_category_id: 4, title: '서버 이전', price: 300000)
-Product.create!(id: 10, product_category_id: 4, title: '서버 기술지원', price: 300000)
+Product.create!(id: 5, product_category_id: 4, title: '서버 설치,설정', price: 300000)
+Product.create!(id: 6, product_category_id: 4, title: '서버 이전', price: 300000)
+Product.create!(id: 7, product_category_id: 4, title: '서버 기술지원', price: 300000)
+
+ProductContent.create!(product_id: 1, content: '
+제대로웹의 프로그램이 운영될 서버 설정,설치 부터 시작하여
+프로그램 설정, 설치 하여 나만의 도메인으로 작동하게 만들어 드립니다.
+')
+
+ProductContent.create!(product_id: 2, content: '
+제대로웹의 프로그램을
+')
+
+ProductContent.create!(product_id: 3, content: '
+제대로웹의 프로그램이 운영될 서버 설정,설치 부터 시작하여
+프로그램 설정, 설치 하여 나만의 도메인으로 작동하게 만들어 드립니다.
+')
+
+ProductContent.create!(product_id: 4, content: '
+제대로웹의 프로그램이 운영될 서버 설정,설치 부터 시작하여
+프로그램 설정, 설치 하여 나만의 도메인으로 작동하게 만들어 드립니다.
+')
+
+ProductContent.create!(product_id: 5, content: '
+제대로웹의 프로그램이 운영될 서버 설정,설치 부터 시작하여
+프로그램 설정, 설치 하여 나만의 도메인으로 작동하게 만들어 드립니다.
+')
 
 
 ProgramLanguage.create!(:id=>1,:title=>'ruby',:link=>'https://www.ruby-lang.org/',:enable=>1)
@@ -42,6 +65,11 @@ Program.create!(:id=>3,:title=>'역경매 쇼핑몰',:description=>'구매자가
 Program.create!(:id=>4,:title=>'헬스장관리',:description=>'헬스장에서 회원,수강,대여등을 관리하는 프로그램입니다.')
 Program.create!(:id=>5,:title=>'카페(매점)주문,관리',:description=>'카페,매점등에서 회원,상품,주문등을 관리하는 프로그램입니다.')
 Program.create!(:id=>6,:title=>'쇼핑몰',:description=>'쇼핑몰 프로그램입니다')
+
+ProgramContent.create!(id: 1, content: '
+제대로웹의 홈페이지
+회사소개, 문의등 기본 기능과 프로그램 선택하이 주문 하는 기능이 있습니다.
+')
 
 
 ProgramCategoriesProgram.create!(:id=>1,:program_category_id=>1,:program_id=>1)

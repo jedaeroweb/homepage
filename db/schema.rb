@@ -209,7 +209,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_15_065956) do
   create_table "product_contents", force: :cascade do |t|
     t.integer "product_id", null: false
     t.text "content", null: false
-    t.boolean "enable", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_product_contents_on_product_id"
