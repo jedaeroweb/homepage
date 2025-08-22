@@ -36,7 +36,7 @@
             <span class="text-dark"><%= current_admin.name %></span>
         </li>
         <li>
-          <%= link_to destroy_admin_session_path, :id => "p_logout" do %>
+          <%= link_to destroy_admin_session_path, :id => "p_logout", :method => :delete do %>
             <i class="material-icons" style="font-size:35px;vertical-align:middle">highlight_off</i><span><%= t(:logout) %></span>
           <% end %>
         </li>

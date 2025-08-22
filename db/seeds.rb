@@ -1,4 +1,4 @@
-Admin.create!(:id => 1, :email => 'admin@jedaeroweb.co.kr', :name => '잠자는-사자', :password => 'a12345', :password_confirmation => 'a12345')
+Admin.create!(:id => 1, :email => 'admin1@jedaeroweb.co.kr', :name => '잠자는-사자', :password => 'a12345', :password_confirmation => 'a12345')
 Admin.create!(:id => 2, :email => 'user1@edaeroweb.co.kr', :name => '사용자1', :password => 'a12345', :password_confirmation => 'a12345')
 Admin.create!(:id => 3, :email => 'user2@jedaeroweb.co.kr', :name => '사용자2', :password => 'a12345', :password_confirmation => 'a12345')
 

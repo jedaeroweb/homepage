@@ -41,7 +41,7 @@
                   <label class="custom-control-label" for="notice_display<%=index %>"><% if order.enable %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
                 </div>
               </td>
-              <td><%= link_to order.title,admin_order_path(order) %></td>
+              <td><%= link_to order.product.title,admin_order_path(order) %></td>
               <td class="text-right">
               </td>
               <td class="text-right"><%= %></td>

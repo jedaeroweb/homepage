@@ -6,16 +6,12 @@
       a_class += ' active'
     end
 
-    if params[:controller] == 'admin/payments'
-      b_class += ' active'
-    end
 
   %>
   <div class="col-12">
     <nav class="sub-nav">
       <ul class="nav nav-pills">
         <li class="nav-item"><%= link_to t(:order, scope: [:activerecord, :models]), admin_orders_path, { :class => a_class } %></li>
-        <li class="nav-item"><%= link_to t(:payment, scope: [:activerecord, :models]), admin_payments_path, { :class => b_class } %></li>
       </ul>
     </nav>
   </div>
