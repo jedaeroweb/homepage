@@ -1,0 +1,11 @@
+
+<article class="col-12">
+  <div class="media mt-3 p-3 rounded-2">
+    <h3><%= @product.title %></h3>
+    <p><%= @product.description %></p>
+  </div>
+
+  <div class="d-grid gap-2 mt-3">
+    <%=link_to '신청서 작성',new_order_path({product: @product}),class: 'btn btn-lg btn-primary' %>
+  </div>
+</article>

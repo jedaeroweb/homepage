@@ -8,11 +8,16 @@ class OrdersController < ApplicationController
   def index
     condition={enable: true}
 
+    if params[:product].present?
+      condition[:id]=params[:product]
+      @product = Product.where(condition).first
+    else
     if params[:product_category].present?
       condition[:product_category_id]=params[:product_category]
       @products = Product.where(condition)
     else
-    @product_categories = ProductCategory.where(condition)
+      @product_categories = ProductCategory.where(condition)
+    end
     end
   end
 
