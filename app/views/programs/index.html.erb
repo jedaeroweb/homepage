@@ -16,7 +16,7 @@
         <% unless program.program_pictures_count.zero? %>
           <ul class="row">
             <% program.program_pictures.each do |program_picture| %>
-              <li class="col-6 col-lg-4 col-xxl-3" style="padding:30px<% if @simulation_material.present? %><% if @simulation_material.id==simulation_material.id %>;border:3px solid red<% end %><% end %>">
+              <li class="col-6 col-lg-4 col-xxl-3" style="padding:30px">
                   <figure>
                     <%=image_tag program_picture.picture.small_thumb.url,class: 'figure-img img-fluid'  %>
                   </figure>
