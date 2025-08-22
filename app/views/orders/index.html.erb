@@ -16,7 +16,8 @@
     <article class="col-12">
       <div class="media mt-3 p-3 rounded-2">
         <h3><%=link_to product.title,new_order_path({product: product}) %></h3>
-        <p></p>
+        <p><%= product.description %></p>
+        <p><%= product.price %></p>
       </div>
     </article>
   <% end %>
