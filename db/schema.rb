@@ -80,17 +80,35 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_15_065956) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "admin_login_logs", force: :cascade do |t|
+    t.integer "admin_id", null: false
+    t.integer "client_ip", limit: 8, null: false
+    t.boolean "enable", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_admin_login_logs_on_admin_id"
+  end
+
+  create_table "admin_pictures", force: :cascade do |t|
+    t.integer "admin_id", null: false
+    t.string "picture", null: false
+    t.boolean "enable", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_admin_pictures_on_admin_id"
+  end
+
   create_table "admins", force: :cascade do |t|
     t.string "email", limit: 100, null: false
     t.string "name", limit: 100, null: false
     t.string "encrypted_password", limit: 60, null: false
-    t.string "photo", limit: 150
-    t.boolean "enable", default: true, null: false
+    t.datetime "remember_created_at", precision: nil
     t.integer "sign_in_count", default: 0
     t.datetime "current_sign_in_at", precision: nil
     t.datetime "last_sign_in_at", precision: nil
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.boolean "enable", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
@@ -184,7 +202,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_15_065956) do
     t.integer "order_id", null: false
     t.integer "product_id", null: false
     t.integer "price", default: 0, null: false
-    t.integer "quantity", default: 0, null: false
+    t.integer "quantity", default: 1, null: false
     t.boolean "enable", default: true, null: false
     t.index ["order_id"], name: "index_orders_products_on_order_id"
     t.index ["product_id"], name: "index_orders_products_on_product_id"
@@ -337,6 +355,21 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_15_065956) do
     t.datetime "updated_at", null: false
     t.index ["report_category_id"], name: "index_reports_on_report_category_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
+  create_table "role_admins", force: :cascade do |t|
+    t.integer "role_id", null: false
+    t.integer "admin_id", null: false
+    t.index ["admin_id"], name: "index_role_admins_on_admin_id"
+    t.index ["role_id"], name: "index_role_admins_on_role_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "title", limit: 60, null: false
+    t.string "role", limit: 60, null: false
+    t.boolean "enable", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|

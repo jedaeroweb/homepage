@@ -1,4 +1,3 @@
-<% breadcrumb :contacts %>
-<turbo-frame id="contact_form_frame">
-  <%= render "form",:contact =>@contact  %>
-</turbo-frame>
+<% breadcrumb :contact %>
+<%= render 'form', contact: @contact %>
+

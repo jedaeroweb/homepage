@@ -1,20 +1,16 @@
 class CreateDeviseToAdmins < ActiveRecord::Migration[6.0]
   def change
     create_table :admins do |t|
-      ## Database authenticatable
       t.string :email, null: false, limit: 100
       t.string :name, null: false, limit: 100
       t.string :encrypted_password, null: false, limit: 60
-      t.string :photo, limit: 150
-
-      t.boolean :enable, null: false, default: true
 
       ## Recoverable
       # t.string   :reset_password_token, :limit=>150
       # t.datetime :reset_password_sent_at
 
       ## Rememberable
-      # t.datetime :remember_created_at
+      t.datetime :remember_created_at
 
       ## Trackable
       t.integer  :sign_in_count, default: 0
@@ -38,7 +34,8 @@ class CreateDeviseToAdmins < ActiveRecord::Migration[6.0]
       ## t.string :authentication_token
 
       # Uncomment below if timestamps were not included in your original model.
-      t.timestamps
+      t.boolean :enable, null: false, default: true
+      t.timestamps null: false
     end
 
     add_index :admins, :email, unique: true

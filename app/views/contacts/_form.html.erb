@@ -4,7 +4,7 @@
 		<div class="col-xs-12">
 			<p class="description"><%=raw t(:contact_description) %></p>
 
-			<%= form_with model: contact, data: { turbo_frame: "contact_form_frame" } do |f| %>
+			<%= form_with model: contact, data: { turbo_frame: "_top" } do |f| %>
 
 				<% if contact.errors.any? %>
 					<div id="error_explanation" class="alert alert-danger" role="alert">
@@ -27,7 +27,7 @@
 			</div>
 			<div class="form-group">
 				<%= f.label :email %>
-				<%= f.text_field :email, :class=>'form-control input-lg', :required=>"required" %>
+				<%= f.email_field :email, :class=>'form-control input-lg', :required=>"required" %>
 			</div>
 			<% end %>
 			<div class="form-group">

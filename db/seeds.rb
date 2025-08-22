@@ -1,7 +1,20 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-#
+Admin.create!(:id => 1, :email => 'admin@jedaeroweb.co.kr', :name => '잠자는-사자', :password => 'a12345', :password_confirmation => 'a12345')
+Admin.create!(:id => 2, :email => 'user1@edaeroweb.co.kr', :name => '사용자1', :password => 'a12345', :password_confirmation => 'a12345')
+Admin.create!(:id => 3, :email => 'user2@jedaeroweb.co.kr', :name => '사용자2', :password => 'a12345', :password_confirmation => 'a12345')
+
+Role.create!(id: 1, title: '관리자', role: 'administrator')
+Role.create!(id: 2, title: '보조관리자', role: 'sub_administrator')
+Role.create!(id: 3, title: '운영자', role: 'operator')
+
+RoleAdmin.create!(role_id: 1, admin_id: 1)
+
+AuthenticationProvider.create!(name: 'kakao')
+AuthenticationProvider.create!(name: 'twitter')
+AuthenticationProvider.create!(name: 'google_oauth2')
+AuthenticationProvider.create!(name: 'apple')
+AuthenticationProvider.create!(name: 'facebook')
+AuthenticationProvider.create!(name: 'naver')
+
 ProductCategory.create!(id: 1, title: '제대로웹 프로그램 설치, 설정',product_category_content_attributes: {content: '제대로웹의 프로그램으로 웹사이트를, 나의 도메인으로 작동시킬수 있습니다.'})
 ProductCategory.create!(id: 2, title: '제대로웹 프로그램 수정, 커스텀 서비스',product_category_content_attributes: {content: '제대로웹 프로그램을 내가 원하는 방식으로 수정하여 맞춤 제작 합니다.'})
 ProductCategory.create!(id: 3, title: '웹,앱 제작, 유지보수',product_category_content_attributes: {content: '새로운 웹 또는 앱 프로그램 제작, 기존에 가지고 있는 프로그램 유지보수'})

@@ -1,22 +1,84 @@
-<%= form_with(model: order, local: true) do |form| %>
+<%= form_with model: order, data: { turbo_frame: "_top" }  do |f| %>
   <% if order.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <a href="#" class="close" data-dismiss="alert">&times;</a>
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this report from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <button type="button" class="btn-close close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <h2><%= pluralize(order.errors.count, "개의 문제") %>로 진행할 수 없습니다.</h2>
       <ul>
         <% order.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <li>
+            <%= msg %>
+          </li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  <%= form.fields_for :order_content do |c| %>
-    <div class="form-group">
+  <h2>서비스정보</h2>
+  <div class="card">
+    <div class="card-body">
+      <p>
+        <%= @product.title %>
+      </p>
+    </div>
+  </div>
+  <h2>주문정보</h2>
+  <div class="card">
+    <div class="card-body">
+  <%= f.fields_for :orders_products, OrdersProduct.new do |op| %>
+    <%= op.hidden_field :product_id, value: @product.id %>
+  <% end %>
+  <%# 고객 정보 섹션 %>
+  <% if user_signed_in? %>
+    <div class="card mb-4">
+      <div class="card-header">
+        고객 정보
+      </div>
+      <div class="card-body">
+        <p class="mb-0">
+          <strong><%= current_user.name %></strong> (<%= current_user.email %>)
+        </p>
+        <div class="form-text text-muted">
+          로그인 상태에서는 이름/이메일이 변경되지 않습니다.
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="card mb-4">
+      <div class="card-header">
+        고객 정보
+      </div>
+      <div class="card-body">
+        <div class="form-group mb-3">
+          <%= f.label :name, "이름", class: "form-label" %>
+          <%= f.text_field :name,
+                           class: "form-control input-lg",
+                           required: true,
+                           placeholder: "홍길동" %>
+        </div>
+
+        <div class="form-group mb-3">
+          <%= f.label :email, "이메일", class: "form-label" %>
+          <%= f.email_field :email,
+                            class: "form-control input-lg",
+                            required: true,
+                            placeholder: "example@email.com" %>
+          <div class="form-text text-muted">
+            주문 확인 및 관련 정보를 받으실 이메일 주소를 입력해주세요
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+  <%= f.fields_for :order_content do |c| %>
+    <div class="form-group mb-3">
       <%= c.label :content, :class => 'form-label' %>
       <%= c.text_area :content, :class => 'form-control input-lg', :rows => 7 %>
     </div>
   <% end %>
+    </div>
+  </div>
   <div class="d-grid gap-2">
-    <%= form.submit :class => 'btn btn-lg btn-primary' %>
+    <%= f.submit :class => 'btn btn-lg btn-primary' %>
   </div>
 <% end %>

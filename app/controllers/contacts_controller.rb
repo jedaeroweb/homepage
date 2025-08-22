@@ -21,16 +21,16 @@ class ContactsController < ApplicationController
 
     # POST /contanct
     # POST /contanct.json
-    def create
-        @controller_name = t(:menu_contact)
-        @contact = Contact.new(contact_params)
+  def create
+    @contact = Contact.new(contact_params)
 
-            if @contact.save
-              redirect_to @contact, notice: "Contact created"
-            else
-              render :index, status: :unprocessable_entity, formats: [:html]
-            end
-    end
+      if @contact.save
+         redirect_to complete_contacts_path, notice: '문의가 등록되었습니다.'
+      else
+        render :index, status: :unprocessable_entity
+      end
+  end
+
 
     private
 

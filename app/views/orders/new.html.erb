@@ -1,8 +1,4 @@
 <% breadcrumb :orders %>
-<section class="row">
-  <p>
-    <%= @product.title %>
-  </p>
-
-  <%= render 'form', order: @order %>
-</section>
+    <div id="order_form">
+      <%= render 'form', order: @order %>
+  </div>

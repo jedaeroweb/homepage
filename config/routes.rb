@@ -41,5 +41,18 @@ Rails.application.routes.draw do
     get '/users', :to => 'users/registrations#index', :as => :user_root # Rails 3s
     get '/login', :to => 'users/sessions#new'
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # 관리자
+  scope 'admin', module: 'admin', as: 'admin' do
+    get '/' => 'home#index'
+
+    resources :contacts
+    resources :users
+    resources :product_categories
+    resources :products
+    resources :orders
+    resources :notices
+    resources :faq_categories
+    resources :faqs
+  end
 end

@@ -1,0 +1,127 @@
+<%
+  a_class='nav-link'
+  unless @product_category.present?
+    a_class+=' active'
+  end
+%>
+<div class="col-12">
+  <nav class="sub-nav">
+    <ul class="nav nav-pills">
+      <li class="nav-item"><%= link_to t(:all), admin_products_path, class: a_class %></li>
+      <% unless @product_categories.empty? %>
+        <% @product_categories.each do |product_category|
+          b_class='nav-link'
+
+          if @product_category.present?
+            if @product_category.id==product_category.id
+              b_class+=' active'
+            end
+          end
+        %>
+          <li class="nav-item"><%=link_to product_category.title,admin_products_path(:category=>product_category),class: b_class %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </nav>
+</div>
+<article id="products" class="col-12">
+  <h2 class="float-left hidden-title"><%= t(:product_list) %></h2>
+  <div class="float-right">
+    <p class="summary">
+      <span id="list_count" style="display:none"><%= @product_count %></span>
+      <%= raw t(:there_are_n_products, count: @product_count) %>
+    </p>
+  </div>
+  <table class="table table-striped table-hover">
+    <colgroup>
+      <col style="width:120px">
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col style="width:200px">
+      <% if can?(:update, Product) || can?(:delete, Product) %>
+        <col<%= manage_width(Product) %>>
+      <% end %>
+    </colgroup>
+    <thead class="thead-default">
+    <tr>
+      <th class="text-center"><%= t(:enable, scope: [:activerecord, :attributes, :product]) %></th>
+      <th><%= t(:title, scope: [:activerecord, :attributes, :product]) %></th>
+      <th><%= t(:product_category_id, scope: [:activerecord, :attributes, :product]) %></th>
+      <th class="text-right"><%= t(:price, scope: [:activerecord, :attributes, :product]) %></th>
+      <th class="text-right"><%= t(:discount, scope: [:activerecord, :attributes, :product]) %></th>
+      <th class="text-right"><%= t(:speciality_category_product, scope: [:activerecord, :models]) %></th>
+      <th class="text-right"><%= t(:picture, scope: [:activerecord, :attributes, :product_picture]) %></th>
+      <th class="text-right"><%= t(:created_at, scope: [:activerecord, :attributes, :product]) %></th>
+      <% if can?(:update, Product) || can?(:delete, Product) %>
+        <th class="text-center"><%= t(:manage) %></th>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+    <% unless @product_count.zero? %>
+      <% @products.each_with_index do |product, index| %>
+        <tr>
+          <td>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="product_display<%= index %>" value="<%= product.id %>"
+                     <% if product.enable %> checked
+                     <% end %>>
+              <label class="custom-control-label" for="product_display<%= index %>">
+                <% if product.enable %> <%= t(:display) %>
+                  <% else %><%= t(:hidden) %>
+                <% end %> </label>
+            </div>
+          </td>
+          <td><%= link_to product.title, admin_product_path(product) %></td>
+          <td><%=product.product_category.title %></td>
+          <td class="text-right"><%= number_to_currency product.price %></td>
+          <td class="text-right"><%= number_to_currency product.discount %></td>
+          <td class="text-right">
+            <% if product.speciality_category_products_count.zero? %>
+              <%= t(:not_insert) %>
+              <% else %>
+                <% product.speciality_category_products.each do |speciality_category_product| %>
+                <%=speciality_category_product.speciality_category.title %>
+              <% end %>
+            <% end %>
+          </td>
+          <td class="text-right">
+            <% if product.product_pictures.present? %>
+                <%= image_tag product.product_pictures[0].picture.small_thumb.url %>
+            <% else %>
+              <%= t(:not_insert) %>
+            <% end %>
+          </td>
+          <td class="text-right"><%= I18n.l product.created_at.to_date, :format => :long %></td>
+          <% if can?(:update, product) or can?(:delete, product) %>
+            <td class="text-right">
+              <% if can? :update, product %>
+                <%= link_to edit_admin_product_path(product), :class => "btn btn-secondary" do %>
+                  <%= t(:edit) %>
+                <% end %>
+              <% end %>
+              <% if can? :delete, product %>
+                <%= link_to admin_product_path(product), :method => :delete, :data => { :confirm => t(:delete_cascade_confirm) }, :class => "btn btn-danger" do %>
+                  <%= t(:delete) %>
+                <% end %>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="8" class="text-center"><%= t(:no_data) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= paginate @products %>
+  <% if can? :create, Product %>
+  <%= link_to t(:add), new_admin_product_path(:product_category_id => @product_category), :class => "btn btn-primary" %>
+  <% end %>
+</article>

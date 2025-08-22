@@ -19,8 +19,8 @@
 <footer>
   <div class="container">
     <ul class="row">
-      <li class="col-6 col-lg-4"><%= link_to t(:sitemap), sitemap_index_path %></li>
-      <li class="col-6 col-lg-4 dropdown">
+      <li class="col-6"><%= link_to t(:sitemap), sitemap_index_path %></li>
+      <!--  <li class="col-6 col-lg-4 dropdown">
         <%= link_to '#', { class: 'dropdown-toggle',role:"button",'data-bs-toggle': "dropdown",'aria-expanded':"false"} do %>
           <%=t(:language) %>
         <% end %>
@@ -35,8 +35,8 @@
             <%=link_to '🇨🇳 汉语', url_for( :locale => 'zh-CN'),:class=>zh_cn_class,:'aria-pressed'=>"false" %>
           </li>
         </ul>
-      </li>
-      <li class="col-6 col-lg-4">
+      </li> -->
+      <li class="col-6">
         <%= link_to '#', { class: 'dropdown-toggle d-flex align-items-center gap-2',
                            role: "button",
                            'data-bs-toggle': "dropdown",
