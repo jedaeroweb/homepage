@@ -44,7 +44,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-html,body {margin:0;padding:0;height: 100%;background:#eee}
+html,body {margin:0;padding:0;height: 100%}
 body { font-family: "Nanum Gothic","나눔고딕","Malgun Gothic","맑은 고딕","굴림",gulim,"돋움",Dotum,Arial,Helvetica, sans-serif;color:#333}
 label {vertical-align:middle;cursor:pointer}
 a img {border:none}
@@ -133,6 +133,12 @@ mark, rp, rt, ruby, summary, time {display:inline;}
 .c_pointer {cursor:pointer}
 .card {margin-bottom:15px}
 
+.close {
+	position:absolute;
+	top:10px;
+	right:10px;
+}
+
 
 /* header */
 header {position:relative;z-index:9;background:#f6f6f6;color:#fff}
@@ -190,8 +196,10 @@ header a:active {color:#333}
 
 .sub-nav {position:relative;margin-top:15px}
 
-footer {display:none;position:relative;height:3em;background:#f6f6f6}
-footer address {margin:0;padding:12px 0 0;line-height:150%;text-align:center}
+/* footer */
+footer {clear:both;float:left;width:100%;margin:0;text-align:left;font-size:14px;background-color: #f1f1f1}
+footer ul {margin-bottom:0.3rem;padding:0.9rem;padding-left:0;list-style: none}
+footer div {margin:0}
 
 #sl_order_add .section_bottom {margin-top:30px}
 #sl_order_add .product {float:left;width:100%;background:#eee;border-radius:5px;padding:20px;margin-bottom:20px}
@@ -228,7 +236,6 @@ footer address {margin:0;padding:12px 0 0;line-height:150%;text-align:center}
 	#mom {padding-top:0;padding-bottom:0;margin-top:-5em;margin-bottom:-3em;min-height:100vh}
 	#anon_body #mom {margin-top:0}
 	#main {padding-top:5em;padding-bottom:3em}
-	#anon_body #main {padding-top:0;float:left;width:100%;}
 	#anon_body footer {margin:0;padding:0;float:left;width:100%;}
 	.sub_main {margin-top:1em;margin-bottom:1em}
 	#top-menu nav ul li.nav-item {display:block;width:20%;margin:0;padding:0}
@@ -259,7 +266,6 @@ footer address {margin:0;padding:12px 0 0;line-height:150%;text-align:center}
 	#mom {padding-top:0;padding-bottom:0;margin-top:-5em;margin-bottom:-3em;min-height:100vh}
 	#anon_body #mom {margin-top:0}
 	#main {padding-top:5em;padding-bottom:3em}
-	#anon_body #main {padding-top:0;float:left;width:100%;}
 	#anon_body footer {margin:0;padding:0;float:left;width:100%;}
 	.sub_main {margin-top:1em;margin-bottom:1em}
 	.top-menu { height: 46px;}
@@ -555,4 +561,42 @@ footer address {margin:0;padding:12px 0 0;line-height:150%;text-align:center}
 	.container {
 		width: 1700px
 	}
+}
+
+
+@include color-mode(dark) {
+	body {
+		color: var(--bs-body-color);
+		background-color: var(--bs-body-bg);
+	}
+
+	#faqList dt.on a {background:#ccc}
+	.page-header h1, .page-header h2 {color: var(--bs-body-color)}
+	header,footer,.jumbotron,.media,.card-body,aside article,#faqList dt a.title,.modal-body, .modal-footer,.sl_content_header,.thead-default th,.breadcrumb,.box_content, header nav,.menu_back,,#faqList dd {background-color:var(--bs-secondary-bg)}
+	.box_header {background: #666;border-color:var(--bs-border-color)}
+	.box_header h2 {text-shadow: none;color:#ccc}
+}
+
+@include color-mode(light) {
+	a {
+		color: #666
+	}
+	a:hover {
+		color: #333
+	}
+	a:visited {
+		color: #666
+	}
+	a:active {
+		color: #000
+	}
+
+	footer a,footer a:visited {color:#333}
+	footer a:hover {text-decoration:none;}
+
+	header a {color:#333}
+	header a:visited {color:#333}
+	.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link,.nav-tabs {border-color:#ccc}
+	.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {border-bottom-color:#f1f1f1}
+	a.btn-primary,a.btn-primary:visited {color:#fff}
 }

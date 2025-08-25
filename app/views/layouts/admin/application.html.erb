@@ -19,7 +19,8 @@
       <%= render :partial => 'layouts/admin/header' %>
       <div id="mom" class="row">
         <div id="main" class="col-12">
-          <div class="sub_main">
+          <div class="sub-main">
+            <%= render :partial => 'layouts/notice', :locals => { :notice => notice, :alert => alert } %>
             <%= yield %>
           </div>
         </div>

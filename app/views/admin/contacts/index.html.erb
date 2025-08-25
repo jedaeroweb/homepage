@@ -19,7 +19,6 @@
         </colgroup>
         <thead class="thead-default">
         <tr>
-          <th><%= t(:contact_category_id,scope:[:activerecord,:attributes,:contact]) %></th>
           <th><%= t(:title,scope:[:activerecord,:attributes,:contact]) %></th>
           <th class="text-right"><%= t(:created_at,scope:[:activerecord,:attributes,:contact]) %></th>
           <% if can?(:update, Contact) || can?(:delete, Contact) %>
@@ -31,7 +30,6 @@
         <% unless @contact_count.zero? %>
           <% @contacts.each_with_index do |contact,index| %>
             <tr>
-              <td><%=contact.contact_category.title %></td>
               <td><%= link_to contact.title,admin_contact_path(contact) %></td>
               <td class="text-right"><%= I18n.l contact.created_at.to_date, :format => :long %></td>
               <% if can?(:update, contact) or can?(:delete, contact) %>
