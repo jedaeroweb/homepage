@@ -401,25 +401,6 @@ ko:
         password_confirmation : '비밀번호확인'
       admin_picture :
         picture : '사진'
-      operator :
-        login_id : '아이디'
-        name : ' 별명'
-        email : 'E-Mail'
-        password : '비밀번호'
-        password_confirmation : '비밀번호 확인'
-        sign_in_count : '로그인수'
-        enable : '사용여부'
-        updated_at: '수정일시'
-        created_at: '생성일시'
-      account :
-        account_category_id : '거래내용'
-        user_id : '사용자'
-        transaction_date : '거래일'
-        cash : '현금'
-        credit : '카드'
-        point : '포인트'
-        updated_at : '수정일시'
-        created_at : '생성일시'
       contact :
         name: '이름'
         email: '이메일'
@@ -439,12 +420,36 @@ ko:
         title : '상품명'
         price : '가격'
         order_no : '순서'
+        enable : '보임'
         updated_at : '수정일시'
         created_at : '생성일시'
       product_picture :
         picture : '이미지'
       program :
         title : '제목'
+      faq_category :
+        title : '제목'
+        order_no : '순서'
+        faqs_count : '해당 FAQ수'
+        enable : '보임'
+        updated_at : '수정일'
+        created_at : '작성일'
+      faq :
+        faq_category_id : '분류'
+        title : '제목'
+        order_no : '순서'
+        enable : '보임'
+        updated_at : '수정일'
+        created_at : '작성일'
+      faq_content :
+        content : '내용'
+      notice :
+        title : '제목'
+        enable : '보임'
+        updated_at : '수정일'
+        created_at : '작성일'
+      notice_content :
+        content : '내용'
       point :
         user_id : '사용자'
         point : '포인트'
@@ -452,12 +457,10 @@ ko:
         updated_at : '수정일시'
         created_at : '생성일시'
       order :
-        user_id : '사용자'
-        original_price : '원가'
-        discount : '할인'
-        price : '판매가'
-        payment : '결제'
-        transaction_date : '거래일'
+        enable : '유효'
+        title : '제목'
+        user_id : '주문자'
+        total_price : '총액'
         updated_at : '수정일시'
         created_at : '생성일시'
       user :
@@ -466,6 +469,7 @@ ko:
         email : 'E-mail'
         birthday : '생일'
         address : '주소'
+        enable : '보임'
         updated_at : '수정일시'
         created_at : '생성일시'
     errors:

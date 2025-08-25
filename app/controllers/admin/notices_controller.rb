@@ -24,14 +24,10 @@ class Admin::NoticesController < Admin::AdminController
   def new
     @notice = Notice.new
     @notice.build_notice_content
-    @notice.build_notice_picture
   end
 
   # GET /notices/1/edit
   def edit
-    unless @notice.notice_picture.present?
-      @notice.build_notice_picture
-    end
   end
 
   # POST /notices
@@ -45,7 +41,6 @@ class Admin::NoticesController < Admin::AdminController
         format.json { render :show, status: :created, location: @notice }
       else
         @notice.build_notice_content
-        @notice.build_notice_picture
 
         format.html { render action: 'new' }
         format.json { render json: @notice.errors, status: :unprocessable_entity }
@@ -86,6 +81,6 @@ class Admin::NoticesController < Admin::AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def notice_params
-    params.require(:notice).permit(:title, :popup, :enable, notice_content_attributes: [:content], notice_picture_attributes: [:picture])
+    params.require(:notice).permit(:title, :popup, :enable, notice_content_attributes: [:content])
   end
 end

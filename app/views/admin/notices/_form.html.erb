@@ -24,16 +24,6 @@
           <%= c.text_area :content, :id => "sl_content", :class => 'form-control' %>
         </div>
       <% end %>
-      <%= form.fields_for :notice_picture do |p| %>
-      <div class="form-group">
-          <%= p.label :picture %>
-          <%= p.file_field :picture, :class => "form-control-file" %>
-      </div>
-      <% end %>
-    </div>
-    <div class="form-group">
-      <%= form.label :popup %>
-      <%= form.check_box :popup %>
     </div>
     <div class="form-group">
       <%= form.label :enable %>

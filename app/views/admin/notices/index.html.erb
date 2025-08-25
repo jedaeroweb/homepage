@@ -23,7 +23,6 @@
         <tr>
           <th class="text-center"><%= t(:enable,scope:[:activerecord,:attributes,:notice]) %></th>
           <th><%= t(:title,scope:[:activerecord,:attributes,:notice]) %></th>
-          <th><%= t(:picture,scope:[:activerecord,:attributes,:notice_picture]) %></th>
           <th class="text-right"><%= t(:label_count) %></th>
           <th class="text-right"><%= t(:created_at,scope:[:activerecord,:attributes,:notice]) %></th>
           <% if can?(:update, Notice) || can?(:delete, Notice) %>
@@ -42,13 +41,6 @@
                 </div>
               </td>
               <td><%= link_to notice.title,admin_notice_path(notice) %></td>
-              <td class="text-right">
-                <% if notice.notice_picture.present? %>
-                  <%= image_tag notice.notice_picture.picture.small_thumb.url %>
-                <% else %>
-                  <%= t(:not_insert) %>
-                <% end %>
-              </td>
               <td class="text-right"><%= notice.impressionist_count(:filter => :ip_address) %></td>
               <td class="text-right"><%= I18n.l notice.created_at.to_date, :format => :long %></td>
               <% if can?(:update, notice) or can?(:delete, notice) %>
