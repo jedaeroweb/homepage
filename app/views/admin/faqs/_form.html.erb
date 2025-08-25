@@ -1,0 +1,49 @@
+<%= form_with(model: [:admin, faq], local: true) do |form| %>
+  <% if faq.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <a href="#" class="close" data-dismiss="alert">&times;</a>
+      <h2><%= pluralize(faq.errors.count, "개의 문제") %>로 진행할 수 없습니다.</h2>
+      <ul>
+        <% faq.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group">
+        <%= form.label :faq_category_id %>
+        <%
+          if faq.faq_category.present?
+            faq_category=faq.faq_category.id
+          else
+            if params[:category].present?
+              faq_category = params[:category]
+            end
+          end
+        %>
+        <%= form.select :faq_category_id, options_from_collection_for_select(FaqCategory.where(:enable => true).all, 'id', 'title', faq_category), {}, { :class => "form-control" } %>
+      </div>
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, :class => "form-control", :required => "required" %>
+      </div>
+      <%= form.fields_for :faq_content do |c| %>
+        <div class="form-group">
+          <%= c.label :content %>
+          <%= c.text_area :content, :id => "sl_content", :class => 'form-control', :required => "required", :rows => 10 %>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= form.label :enable %>
+        <%= form.check_box :enable %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group actions">
+    <%= form.submit :class => "btn btn-primary btn-block btn-lg" %>
+  </div>
+<% end %>

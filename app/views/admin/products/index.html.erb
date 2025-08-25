@@ -40,7 +40,6 @@
       <col>
       <col>
       <col>
-      <col>
       <col style="width:200px">
       <% if can?(:update, Product) || can?(:delete, Product) %>
         <col<%= manage_width(Product) %>>
@@ -52,9 +51,7 @@
       <th><%= t(:title, scope: [:activerecord, :attributes, :product]) %></th>
       <th><%= t(:product_category_id, scope: [:activerecord, :attributes, :product]) %></th>
       <th class="text-right"><%= t(:price, scope: [:activerecord, :attributes, :product]) %></th>
-      <th class="text-right"><%= t(:discount, scope: [:activerecord, :attributes, :product]) %></th>
-      <th class="text-right"><%= t(:speciality_category_product, scope: [:activerecord, :models]) %></th>
-      <th class="text-right"><%= t(:picture, scope: [:activerecord, :attributes, :product_picture]) %></th>
+      <th class="text-right"></th>
       <th class="text-right"><%= t(:created_at, scope: [:activerecord, :attributes, :product]) %></th>
       <% if can?(:update, Product) || can?(:delete, Product) %>
         <th class="text-center"><%= t(:manage) %></th>
@@ -79,22 +76,7 @@
           <td><%= link_to product.title, admin_product_path(product) %></td>
           <td><%=product.product_category.title %></td>
           <td class="text-right"><%= number_to_currency product.price %></td>
-          <td class="text-right"><%= number_to_currency product.discount %></td>
           <td class="text-right">
-            <% if product.speciality_category_products_count.zero? %>
-              <%= t(:not_insert) %>
-              <% else %>
-                <% product.speciality_category_products.each do |speciality_category_product| %>
-                <%=speciality_category_product.speciality_category.title %>
-              <% end %>
-            <% end %>
-          </td>
-          <td class="text-right">
-            <% if product.product_pictures.present? %>
-                <%= image_tag product.product_pictures[0].picture.small_thumb.url %>
-            <% else %>
-              <%= t(:not_insert) %>
-            <% end %>
           </td>
           <td class="text-right"><%= I18n.l product.created_at.to_date, :format => :long %></td>
           <% if can?(:update, product) or can?(:delete, product) %>

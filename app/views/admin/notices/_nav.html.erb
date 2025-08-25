@@ -1,0 +1,33 @@
+<%
+    a_class = 'nav-link'
+    b_class = 'nav-link'
+    c_class = 'nav-link'
+    d_class = 'nav-link'
+
+    if params[:controller] == 'admin/notices'
+      a_class += ' active'
+    end
+
+    if params[:controller] == 'admin/contacts'
+      b_class += ' active'
+    end
+
+    if params[:controller] == 'admin/faqs'
+      c_class += ' active'
+    end
+
+    if params[:controller] == 'admin/faq_categories'
+      d_class += ' active'
+    end
+
+  %>
+  <div class="col-12">
+    <nav class="sub-nav">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><%= link_to t(:notice, scope: [:activerecord, :models]), admin_notices_path, { :class => a_class } %></li>
+        <li class="nav-item"><%= link_to t(:contact, scope: [:activerecord, :models]), admin_contacts_path, { :class => b_class } %></li>
+        <li class="nav-item"><%= link_to t(:faq, scope: [:activerecord, :models]), admin_faqs_path, { :class => c_class } %></li>
+        <li class="nav-item"><%= link_to t(:faq_category, scope: [:activerecord, :models]), admin_faq_categories_path, { :class => d_class } %></li>
+      </ul>
+    </nav>
+  </div>

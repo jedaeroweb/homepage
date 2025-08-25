@@ -6,19 +6,7 @@ class Admin::ContactsController < Admin::AdminController
   def index
     params[:per_page] = 10 unless params[:per_page].present?
 
-    category_condition = {enable: true}
-
-    @contact_categories = ContactCategory.where(category_condition)
-
-    if params[:category].present?
-      @contact_category = ContactCategory.find(params[:category])
-    end
-
-    condition = { }
-
-    if @contact_category.present?
-      condition[:contact_category_id] = @contact_category.id
-    end
+    condition = {enable: true}
 
     @contact_count = Contact.where(condition).count
     @contacts = Contact.where(condition).page(params[:page]).per(params[:per_page]).order('id desc')
@@ -92,6 +80,6 @@ class Admin::ContactsController < Admin::AdminController
 
   # Only allow a list of trusted parameters through.
   def contact_params
-    params.require(:contact).permit(:contact_category_id, :user_id, :title, :content, :enable, contact_content_attributes: [:content])
+    params.require(:contact).permit( :title, :content, :enable, contact_content_attributes: [:content])
   end
 end

@@ -1,0 +1,26 @@
+<%
+  a_class='nav-link'
+  unless @faq_category.present?
+    a_class+=' active'
+  end
+%>
+<div class="col-12">
+  <nav class="sub_nav">
+    <ul class="nav nav-pills">
+      <li class="nav-item"><%=link_to t(:all),admin_faqs_path,class: a_class %></li>
+      <% unless @faq_categories.empty? %>
+        <% @faq_categories.each do |faq_category|
+          b_class='nav-link'
+
+          if @faq_category.present?
+            if @faq_category.id==faq_category.id
+              b_class+=' active'
+            end
+          end
+        %>
+          <li class="nav-item"><%=link_to faq_category.title,admin_faqs_path(:category=>faq_category),{:class=>b_class} %></li>
+      <% end %>
+      <% end %>
+    </ul>
+  </nav>
+</div>

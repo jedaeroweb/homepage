@@ -186,6 +186,18 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_15_065956) do
     t.index ["faq_category_id"], name: "index_faqs_on_faq_category_id"
   end
 
+  create_table "notice_contents", force: :cascade do |t|
+    t.text "content", null: false
+  end
+
+  create_table "notices", force: :cascade do |t|
+    t.string "title", limit: 60, null: false
+    t.boolean "popup", default: false, null: false
+    t.boolean "enable", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
     t.date "transaction_date", null: false
