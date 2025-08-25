@@ -83,34 +83,8 @@ mark, rp, rt, ruby, summary, time {display:inline;}
 	font-weight:600;
 }
 
-.nav > li > a {
-	color: #616161;
-}
-.nav-pills > li > a {
-	color: #616161;
-	background: #E0E0E0;
-}
-
 .nav-pills > li + li {
 	margin-left: 5px;
-}
-
-.nav > li > a:hover,
-.nav > li > a:focus {
-	color: #212121;
-	background: #E0E0E0;
-}
-
-.nav-pills > li > a.active,
-.nav-pills > li > a.active:focus,
-.nav-pills > li > a.active:hover {
-	background: #f6f6f6;
-	color: #666;
-}
-.nav-pills .nav-link.active, .show > .nav-pills .nav-link {
-	background: #fff;
-	color:#333;
-	border:1px solid rgba(0,0,0,.125);
 }
 
 
@@ -198,7 +172,7 @@ header a:active {color:#333}
 .sub-nav {position:relative;margin-top:15px}
 
 /* footer */
-footer {clear:both;float:left;width:100%;margin:0;text-align:left;font-size:14px;background-color: #f1f1f1}
+footer {clear:both;margin:0;text-align:left;font-size:14px;background-color: #f1f1f1}
 footer ul {margin-bottom:0.3rem;padding:0.9rem;padding-left:0;list-style: none}
 footer div {margin:0}
 
@@ -237,7 +211,6 @@ footer div {margin:0}
 	#mom {padding-top:0;padding-bottom:0;margin-top:-5em;margin-bottom:-3em;min-height:100vh}
 	#anon_body #mom {margin-top:0}
 	#main {padding-top:5em;padding-bottom:3em}
-	#anon_body footer {margin:0;padding:0;float:left;width:100%;}
 	.sub_main {margin-top:1em;margin-bottom:1em}
 	#top-menu nav ul li.nav-item {display:block;width:20%;margin:0;padding:0}
 	#top-menu { height: 92px;}
@@ -267,7 +240,6 @@ footer div {margin:0}
 	#mom {padding-top:0;padding-bottom:0;margin-top:-5em;margin-bottom:-3em;min-height:100vh}
 	#anon_body #mom {margin-top:0}
 	#main {padding-top:5em;padding-bottom:3em}
-	#anon_body footer {margin:0;padding:0;float:left;width:100%;}
 	.sub_main {margin-top:1em;margin-bottom:1em}
 	.top-menu { height: 46px;}
 	.container {width:1150px;}
@@ -290,8 +262,6 @@ footer div {margin:0}
 	aside #diet-submit-btn, aside #training-submit-btn {display:block;width:100%}
 	aside.left-form,.add-page .list,.edit-page .list {display:block}
 
-	footer {display:block}
-	footer form {position:absolute;top:5px;right:10px}
 
 
 	.visible-xl-block,
