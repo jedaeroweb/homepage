@@ -12,7 +12,6 @@
         <colgroup>
           <col style="width:120px">
           <col>
-          <col>
           <col style="width:100px">
           <col style="width:200px">
           <% if can?(:update, Order) || can?(:delete, Order) %>
@@ -24,7 +23,6 @@
           <th class="text-center"><%= t(:enable,scope:[:activerecord,:attributes,:order]) %></th>
           <th><%= t(:title,scope:[:activerecord,:attributes,:order]) %></th>
           <th><%= t(:total_price,scope:[:activerecord,:attributes,:order]) %></th>
-          <th class="text-right"><%= t(:label_count) %></th>
           <th class="text-right"><%= t(:created_at,scope:[:activerecord,:attributes,:order]) %></th>
           <% if can?(:update, Order) || can?(:delete, Order) %>
             <th class="text-center"><%= t(:manage) %></th>
@@ -42,9 +40,6 @@
                 </div>
               </td>
               <td><%= link_to order.product.title,admin_order_path(order) %></td>
-              <td class="text-right">
-              </td>
-              <td class="text-right"><%= %></td>
               <td class="text-right"><%= I18n.l order.created_at.to_date, :format => :long %></td>
               <% if can?(:update, order) or can?(:delete, order) %>
                 <td class="text-right">
@@ -64,7 +59,7 @@
           <% end %>
         <% else %>
           <tr>
-            <td colspan="8" class="text-center"><%= t(:no_data) %></td>
+            <td colspan="5" class="text-center"><%= t(:no_data) %></td>
           </tr>
         <% end %>
         </tbody>

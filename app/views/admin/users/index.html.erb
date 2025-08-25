@@ -13,7 +13,6 @@
       <col>
       <col>
       <col>
-      <col>
       <col style="width:200px">
       <col style="width:200px">
       <% if can?(:update, User) || can?(:delete, User) %>
@@ -25,9 +24,7 @@
       <th class="text-center"><%= t(:enable, scope: [:activerecord, :attributes, :user]) %></th>
       <th><%= t(:name, scope: [:activerecord, :attributes, :user]) %></th>
       <th><%= t(:email, scope: [:activerecord, :attributes, :user]) %></th>
-      <th class="text-right"><%= t(:point, scope: [:activerecord, :attributes, :user]) %></th>
       <th class="text-right"><%= t(:phone, scope: [:activerecord, :attributes, :user]) %></th>
-      <th class="text-right"><%= t(:user_picture, scope: [:activerecord, :models]) %></th>
       <th class="text-right"><%= t(:updated_at, scope: [:activerecord, :attributes, :user]) %></th>
       <th class="text-right"><%= t(:created_at, scope: [:activerecord, :attributes, :user]) %></th>
       <% if can?(:update, User) || can?(:delete, User) %>
@@ -52,11 +49,7 @@
           </td>
           <td><%= link_to user.name, admin_user_path(user) %></td>
           <td><%= link_to user.email, admin_user_path(user) %></td>
-          <td class="text-right"><%= user.point %>P</td>
           <td class="text-right"><%= link_to user.phone, admin_user_path(user) %></td>
-          <td class="text-right">
-            <% unless user.user_pictures_count.zero? %><%=image_tag user.user_picture.picture.small_thumb.url,class: "rounded-circle" %><% else %><%=t(:not_insert) %><% end %>
-          </td>
           <td class="text-right"><%= I18n.l user.updated_at.to_date, :format => :long %></td>
           <td class="text-right"><%= I18n.l user.created_at.to_date, :format => :long %></td>
           <% if can?(:update, user) or can?(:delete, user) %>
@@ -77,7 +70,7 @@
       <% end %>
     <% else %>
       <tr>
-        <td colspan="8" class="text-center"><%= t(:no_data) %></td>
+        <td colspan="7" class="text-center"><%= t(:no_data) %></td>
       </tr>
     <% end %>
     </tbody>
