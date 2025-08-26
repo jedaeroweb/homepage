@@ -5,8 +5,15 @@
     <p class="col-12 page-description">
       <%= @program.description %>
     </p>
+    <% if @program.program_content.present? %>
+      <div>
+        <%=raw @program.program_content.content %>
+      </div>
+    <% end %>
   </section>
   <section class="row">
-
+    <div class="d-grid gap-2 mt-3">
+      <%=link_to t(:link_list),programs_path,class: 'btn btn-lg btn-secondary' %>
+    </div>
   </section>
 </div>

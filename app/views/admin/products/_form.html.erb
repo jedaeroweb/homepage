@@ -15,10 +15,6 @@
   <div class="card">
     <div class="card-body">
       <div class="form-group">
-        <%= form.label :company_id %>
-        <%= form.select :company_id, options_from_collection_for_select(Company.where(:enable => true), 'id', 'title', product.company_id), {}, { :class => "form-control" } %>
-      </div>
-      <div class="form-group">
         <%= form.label :product_category_id %>
         <%= form.select :product_category_id, options_from_collection_for_select(ProductCategory.where(:enable => true), 'id', 'title', product.product_category_id), {}, { :class => "form-control" } %>
       </div>
@@ -34,20 +30,6 @@
         <%= form.label :discount %>
         <%= form.number_field :discount, :class => "form-control" %>
       </div>
-      <div class="form-group">
-        <%=form.collection_check_boxes(:speciality_category_ids, SpecialityCategory.where(enable: true), :id, :title) do |b| %>
-          <%= b.label(class: "check_box") do %>
-            <%= b.check_box(class: "check_box") %>
-            <%= b.object.title %>
-          <% end %>
-        <% end  %>
-      </div>
-      <%= form.fields_for :product_pictures do |p| %>
-        <div class="form-group">
-          <%= p.label :picture %>
-          <%= p.file_field :picture, :class => "form-control-file" %>
-        </div>
-      <% end %>
         <div class="form-group">
           <h3><%= form.label :content %></h3>
           <%= form.rich_text_area :content, style: 'min-height:20em;background:#fff' %>

@@ -37,14 +37,10 @@ class Admin::ProductsController < Admin::AdminController
   # GET /Products/new
   def new
     @product = Product.new
-    @product.product_pictures.build
   end
 
   # GET /Products/1/edit
   def edit
-    unless @product.product_pictures.present?
-      @product.product_pictures.build
-    end
   end
 
   # POST /Products
