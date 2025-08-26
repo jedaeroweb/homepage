@@ -10,6 +10,28 @@
         <%=raw @program.program_content.content %>
       </div>
     <% end %>
+
+    <% unless @program.program_pictures_count.zero? %>
+      <ul class="row">
+        <% @program.program_pictures.each do |program_picture| %>
+          <li class="col-6 col-lg-4 col-xxl-3" style="padding:30px">
+            <figure>
+              <%=image_tag program_picture.picture.small_thumb.url,class: 'figure-img img-fluid'  %>
+            </figure>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <dl>
+      <% @program_link_category.each do |program_link_category| %>
+        <% @program.program_links.each do |program_link| %>
+          <% if program_link.program_link_category_id==program_link_category.id %>
+            <dt><%=link_to program_link.title,program_link.link, target: "_blank" %></dt>
+          <% end %>
+        <% end %>
+      <% end %>
+    </dl>
   </section>
   <section class="row">
     <div class="d-grid gap-2 mt-3">

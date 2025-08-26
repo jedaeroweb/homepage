@@ -111,4 +111,3 @@ group :production do
   gem 'recaptcha', :require => 'recaptcha/rails'
   gem 'rails-letsencrypt'
 end
-

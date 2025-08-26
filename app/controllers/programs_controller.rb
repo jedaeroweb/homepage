@@ -9,6 +9,7 @@ class ProgramsController < ApplicationController
 
   def show
     @controller_name = @program.title
+    @program_link_category= ProgramLinkCategory.all
   end
 
   private
