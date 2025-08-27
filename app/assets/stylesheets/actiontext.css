@@ -34,6 +34,7 @@ trix-editor {
   border: 1px solid #ced4da;
   border-radius: .375rem;
   padding: .75rem;
+  min-height:15em
 }
 
 trix-toolbar {
