@@ -6,7 +6,7 @@ if Rails.env.production?
 
   Rails.application.config.session_store :redis_store,
                                          url: session_url,
-                                         expire_after: 180.days,
+                                         expire_after: nil,
                                          key: key,
                                          domain: domain,
                                          threadsafe: true,
