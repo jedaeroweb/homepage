@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
-
+  get 'feed',:to=>'home#feed'
 
   get 'en', :to=> 'home#index',:defaults => { :locale => 'en'}
   get 'ko', :to=> 'home#index',:defaults => { :locale => 'ko'}

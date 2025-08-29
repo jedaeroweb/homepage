@@ -3,3 +3,5 @@ User-agent: *
 Allow:/
 Disallow: /admin
 Sitemap: https://www.jedaeroweb.co.kr/sitemap.xml.gz
+
+#DaumWebMasterTool:7aae059d8fcede4f5e1b384c541d1222d8477b539548e3b06cce51b2e01c1872:hAanBjeKjPXisHraBtijDw==
