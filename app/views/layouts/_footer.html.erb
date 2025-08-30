@@ -19,7 +19,7 @@
 <footer>
   <div class="container">
     <ul class="row">
-      <li class="col-6"><%= link_to t(:sitemap), sitemap_index_path %></li>
+      <li class="col-6 text-center text-xl-start"><%= link_to t(:sitemap), sitemap_index_path %></li>
       <!--  <li class="col-6 col-lg-4 dropdown">
         <%= link_to '#', { class: 'dropdown-toggle',role:"button",'data-bs-toggle': "dropdown",'aria-expanded':"false"} do %>
           <%=t(:language) %>
@@ -36,7 +36,7 @@
           </li>
         </ul>
       </li> -->
-      <li class="col-6">
+      <li class="col-6 d-flex justify-content-center justify-content-xl-end">
         <%= link_to '#', { class: 'dropdown-toggle d-flex align-items-center gap-2',
                            role: "button",
                            'data-bs-toggle': "dropdown",
@@ -68,10 +68,9 @@
 
     </ul>
     <div class="row">
-      <address class="col-12">
-        <%=t(:email) %>:<%= mail_to t(:email_webmaster) %>
-        사업자등록번호 670-31-01025 /
-        <%=t(:jedaeroweb) %>
+      <address class="col-12 text-center">
+        <%=t(:jedaeroweb) %> /  사업자등록번호 670-31-01025 <br class="d-block d-md-none" /><span class="d-none d-md-inline"> /</span>
+        <%=t(:email) %>:<%= mail_to t(:email_webmaster) %><br class="d-block d-md-none" />
         &nbsp;&nbsp; CopyLeft. 2020, jedaeroweb. All wrongs reserved.
       </address>
     </div>

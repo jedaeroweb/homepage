@@ -116,6 +116,12 @@ mark, rp, rt, ruby, summary, time {display:inline;}
   background:$secondary-bg
 }
 
+.carousel-indicators li {
+  border:none;height: 20px
+}
+
+.carousel-indicators .active {background:#999}
+
 
 /* Common Class */
 $red_default : #f95090;
