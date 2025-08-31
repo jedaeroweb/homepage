@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://community.jedaeroweb.co.kr"
+SitemapGenerator::Sitemap.default_host = "https://www.jedaeroweb.co.kr"
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -15,11 +15,17 @@ SitemapGenerator::Sitemap.create do
   #
   # Examples:
 
-  #add notices_path
+  add notices_path
 
-  #Notice.find_each do |notice|
-  #  add notice_path(notice), :lastmod => notice.updated_at
-  #end
+  Notice.find_each do |notice|
+    add notice_path(notice), :lastmod => notice.updated_at
+  end
+
+  add programs_path, :priority => 0.9, :changefreq => 'monthly'
+  Program.find_each do |program|
+    add program_path(program), :lastmod => program.updated_at
+  end
+  add products_path, :priority => 0.9, :changefreq => 'monthly'
 
   add faqs_path, :priority => 0.9, :changefreq => 'monthly'
 

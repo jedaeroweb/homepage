@@ -4,7 +4,6 @@ import "rails-ujs"
 import "trix"
 import "@rails/actiontext"
 
-//import "trix"
 import * as bootstrap from 'bootstrap';
 window.Modal = bootstrap.Modal;
 

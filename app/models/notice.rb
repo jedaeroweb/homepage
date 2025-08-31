@@ -1,11 +1,9 @@
-class Notice < ActiveRecord::Base
+class Notice < ApplicationRecord
   is_impressionable
+  acts_as_commentable
+  acts_as_votable
+  has_rich_text :content
   validates_presence_of :title
-  belongs_to :user, :autosave=>true
-  has_one :notice_content, :foreign_key => :id, :dependent => :destroy, inverse_of: :notice
-  accepts_nested_attributes_for :notice_content, :allow_destroy => true, :update_only => true
-
-  def notice_content
-    super || build_notice_content
-  end
+  has_one :notice_picture, dependent: :destroy
+  accepts_nested_attributes_for :notice_picture, :allow_destroy => true
 end
