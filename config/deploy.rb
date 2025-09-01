@@ -43,13 +43,13 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-#
+
 namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       within release_path do
-        execute :rake, 'tmp:clear'
+        execute "#{release_path}/bin/rake", 'tmp:clear'
       end
     end
   end
@@ -59,7 +59,7 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 1 do
       within release_path do
         with rails_env: (fetch(:rails_env) || fetch(:stage)) do
-          execute :rake, 'sitemap:refresh'
+          execute "#{release_path}/bin/rake", 'sitemap:refresh'
         end
       end
     end
@@ -68,4 +68,3 @@ namespace :deploy do
   after :finishing, 'deploy:refresh_sitemap'
   after :finishing, 'deploy:cleanup'
 end
-
