@@ -75,9 +75,12 @@ ProgramCategory.create!(:id=>8,:program_language_id=>4,:title=>'Jquery',:link=>'
 Program.create!(:id=>1,:title=>'제대로웹 홈페이지',:description=>'현재 보고계시는 제대로웹의 홈페이지입니다. 회사 소개용',program_pictures_attributes: [{ picture: File.open(Rails.root.join("app", "assets", "images", "company1.jpg")) }])
 Program.create!(:id=>2,:title=>'제대로웹 커뮤니티',:description=>'회원끼리 소통하는 커뮤니티 프로그램',program_pictures_attributes: [{ picture: File.open(Rails.root.join("app", "assets", "images", "community1.jpg")) }])
 Program.create!(:id=>3,:title=>'역경매 쇼핑몰',:description=>'구매자가 판매자들의 입찰중 마음에 드는 것을 골라 진행 하는 프로그램입니다.',program_pictures_attributes: [{ picture: File.open(Rails.root.join("app", "assets", "images", "interior1.jpg")) }])
-Program.create!(:id=>4,:title=>'헬스장관리',:description=>'헬스장에서 회원,수강,대여등을 관리하는 프로그램입니다.')
-Program.create!(:id=>5,:title=>'카페(매점)주문,관리',:description=>'카페,매점등에서 회원,상품,주문등을 관리하는 프로그램입니다.')
-Program.create!(:id=>6,:title=>'쇼핑몰',:description=>'쇼핑몰 프로그램입니다')
+Program.create!(:id=>4,:title=>'간단 소개 팜플릿',:description=>'소개 목적으로 쓰는 간단한 팜플릿 프로그램',program_pictures_attributes: [{ picture: File.open(Rails.root.join("app", "assets", "images", "pamphlet1.jpg")) }])
+Program.create!(:id=>5,:title=>'서명받기',:description=>'특정 사안에 대해 서명 받고 커뮤니티 의견 교환하는 프로그램',program_pictures_attributes: [{ picture: File.open(Rails.root.join("app", "assets", "images", "signiture_movement1.jpg")) }])
+Program.create!(:id=>6,:title=>'카페(매점)주문,관리',:description=>'카페,매점등에서 회원,상품,주문등을 관리하는 프로그램입니다.')
+Program.create!(:id=>7,:title=>'쇼핑몰',:description=>'쇼핑몰 프로그램입니다')
+Program.create!(:id=>8,:title=>'헬스장관리',:description=>'헬스장에서 회원,수강,대여등을 관리하는 프로그램입니다.')
+
 
 ProgramContent.create!(id: 1, content: '
 제대로웹의 홈페이지
@@ -110,9 +113,19 @@ ProgramLink.create!(:program_link_category_id=>1, :program_id=>5, :title=>'체�
 ProgramLink.create!(:program_link_category_id=>2, :program_id=>5, :title=>'github ',:link=>'https://github.com/jedaeroweb/cafe')
 ProgramLink.create!(:program_link_category_id=>3, :program_id=>5, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/cafe/archive/refs/heads/master.zip')
 
-ProgramLink.create!(:program_link_category_id=>1, :program_id=>4, :title=>'체험(데모)',:link=>'https://fitness.jedaeroweb.co.kr')
-ProgramLink.create!(:program_link_category_id=>2, :program_id=>4, :title=>'github ',:link=>'https://github.com/jedaeroweb/fitness')
-ProgramLink.create!(:program_link_category_id=>3, :program_id=>4, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/fitness/archive/refs/heads/master.zip')
+ProgramLink.create!(:program_link_category_id=>1, :program_id=>4, :title=>'체험(데모)',:link=>'https://pamphlet.jedaeroweb.co.kr')
+ProgramLink.create!(:program_link_category_id=>2, :program_id=>4, :title=>'github ',:link=>'https://github.com/jedaeroweb/pamphlet')
+ProgramLink.create!(:program_link_category_id=>3, :program_id=>4, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/pamphlet/archive/refs/heads/master.zip')
+
+ProgramLink.create!(:program_link_category_id=>1, :program_id=>5, :title=>'체험(현재 서비스 중)',:link=>'https://www.anti-kb.site')
+ProgramLink.create!(:program_link_category_id=>2, :program_id=>5, :title=>'github ',:link=>'https://github.com/jedaeroweb/signiture_movement')
+ProgramLink.create!(:program_link_category_id=>3, :program_id=>5, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/signiture_movement/archive/refs/heads/master.zip')
+
+
+ProgramLink.create!(:program_link_category_id=>1, :program_id=>7, :title=>'체험(데모)',:link=>'https://fitness.jedaeroweb.co.kr')
+ProgramLink.create!(:program_link_category_id=>2, :program_id=>7, :title=>'github ',:link=>'https://github.com/jedaeroweb/fitness')
+ProgramLink.create!(:program_link_category_id=>3, :program_id=>7, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/fitness/archive/refs/heads/master.zip')
+
 
 
 

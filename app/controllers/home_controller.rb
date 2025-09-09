@@ -6,13 +6,6 @@ class HomeController < ApplicationController
     @slides = Program.where(enable: true).where.not(program_pictures_count: 0).order('id desc')
   end
 
-  def initialize(*params)
-    super(*params)
-    @title=t('default_title')
-    @page_itemtype="http://schema.org/WebPage"
-    @script='home/index'
-  end
-
   def feed
     @programs = Program.where(:enable=>true).order(id: :desc).limit(50)
     @products = Product.where(:enable=>true).order(id: :desc).limit(50)

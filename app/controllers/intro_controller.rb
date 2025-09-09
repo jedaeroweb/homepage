@@ -1,10 +1,4 @@
 class IntroController < ApplicationController
-  def before_init
-    super
-    @page_itemtype = 'http://schema.org/AboutPage'
-    @title = t(:menu_intro)
-  end
-
   def company
     @controller_name = t(:submenu_intro1)
     @title = t(:submenu_intro1)

@@ -1,11 +1,4 @@
 class ContactsController < ApplicationController
-  def before_init
-    super
-    @controller_name = t(:menu_contact)
-    @title = t(:menu_contact)
-    @page_itemtype='http://schema.org/ContactPage'
-  end
-
     def index
         @contact = Contact.new
 
@@ -27,7 +20,7 @@ class ContactsController < ApplicationController
       if @contact.save
          redirect_to complete_contacts_path, notice: '문의가 등록되었습니다.'
       else
-        render :index, status: :unprocessable_entity
+        render :index, status: :unprocessable_content
       end
   end
 
