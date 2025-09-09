@@ -1,7 +1,9 @@
 <div class="row">
-  <section class="col-12 col-lg-8 col-xl-6 login-box">
+  <section class="col-12 col-lg-8 col-xl-6 mx-auto">
     <h2><%= t(:service_name) %> <%= t(:login_title) %></h2>
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal", :id => "sl_login_form", :role => "form"}) do |f| %>
+    <%= form_for(resource, as: :admin, url: new_admin_session_path, html: { class: "form-horizontal", id: "sl_login_form", role: "form" , data: { turbo: false }}) do |f| %>
+      <%= render "admins/shared/error_messages", resource: resource %>
+      <%= hidden_field_tag :admin_login, true %>
       <div class="card">
         <div class="card-body p-4">
           <div class="form-group row">
@@ -18,12 +20,12 @@
           </div>
           <div class="form-group row mt-3">
             <div class="col-sm-offset-2 col-sm-10">
-                <%= f.check_box :remember_me, data: {
-                  controller: "login",
-                  action: "change->login#handleRememberMe"
-                }
-                %>
-                <%= f.label :remember_me %>
+              <%= f.check_box :remember_me, data: {
+                controller: "login",
+                action: "change->login#handleRememberMe"
+              }
+              %>
+              <%= f.label :remember_me %>
             </div>
           </div>
         </div>
