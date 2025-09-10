@@ -1,5 +1,10 @@
 class ContactsController < ApplicationController
-    def index
+
+  def initialize
+    super
+    @controller_name = t(:menu_contact)
+  end
+  def index
         @contact = Contact.new
 
         respond_to do |format|

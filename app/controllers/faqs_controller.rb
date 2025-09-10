@@ -1,6 +1,11 @@
 class FaqsController < ApplicationController
   before_action :set_faq, only: [:show]
 
+  def initialize
+    super
+    @controller_name = t(:menu_faq)
+  end
+
   # GET /faqs
   # GET /faqs.json
   def index

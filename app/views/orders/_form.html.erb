@@ -72,14 +72,14 @@
 
 
   <%= f.fields_for :order_content do |c| %>
-    <div class="form-group mb-3">
+    <div class="form-group">
       <%= c.label :content, :class => 'form-label' %>
       <%= c.text_area :content, :class => 'form-control input-lg', :rows => 7 %>
     </div>
   <% end %>
     </div>
   </div>
-  <div class="d-grid gap-2">
+  <div class="d-grid gap-2 mt-3">
     <%= f.submit '신청',:class => 'btn btn-lg btn-primary' %>
   </div>
 <% end %>

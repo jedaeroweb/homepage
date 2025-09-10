@@ -109,10 +109,6 @@ ProgramLink.create!(:program_link_category_id=>1, :program_id=>3, :title=>'체�
 ProgramLink.create!(:program_link_category_id=>2, :program_id=>3, :title=>'github ',:link=>'https://github.com/jedaeroweb/home_renovation')
 ProgramLink.create!(:program_link_category_id=>3, :program_id=>3, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/home_renovation/archive/refs/heads/main.zip')
 
-ProgramLink.create!(:program_link_category_id=>1, :program_id=>5, :title=>'체험(데모)',:link=>'https://cafe.jedaeroweb.co.kr')
-ProgramLink.create!(:program_link_category_id=>2, :program_id=>5, :title=>'github ',:link=>'https://github.com/jedaeroweb/cafe')
-ProgramLink.create!(:program_link_category_id=>3, :program_id=>5, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/cafe/archive/refs/heads/master.zip')
-
 ProgramLink.create!(:program_link_category_id=>1, :program_id=>4, :title=>'체험(데모)',:link=>'https://pamphlet.jedaeroweb.co.kr')
 ProgramLink.create!(:program_link_category_id=>2, :program_id=>4, :title=>'github ',:link=>'https://github.com/jedaeroweb/pamphlet')
 ProgramLink.create!(:program_link_category_id=>3, :program_id=>4, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/pamphlet/archive/refs/heads/master.zip')
@@ -121,6 +117,9 @@ ProgramLink.create!(:program_link_category_id=>1, :program_id=>5, :title=>'체�
 ProgramLink.create!(:program_link_category_id=>2, :program_id=>5, :title=>'github ',:link=>'https://github.com/jedaeroweb/signiture_movement')
 ProgramLink.create!(:program_link_category_id=>3, :program_id=>5, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/signiture_movement/archive/refs/heads/master.zip')
 
+ProgramLink.create!(:program_link_category_id=>1, :program_id=>6, :title=>'체험(데모)',:link=>'https://cafe.jedaeroweb.co.kr')
+ProgramLink.create!(:program_link_category_id=>2, :program_id=>6, :title=>'github ',:link=>'https://github.com/jedaeroweb/cafe')
+ProgramLink.create!(:program_link_category_id=>3, :program_id=>6, :title=>'다운로드',:link=>'https://github.com/jedaeroweb/cafe/archive/refs/heads/master.zip')
 
 ProgramLink.create!(:program_link_category_id=>1, :program_id=>7, :title=>'체험(데모)',:link=>'https://fitness.jedaeroweb.co.kr')
 ProgramLink.create!(:program_link_category_id=>2, :program_id=>7, :title=>'github ',:link=>'https://github.com/jedaeroweb/fitness')
