@@ -134,13 +134,13 @@ FaqCategory.create!(id: 1, title: '프로그램')
 FaqCategory.create!(id: 2, title: '서비스')
 FaqCategory.create!(id: 3, title: '기타')
 
-Faq.create!(id: 1,:faq_category_id=>1, title: '프로그램은 어떤것 인가요?',faq_content_attributes: {content: 'Ruby on Rails를 이용하여 만들어진 프로그램들로 서버에 올리면 바로 멋진 웹사이트를 작동시킬수 있습니다.'})
-Faq.create!(id: 2,:faq_category_id=>1, title: '서버는 어떤것을 해야되나요?',faq_content_attributes: {content: '이곳의 프로그램은 서버는 어떤것이라도 상관없지만 웹호스팅 방식이 아닌 단독서버 또는 가상서버 방식이여야 웹사이트를 작동시킬수 있습니다'})
-Faq.create!(id: 3,:faq_category_id=>1, title: '설정, 설치는 어떻게 해야되나요?',faq_content_attributes: {content: '설치, 설정이 다소 어려울 수 있지만 여기를 보면서 따라하면 누구라도 설치, 설정을 완료할 수 있습니다.  또한 이 과정이 힘들거나 투입할 노력-시간이 없다면 서비스 신청을 하시면 바로 처리 가능합니다'})
-Faq.create!(id: 4,:faq_category_id=>2, title: '신규 제작도 해주나요?',faq_content_attributes: {content: '이곳의 프로그램을 수정하는 사이트라면 물론 가능하고 그 밖에 어떤 형태의 웹사이트가 필요한지 말씀해주시면 최대한 상담, 제작해드립니다'})
-Faq.create!(id: 5,:faq_category_id=>2, title: '기존에 있는 프로그램 유지보수가 필요한데 가능한가요?',faq_content_attributes: {content: '이곳의 프로그램을 수정하는 사이트라면 물론 가능하고 그 밖에 어떤 형태의 웹사이트라도 유지보수 서비스를 제공하고 있습니다'})
-Faq.create!(id: 6,:faq_category_id=>3, title: '반응형웹도 되나요?',faq_content_attributes: {content: '이곳의 프로그램들은 기본적으로 반응형을 지원합니다'})
-Faq.create!(id: 7,:faq_category_id=>3 ,title: '앱개발도 가능한가요?',faq_content_attributes: {content: '앱은 반응형이므로 이를 감싸는 형태의 하이브리드 앱으로 제작하며 마켓에 올려드리는 서비스가 있습니다'})
+Faq.create!(id: 1,:faq_category_id=>1, title: '프로그램은 어떤것 인가요?',content: 'Ruby on Rails를 이용하여 만들어진 프로그램들로 서버에 올리면 바로 멋진 웹사이트를 작동시킬수 있습니다.')
+Faq.create!(id: 2,:faq_category_id=>1, title: '서버는 어떤것을 해야되나요?',content: '이곳의 프로그램은 서버는 어떤것이라도 상관없지만 웹호스팅 방식이 아닌 단독서버 또는 가상서버 방식이여야 웹사이트를 작동시킬수 있습니다')
+Faq.create!(id: 3,:faq_category_id=>1, title: '설정, 설치는 어떻게 해야되나요?',content: '설치, 설정이 다소 어려울 수 있지만 여기를 보면서 따라하면 누구라도 설치, 설정을 완료할 수 있습니다.  또한 이 과정이 힘들거나 투입할 노력-시간이 없다면 서비스 신청을 하시면 바로 처리 가능합니다')
+Faq.create!(id: 4,:faq_category_id=>2, title: '신규 제작도 해주나요?',content: '이곳의 프로그램을 수정하는 사이트라면 물론 가능하고 그 밖에 어떤 형태의 웹사이트가 필요한지 말씀해주시면 최대한 상담, 제작해드립니다')
+Faq.create!(id: 5,:faq_category_id=>2, title: '기존에 있는 프로그램 유지보수가 필요한데 가능한가요?',content: '이곳의 프로그램을 수정하는 사이트라면 물론 가능하고 그 밖에 어떤 형태의 웹사이트라도 유지보수 서비스를 제공하고 있습니다')
+Faq.create!(id: 6,:faq_category_id=>3, title: '반응형웹도 되나요?',content: '이곳의 프로그램들은 기본적으로 반응형을 지원합니다')
+Faq.create!(id: 7,:faq_category_id=>3 ,title: '앱개발도 가능한가요?',content: '앱은 반응형이므로 이를 감싸는 형태의 하이브리드 앱으로 제작하며 마켓에 올려드리는 서비스가 있습니다')
 
 
 
@@ -160,13 +160,6 @@ faq_category3=FaqCategory.find(3)
 faq_category3.title='Etc'
 faq_category3.save!
 
-faq1=Faq.find(1)
-faq1.title='Genosolution是什么样的服务？'
-faq1.save!
-
-faq_content1=FaqContent.find(1)
-faq_content1.content='Genosolution是消费者直接委托形式(DTC, Direct-To-Consumer)的个人遗传基因分析服务，以更便捷、有趣的形式提供保健福祉部批准的12项遗传基因检查结果。详细的服务项目如下。▶6个外在特征(身高体重指数、色素沉淀、脱发、毛发粗细、皮肤老化、皮肤弹性) ▶6个内在特征 (中性脂肪浓度、胆固醇、血糖、血压、维生素C代谢、咖啡因代谢)'
-faq_content1.save!
 
 
 
@@ -183,11 +176,3 @@ faq_category2.save!
 faq_category3=FaqCategory.find(3)
 faq_category3.title='其他'
 faq_category3.save!
-
-faq1=Faq.find(1)
-faq1.title='Genosolution是什么样的服务？'
-faq1.save!
-
-faq_content1=FaqContent.find(1)
-faq_content1.content='Genosolution是消费者直接委托形式(DTC, Direct-To-Consumer)的个人遗传基因分析服务，以更便捷、有趣的形式提供保健福祉部批准的12项遗传基因检查结果。详细的服务项目如下。▶6个外在特征(身高体重指数、色素沉淀、脱发、毛发粗细、皮肤老化、皮肤弹性) ▶6个内在特征 (中性脂肪浓度、胆固醇、血糖、血压、维生素C代谢、咖啡因代谢)'
-faq_content1.save!

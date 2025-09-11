@@ -48,7 +48,7 @@
 			</dt>
 			<% if(@faq)%>
 			<% if(faq.id==@faq.id) %>
-					<dd><%=simple_format(@faq.faq_content.content) %></dd>
+					<dd><%=simple_format(@faq.content.to_s) %></dd>
 			<% end %>
 			<% end %>
 
@@ -63,3 +63,8 @@
 	</div>
 	</div>
 </main>
+<% content_for :json_ld do %>
+	<script type="application/ld+json">
+		<%= raw(JSON.pretty_generate(json_ld_for_faq_page(@faqs))) %>
+	</script>
+<% end %>

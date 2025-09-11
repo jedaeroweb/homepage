@@ -152,21 +152,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_15_065956) do
     t.index ["locale"], name: "index_faq_category_translations_on_locale"
   end
 
-  create_table "faq_content_translations", force: :cascade do |t|
-    t.integer "faq_content_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "content"
-    t.index ["faq_content_id"], name: "index_faq_content_translations_on_faq_content_id"
-    t.index ["locale"], name: "index_faq_content_translations_on_locale"
-  end
-
-  create_table "faq_contents", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "faq_translations", force: :cascade do |t|
     t.integer "faq_id", null: false
     t.string "locale", null: false

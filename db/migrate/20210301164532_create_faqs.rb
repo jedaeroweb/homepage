@@ -13,15 +13,10 @@ class CreateFaqs < ActiveRecord::Migration[6.0]
       t.timestamps null: false
     end
 
-    create_table :faq_contents do |t|
-      t.timestamps null: false
-    end
-
     reversible do |dir|
       dir.up do
         FaqCategory.create_translation_table! title: :string
         Faq.create_translation_table! title: :string
-        FaqContent.create_translation_table! content: :text
       end
 
       dir.down do

@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :intro do
-  link t(:menu_intro), intro_company_path
+  link t(:menu_intro), intro_path
 end
 
 crumb :service_intro do

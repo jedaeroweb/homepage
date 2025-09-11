@@ -13,13 +13,13 @@
           <li class="sl-dropdown
             <% if params[:controller] == 'intro' %> active
             <% end %>">
-            <%= link_to intro_company_path do %>
+            <%= link_to intro_path do %>
               <%= t(:menu_intro) %>
             <% end %>
             <ul class="sl-dropdown-menu intro_menu">
               <li
-              <% if current_page?(intro_company_path) %> class="active"
-              <% end %>><%= link_to t(:submenu_intro1), intro_company_path %></li>
+              <% if current_page?(intro_path) %> class="active"
+              <% end %>><%= link_to t(:submenu_intro1), intro_path %></li>
               <li
               <% if current_page?(intro_service_path) %> class="active"
               <% end %>><%= link_to t(:submenu_intro2), intro_service_path %></li>

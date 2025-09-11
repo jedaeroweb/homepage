@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :contacts, only:[:index,:create]
 
   #intro
-  get 'intro/company', :to=>'intro#company', as: 'intro_company'
+  get 'intro', :to=>'intro#company', as: 'intro'
   get 'intro/service', :to=>'intro#service', as: 'intro_service'
   get 'intro/program', :to=>'intro#program', as: 'intro_program'
 
