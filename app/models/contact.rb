@@ -1,7 +1,7 @@
 class Contact < ApplicationRecord
   validates_presence_of :title, :email, :name
   validates :contact_content, :presence => true
-  belongs_to :user, counter_cache: true, optional: true
+  belongs_to :user, counter_cache: true
 
   has_one :contact_content, :foreign_key => :id, :dependent => :destroy, inverse_of: :contact
   validates :contact_content, :presence => true

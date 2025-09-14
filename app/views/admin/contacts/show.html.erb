@@ -8,8 +8,10 @@
         <h3 class="card-header"><%=@contact.title %></h3>
         <div class="card-body">
           <dl>
-            <dt><%= t(:content, scope: [:activerecord, :attributes, :contact_content]) %></dt>
-            <dd><%=@contact.contact_category.title %></dd>
+            <dt><%= t(:name, scope: [:activerecord, :attributes, :user]) %></dt>
+            <dd><%=@contact.user.name %></dd>
+            <dt><%= t(:email, scope: [:activerecord, :attributes, :user]) %></dt>
+            <dd><%=@contact.user.email %></dd>
             <dt><%= t(:content, scope: [:activerecord, :attributes, :contact_content]) %></dt>
             <dd><%= simple_format @contact.contact_content.content %></dd>
             <dt><%= t(:created_at, scope: [:activerecord, :attributes, :contact]) %></dt>

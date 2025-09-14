@@ -13,20 +13,52 @@ class ContactsController < ApplicationController
         end
     end
 
-    def complete
-        @controller_name = t(:menu_contact)
-    end
 
     # POST /contanct
     # POST /contanct.json
   def create
-    @contact = Contact.new(contact_params)
+    ActiveRecord::Base.transaction do
+      # 로그인한 경우: 폼의 name/email은 무시하고 현재 사용자에 연결
+      if user_signed_in?
+        user = current_user
+      else
+        # 비로그인: 폼에서 넘어온 고객 정보만 안전하게 추출
+        customer_params = params.require(:contact).permit(:name, :phone, :email)
+        name  = customer_params[:name].to_s.strip
+        phone  = customer_params[:phone].to_s.strip
+        email = customer_params[:email].to_s.strip.downcase
+
+        if email.blank?
+          email=set_dummy_email
+        end
+
+        # 이메일 기준으로 사용자 찾거나 생성
+        user = User.find_or_initialize_by(email: email)
+        if user.new_record?
+          user.name        = name
+          user.email       = email
+          user.phone       = phone
+          user.password    = SecureRandom.base64(12)
+          user.save!
+        else
+          user.update!(name: name) if user.name.blank? && name.present?
+        end
+      end
+
+      @contact = Contact.new(contact_params)
+      @contact.user = user
 
       if @contact.save
-         redirect_to complete_contacts_path, notice: '문의가 등록되었습니다.'
+        redirect_to @contact, notice: '문의가 등록되었습니다.'
       else
-        render :index, status: :unprocessable_content
+        render :new, status: :unprocessable_content
       end
+
+    rescue ActiveRecord::RecordInvalid => e
+      @contact ||= Contact.new(contact_params)
+      @contact.errors.add(:base, e.record.errors.full_messages.to_sentence)
+      render :new, status: :unprocessable_content
+    end
   end
 
 

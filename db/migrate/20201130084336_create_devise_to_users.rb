@@ -19,7 +19,7 @@ class CreateDeviseToUsers < ActiveRecord::Migration[6.0]
       # t.datetime :reset_password_sent_at
 
       ## Rememberable
-      # t.datetime :remember_created_at
+      t.datetime :remember_created_at
 
       ## Trackable
       t.integer  :sign_in_count, default: 0
@@ -38,6 +38,8 @@ class CreateDeviseToUsers < ActiveRecord::Migration[6.0]
       # t.integer  :failed_attempts, :default => 0 # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
+      t.integer :contacts_count, null: false, default: 0
+      t.integer :user_pictures_count, null: false, default: 0
 
       ## Token authenticatable
       ## t.string :authentication_token

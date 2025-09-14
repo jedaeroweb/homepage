@@ -1,7 +1,7 @@
 <div class="col-12">
-  <h2 class="float-left hidden-title"><%= t(:order_list) %></h2>
-      <div class="float-right">
-        <p class="summary">
+  <h2 class="float-start d-none d-lg-block"><%= t(:order,scope: [:activerecord,:models]) %></h2>
+  <div class="float-end">
+    <p class="summary text-end">
           <span id="list_count" style="display:none"><%=@order_count %></span>
           <%=raw t(:there_are_n_orders,count: @order_count) %>
         </p>

@@ -25,9 +25,9 @@
   </nav>
 </div>
 <article id="products" class="col-12">
-  <h2 class="float-left hidden-title"><%= t(:product_list) %></h2>
-  <div class="float-right">
-    <p class="summary">
+  <h2 class="float-start d-none d-lg-block"><%= t(:product,scope: [:activerecord,:models]) %></h2>
+  <div class="float-end">
+    <p class="summary text-end">
       <span id="list_count" style="display:none"><%= @product_count %></span>
       <%= raw t(:there_are_n_products, count: @product_count) %>
     </p>
@@ -63,14 +63,17 @@
       <% @products.each_with_index do |product, index| %>
         <tr>
           <td>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="product_display<%= index %>" value="<%= product.id %>"
-                     <% if product.enable %> checked
-                     <% end %>>
-              <label class="custom-control-label" for="product_display<%= index %>">
-                <% if product.enable %> <%= t(:display) %>
-                  <% else %><%= t(:hidden) %>
-                <% end %> </label>
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="notice_display<%= index %>"
+                value="<%= product.id %>"
+                <% if product.enable %> checked <% end %>
+              >
+              <label class="form-check-label" for="notice_display<%= index %>">
+                <% if product.enable %> <%= t(:display) %> <% else %> <%= t(:hidden) %> <% end %>
+              </label>
             </div>
           </td>
           <td><%= link_to product.title, admin_product_path(product) %></td>

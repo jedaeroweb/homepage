@@ -1,8 +1,8 @@
 <%= render 'nav' %>
 <div class="col-12">
-      <h2 class="float-left hidden-title"><%= t(:faq_list) %></h2>
-      <div class="float-right">
-        <p class="summary">
+  <h2 class="float-start d-none d-lg-block"><%= t(:faq,scope: [:activerecord,:models]) %></h2>
+  <div class="float-end">
+    <p class="summary text-end">
           <span id="list_count" style="display:none"><%=@faq_count %></span>
           <%=raw t(:there_are_n_faqs,count: @faq_count) %>
         </p>
@@ -33,9 +33,17 @@
           <% @faqs.each_with_index do |faq,index| %>
             <tr>
               <td>
-                <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="faq_display<%=index %>" value="<%=faq.id %>" <% if faq.enable %> checked<% end %>>
-                  <label class="custom-control-label" for="faq_display<%=index %>"><% if faq.enable %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="notice_display<%= index %>"
+                    value="<%= faq.id %>"
+                    <% if faq.enable %> checked <% end %>
+                  >
+                  <label class="form-check-label" for="notice_display<%= index %>">
+                    <% if faq.enable %> <%= t(:display) %> <% else %> <%= t(:hidden) %> <% end %>
+                  </label>
                 </div>
               </td>
               <td><%= link_to faq.title,admin_faq_path(faq) %></td>

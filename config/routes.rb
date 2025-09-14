@@ -10,8 +10,7 @@ Rails.application.routes.draw do
   resources :faqs, only:[:index,:show]
 
   #contacts
-  get 'contacts/complete', :to=>'contacts#complete', as: 'complete_contacts'
-  resources :contacts, only:[:index,:create]
+  resources :contacts, only:[:index,:create, :show]
 
   #intro
   get 'intro', :to=>'intro#company', as: 'intro'

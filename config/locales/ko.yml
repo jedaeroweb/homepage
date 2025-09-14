@@ -71,6 +71,8 @@ ko:
   edit: "수정"
   delete: "삭제"
   manage : '관리'
+  display: '보임'
+  hidden: '숨김'
 
   email  :  "이메일"
   password : "비밀번호"
