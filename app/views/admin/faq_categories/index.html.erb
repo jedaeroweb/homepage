@@ -2,7 +2,7 @@
   <h2 class="float-start d-none d-lg-block"><%= t(:faq_category,scope: [:activerecord,:models]) %></h2>
   <div class="float-end">
     <p class="summary text-end">
-          <span id="list_count" style="display:none"><%= @faq_category_count %></span>
+          <span id="list_count d-none"><%= @faq_category_count %></span>
           <%= raw t(:there_are_n_faq_categories, count: @faq_category_count) %>
         </p>
       </div>
@@ -30,7 +30,7 @@
         </tr>
         </thead>
         <tbody>
-        <% unless @faq_categories.empty? %>
+        <% unless @faq_category_count.zero? %>
           <% @faq_categories.each_with_index do |faq_category, index| %>
             <tr>
               <td>
@@ -46,7 +46,7 @@
                     <% if faq_category.enable %> <%= t(:display) %> <% else %> <%= t(:hidden) %> <% end %>
                   </label>
                 </div>
-              </td
+              </td>
               <td><%= link_to faq_category.title,admin_faq_category_path(faq_category) %></td>
               <td class="text-right">
                 <% if faq_category.faqs_count.zero? %>

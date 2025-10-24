@@ -353,9 +353,9 @@ ko:
       branch :
         title : '지점명'
       admin :
-        login_id : '아이디'
         name : '이름'
         email : '이메일'
+        enable : '보임'
         password : '비밀번호'
         password_confirmation : '비밀번호확인'
       admin_picture :
@@ -364,6 +364,7 @@ ko:
         name: '이름'
         email: '이메일'
         title : '제목'
+        enable : '보임'
         updated_at : '수정일시'
         created_at : '생성일시'
       contact_content :
@@ -372,6 +373,7 @@ ko:
         title : '분류명'
         order_no : '순서'
         products_count : '해당상품수'
+        enable : '보임'
         updated_at : '수정일시'
         created_at : '생성일시'
       product :
