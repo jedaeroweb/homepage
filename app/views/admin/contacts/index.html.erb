@@ -29,7 +29,7 @@
         <% unless @contact_count.zero? %>
           <% @contacts.each_with_index do |contact,index| %>
             <tr>
-              <td><%= link_to contact.title,admin_contact_path(contact) %></td>
+              <td><%= link_to contact.title,admin_contact_path(contact, page: params[:page]) %></td>
               <td class="text-right"><%= I18n.l contact.created_at.to_date, :format => :long %></td>
               <% if can?(:update, contact) or can?(:delete, contact) %>
                 <td class="text-right">
