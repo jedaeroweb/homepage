@@ -9,9 +9,22 @@
         <div class="card-body">
           <dl>
             <dt><%= t(:name, scope: [:activerecord, :attributes, :user]) %></dt>
-            <dd><%=@contact.user.name %></dd>
+            <dd>
+              <% if @contact.user_id.present? %>
+                <%=@contact.user.name %>
+                <% else %>
+                <%=@contact.name %>
+              <% end %>
+
+            </dd>
             <dt><%= t(:email, scope: [:activerecord, :attributes, :user]) %></dt>
-            <dd><%=@contact.user.email %></dd>
+            <dd>
+              <% if @contact.user_id.present? %>
+                <%=@contact.user.email %>
+              <% else %>
+                <%=@contact.email %>
+              <% end %>
+            </dd>
             <dt><%= t(:content, scope: [:activerecord, :attributes, :contact_content]) %></dt>
             <dd><%= simple_format @contact.contact_content.content %></dd>
             <dt><%= t(:created_at, scope: [:activerecord, :attributes, :contact]) %></dt>
