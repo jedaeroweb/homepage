@@ -51,13 +51,13 @@ class ContactsController < ApplicationController
       if @contact.save
         redirect_to @contact, notice: '문의가 등록되었습니다.'
       else
-        render :new, status: :unprocessable_content
+        render :index, status: :unprocessable_content
       end
 
     rescue ActiveRecord::RecordInvalid => e
       @contact ||= Contact.new(contact_params)
       @contact.errors.add(:base, e.record.errors.full_messages.to_sentence)
-      render :new, status: :unprocessable_content
+      render :index, status: :unprocessable_content
     end
   end
 

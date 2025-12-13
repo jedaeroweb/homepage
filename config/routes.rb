@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   #contacts
   resources :contacts, only:[:index,:create, :show]
+  get "/contacts/new", to: redirect("/contacts")
 
   #intro
   get 'intro', :to=>'intro#company', as: 'intro'
