@@ -38,18 +38,24 @@ and serves as a **template you can use to quickly build your own development com
 git clone https://github.com/jedaeroweb/homepage.git
 cd homepage
 bundle install
-rails db:create db:migrate
+rails db:create db:migrate db:seed
 rails server
 ```
 
-## Server Requirements
+then visit
+
+http://localhost:3000
+
+---
+
+## 📌 Server Requirements
 
 [Rails](http://rubyonrails.org/) version 7 or newer is recommended.
 
-## License
+## 📄 License
 
 MIT License – completely free to use and modify
 
-## Author
+## ✍️ Author
 
 [Jeedaeroweb](https://www.jedaeroweb.co.kr)
