@@ -2,7 +2,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Template](https://img.shields.io/badge/Template-Repository-blue)
 
-# Jedaeroweb Homepage - Rails Dev Company Template
+## 🔭 Overview
 
 [www.jedaeroweb.co.kr](https://www.jedaeroweb.co.kr) source code
 
@@ -22,16 +22,6 @@ and serves as a **template you can use to quickly build your own development com
 
 ---
 
-## 🛠 Tech Stack
-
-- Ruby
-- Ruby on Rails 7+
-- HTML / CSS
-- Bootstrap UI
-- Minimal JavaScript
-
----
-
 ## 🚀 Getting Started
 
 ```bash
@@ -46,16 +36,30 @@ then visit
 
 http://localhost:3000
 
+
+> 로컬 환경에서 바로 실행해볼 수 있습니다.
+
 ---
 
 ## 📌 Server Requirements
 
 [Rails](http://rubyonrails.org/) version 7 or newer is recommended.
+> Rails 7 이상 환경을 권장합니다.
 
-## 📄 License
+## 🛠 Tech Stack
+
+- Ruby on Rails
+- MySQL / PostgreSQL / SQLite (any database supported by Rails)
+- HTML / CSS
+- JavaScript
+
+## 📜 License
 
 MIT License – completely free to use and modify
+> 개인·상업적 사용 모두 완전히 자유롭습니다.
 
 ## ✍️ Author
 
-[Jeedaeroweb](https://www.jedaeroweb.co.kr)
+[Jedaeroweb](https://www.jedaeroweb.co.kr)
+> 작성자 = 제대로웹
+
