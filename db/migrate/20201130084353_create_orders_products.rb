@@ -7,5 +7,9 @@ class CreateOrdersProducts < ActiveRecord::Migration[6.0]
       t.integer :quantity,:null=>false, :default=>1
       t.boolean :enable, :null=>false, :default=>true
     end
+
+    add_index :orders_products,
+              [:order_id, :product_id],
+              unique: true
   end
 end

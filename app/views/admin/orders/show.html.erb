@@ -8,6 +8,10 @@
         <h3 class="card-header"><%=@order.title %></h3>
         <div class="card-body">
           <dl>
+            <dt><%= t(:title, scope: [:activerecord, :attributes, :product]) %></dt>
+            <dd><% @order.products.each do |product| %>
+                <%= product.title %><br>
+              <% end %></dd>
             <dt><%= t(:created_at, scope: [:activerecord, :attributes, :order]) %></dt>
             <dd><%= I18n.l @order.created_at.to_date, :format => :long %></dd>
             <dt><%= t(:updated_at, scope: [:activerecord, :attributes, :order]) %></dt>

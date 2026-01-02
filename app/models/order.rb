@@ -8,7 +8,6 @@ class Order < ApplicationRecord
   has_many :orders_products, dependent: :destroy
   has_many :products, :through => :orders_products
   has_many :accounts, :through => :accounts_orders
-  accepts_nested_attributes_for :orders_products, :allow_destroy => true
 
   private
 

@@ -39,7 +39,8 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     # 주문 자체 파라미터 추출(클라이언트가 보낸 user_id는 사용하지 않음)
-    order_attrs = order_params.to_h.except("user_id")
+    order_attrs = order_params.to_h.deep_symbolize_keys.except(:user_id)
+    product_ids = order_attrs.delete(:product_ids)
 
     ActiveRecord::Base.transaction do
       # 로그인한 경우: 폼의 name/email은 무시하고 현재 사용자에 연결
@@ -72,14 +73,24 @@ class OrdersController < ApplicationController
         @order = Order.new(order_attrs)
         @order.user = user
 
-      @order.title=@product.title
+      count = Array(product_ids).size
+
+      @order.title =
+        if count <= 1
+          @product.title
+        else
+          "#{@product.title} 외 #{count - 1}개 상품"
+        end
 
 
-      # 5) orders_products 연결
+      Array(product_ids).each do |pid|
+        product = Product.find(pid)
+
         @order.orders_products.build(
-          product_id: @product.id,
-          price: @product.price
+          product: product,
+          price: product.price
         )
+        end
 
         if @order.save
           redirect_to @order, notice: '주문이 생성되었습니다.'
@@ -132,21 +143,17 @@ class OrdersController < ApplicationController
   def order_params
     # 주의: user_id는 서버에서만 설정합니다(스푸핑 방지).
     params.require(:order).permit(
-      :user_id, :transaction_date, :price, :discount, :payment,
-      orders_products_attributes: [:id, :product_id, :price, :quantity]
+      :user_id, :transaction_date, :price, :discount, :payment, product_ids: []
     )
   end
 
   def set_product
+    product_id =
+      params[:product].presence ||
+      Array(params.dig(:order, :product_ids)).first
 
-    @product = if action_name == 'new'
-                 Product.find(params[:product])
-               else
-                 product_id = params[:order][:orders_products_attributes]["0"][:product_id]
-                 Product.find(product_id)
-
-               end
-  rescue ActiveRecord::RecordNotFound
+    @product = Product.find(product_id)
+  rescue ActiveRecord::RecordNotFound, ArgumentError
     redirect_to products_path, alert: "제품을 찾을 수 없습니다."
   end
 

@@ -17,6 +17,7 @@
     <div class="card-body">
       <p>
         <%= @product.title %>
+        <%= hidden_field_tag "order[product_ids][]", @product.id %>
       </p>
       <p><%= number_to_currency @product.price %></p>
     </div>
@@ -24,9 +25,6 @@
   <h2>주문정보</h2>
   <div class="card">
     <div class="card-body">
-  <%= f.fields_for :orders_products, OrdersProduct.new do |op| %>
-    <%= op.hidden_field :product_id, value: @product.id %>
-  <% end %>
   <%# 고객 정보 섹션 %>
   <% if user_signed_in? %>
     <div class="card mb-4">

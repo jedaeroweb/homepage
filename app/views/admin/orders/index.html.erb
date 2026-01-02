@@ -39,7 +39,7 @@
                   <label class="custom-control-label" for="notice_display<%=index %>"><% if order.enable %> <%=t(:display) %><% else %><%=t(:hidden) %><% end %> </label>
                 </div>
               </td>
-              <td><%= link_to order,admin_order_path(order) %></td>
+              <td><%= link_to order.title,admin_order_path(order) %></td>
               <td></td>
               <td class="text-right"><%= I18n.l order.created_at.to_date, :format => :long %></td>
               <% if can?(:update, order) or can?(:delete, order) %>
