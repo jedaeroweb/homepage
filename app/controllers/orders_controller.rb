@@ -72,6 +72,8 @@ class OrdersController < ApplicationController
         @order = Order.new(order_attrs)
         @order.user = user
 
+      @order.title=@product.title
+
 
       # 5) orders_products 연결
         @order.orders_products.build(

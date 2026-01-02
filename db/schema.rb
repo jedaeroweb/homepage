@@ -181,6 +181,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_15_065956) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
     t.date "transaction_date", null: false
+    t.string "title", limit: 60, null: false
     t.integer "price", default: 0, null: false
     t.integer "discount", default: 0, null: false
     t.integer "payment", default: 0, null: false
