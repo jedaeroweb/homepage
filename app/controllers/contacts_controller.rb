@@ -1,22 +1,27 @@
 class ContactsController < ApplicationController
-
   def initialize
     super
     @controller_name = t(:menu_contact)
   end
   def index
-        @contact = Contact.new
+    @contact = Contact.new
 
-        respond_to do |format|
-            format.html # new.html.erb
-            format.json { render json: @contact }
-        end
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @contact }
+    end
+  end
+
+  # POST /contanct
+  # POST /contanct.json
+  def create
+    if Rails.env.production?
+      unless verify_turnstile
+        flash.now[:alert] = "로봇 차단됨"
+        render :new and return
+      end
     end
 
-
-    # POST /contanct
-    # POST /contanct.json
-  def create
     ActiveRecord::Base.transaction do
       # 로그인한 경우: 폼의 name/email은 무시하고 현재 사용자에 연결
       if user_signed_in?
@@ -48,13 +53,6 @@ class ContactsController < ApplicationController
       @contact = Contact.new(contact_params)
       @contact.user = user
 
-      if Rails.env.production?
-        unless verify_turnstile
-          flash.now[:alert] = "로봇 차단됨"
-          render :new and return
-        end
-      end
-
       if @contact.save
         redirect_to @contact, notice: '문의가 등록되었습니다.'
       else
@@ -69,31 +67,16 @@ class ContactsController < ApplicationController
   end
 
 
-    private
+  private
 
-  def verify_turnstile
-    token = params["cf-turnstile-response"]
-    return false if token.blank?
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def contact_params
+    l_params=params.require(:contact).permit(:name, :title, :email, :enable, contact_content_attributes: [:content])
 
-    uri = URI("https://challenges.cloudflare.com/turnstile/v0/siteverify")
-    response = Net::HTTP.post_form(uri, {
-      "secret" => ENV["TURNSTILE_SECRET_KEY"],
-      "response" => token,
-      "remoteip" => request.remote_ip
-    })
-
-    json = JSON.parse(response.body)
-    json["success"] == true
-  end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def contact_params
-        l_params=params.require(:contact).permit(:name, :title, :email, :enable, contact_content_attributes: [:content])
-
-        if user_signed_in?
-          return l_params.merge(user_id: current_user.id)
-        else
-          return l_params
-        end
+    if user_signed_in?
+      return l_params.merge(user_id: current_user.id)
+    else
+      return l_params
     end
+  end
 end

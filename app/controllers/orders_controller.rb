@@ -38,6 +38,13 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    if Rails.env.production?
+      unless verify_turnstile
+        flash.now[:alert] = "로봇 차단됨"
+        render :new and return
+      end
+    end
+
     # 주문 자체 파라미터 추출(클라이언트가 보낸 user_id는 사용하지 않음)
     order_attrs = order_params.to_h.deep_symbolize_keys.except(:user_id)
     product_ids = order_attrs.delete(:product_ids)
@@ -47,6 +54,8 @@ class OrdersController < ApplicationController
       if user_signed_in?
         user = current_user
       else
+
+
         # 비로그인: 폼에서 넘어온 고객 정보만 안전하게 추출
         customer_params = params.require(:order).permit(:name, :email)
         name  = customer_params[:name].to_s.strip

@@ -50,4 +50,21 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
     session[:locale] = I18n.locale
   end
+
+  protected
+
+  def verify_turnstile
+    token = params["cf-turnstile-response"]
+    return false if token.blank?
+
+    uri = URI("https://challenges.cloudflare.com/turnstile/v0/siteverify")
+    response = Net::HTTP.post_form(uri, {
+      "secret" => ENV["TURNSTILE_SECRET_KEY"],
+      "response" => token,
+      "remoteip" => request.remote_ip
+    })
+
+    json = JSON.parse(response.body)
+    json["success"] == true
+  end
 end
