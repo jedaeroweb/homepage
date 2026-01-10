@@ -48,6 +48,13 @@ class ContactsController < ApplicationController
       @contact = Contact.new(contact_params)
       @contact.user = user
 
+      if Rails.env.production?
+        unless verify_turnstile
+          flash.now[:alert] = "로봇 차단됨"
+          render :new and return
+        end
+      end
+
       if @contact.save
         redirect_to @contact, notice: '문의가 등록되었습니다.'
       else
@@ -63,6 +70,21 @@ class ContactsController < ApplicationController
 
 
     private
+
+  def verify_turnstile
+    token = params["cf-turnstile-response"]
+    return false if token.blank?
+
+    uri = URI("https://challenges.cloudflare.com/turnstile/v0/siteverify")
+    response = Net::HTTP.post_form(uri, {
+      "secret" => ENV["TURNSTILE_SECRET_KEY"],
+      "response" => token,
+      "remoteip" => request.remote_ip
+    })
+
+    json = JSON.parse(response.body)
+    json["success"] == true
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params

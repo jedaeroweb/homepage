@@ -1,10 +1,10 @@
 Admin.create!(:id => 1, :email => 'admin1@jedaeroweb.co.kr', :name => '잠자는-사자', :password => 'a12345', :password_confirmation => 'a12345')
-Admin.create!(:id => 2, :email => 'user1@edaeroweb.co.kr', :name => '사용자1', :password => 'a12345', :password_confirmation => 'a12345')
-Admin.create!(:id => 3, :email => 'user2@jedaeroweb.co.kr', :name => '사용자2', :password => 'a12345', :password_confirmation => 'a12345')
+#Admin.create!(:id => 2, :email => 'user1@edaeroweb.co.kr', :name => '사용자1', :password => 'a12345', :password_confirmation => 'a12345')
+#Admin.create!(:id => 3, :email => 'user2@jedaeroweb.co.kr', :name => '사용자2', :password => 'a12345', :password_confirmation => 'a12345')
 
 Role.create!(id: 1, title: '관리자', role: 'administrator')
-Role.create!(id: 2, title: '보조관리자', role: 'sub_administrator')
-Role.create!(id: 3, title: '운영자', role: 'operator')
+#Role.create!(id: 2, title: '보조관리자', role: 'sub_administrator')
+#Role.create!(id: 3, title: '운영자', role: 'operator')
 
 RoleAdmin.create!(role_id: 1, admin_id: 1)
 

@@ -11,7 +11,6 @@ class Admin < ActiveRecord::Base
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates_uniqueness_of :email
   validates_length_of :name, within: 1..60
-  validates_length_of :password, :within => 4..200
 
   def role?(role)
     unless self.role.present?

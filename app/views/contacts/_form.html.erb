@@ -4,7 +4,7 @@
 		<div class="col-xs-12">
 			<p class="description"><%=raw t(:contact_description) %></p>
 
-			<%= form_with model: contact, data: { turbo_frame: "_top" } do |f| %>
+			<%= form_with model: contact, data: { turbo: false } do |form| %>
 
 				<% if contact.errors.any? %>
 					<div id="error_explanation" class="alert alert-danger" role="alert">
@@ -40,10 +40,24 @@
 				<%= c.text_area :content, :class=>'form-control input-lg', :rows=> 7,:required=>"required" %>
 			</div>
 			<% end %>
+				<% if Rails.env.production? %>
+					<div class="form-group">
+						<div class="cf-turnstile"
+								 data-sitekey="<%= ENV['TURNSTILE_SITE_KEY'] %>"
+								 data-callback="turnstileSuccess">
+						</div>
+					</div>
+				<% end %>
 				<div class="d-grid gap-2">
-					<%= f.submit :class => 'btn btn-lg btn-primary' %>
+					<%= form.submit "저장", disabled: true, id: "submit-btn", :class => 'btn btn-lg btn-primary' %>
 				</div>
 			<% end %>
 		</div>
 	</div>
 </div>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+	function turnstileSuccess() {
+		document.getElementById("submit-btn").disabled = false;
+	}
+</script>
