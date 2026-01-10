@@ -78,7 +78,7 @@
     </div>
   </div>
   <% if Rails.env.production? %>
-      <div class="cf-turnstile mt-3">
+      <div class="cf-turnstile mt-3"
            data-sitekey="<%= ENV['TURNSTILE_SITE_KEY'] %>"
            data-callback="turnstileSuccess">
       </div>
