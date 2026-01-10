@@ -407,6 +407,8 @@ en:
         transaction_date : '거래일'
         updated_at : '수정일시'
         created_at : '생성일시'
+      order_content :
+        content : '내용'
       user :
         name : '이름'
         phone : '전화번호'

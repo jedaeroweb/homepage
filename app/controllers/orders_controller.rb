@@ -29,10 +29,12 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @order.build_order_content
   end
 
   # GET /orders/1/edit
   def edit
+    @order.build_order_content unless @order.order_content
   end
 
   # POST /orders
@@ -152,7 +154,7 @@ class OrdersController < ApplicationController
   def order_params
     # 주의: user_id는 서버에서만 설정합니다(스푸핑 방지).
     params.require(:order).permit(
-      :user_id, :transaction_date, :price, :discount, :payment, product_ids: []
+      :user_id, :transaction_date, :price, :discount, :payment, product_ids: [], order_content_attributes: [:id, :content]
     )
   end
 

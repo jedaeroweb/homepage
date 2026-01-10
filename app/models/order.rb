@@ -13,6 +13,9 @@ class Order < ApplicationRecord
   has_many :orders_products, dependent: :destroy
   has_many :products, :through => :orders_products
   has_many :accounts, :through => :accounts_orders
+  has_one :order_content, dependent: :destroy
+
+  accepts_nested_attributes_for :order_content, allow_destroy: true, reject_if: proc { |attrs| attrs['content'].blank? }
 
   private
 

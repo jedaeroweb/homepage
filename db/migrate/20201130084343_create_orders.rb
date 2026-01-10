@@ -10,5 +10,10 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.boolean :enable, null:false, default: true
       t.timestamps
     end
+
+    create_table :order_contents do |t|
+      t.references :order,:null=>false
+      t.text :content,:null=>false
+    end
   end
 end

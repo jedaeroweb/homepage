@@ -71,7 +71,7 @@
 
   <%= f.fields_for :order_content do |c| %>
     <div class="form-group">
-      <%= c.label :content, :class => 'form-label' %>
+      <%= c.label :content ,:class => 'form-label' %>
       <%= c.text_area :content, :class => 'form-control input-lg', :rows => 7 %>
     </div>
   <% end %>
@@ -84,12 +84,19 @@
       </div>
   <% end %>
   <div class="d-grid gap-2 mt-3">
-    <%= f.submit "저장", disabled: true, id: "submit-btn", :class => 'btn btn-lg btn-primary' %>
+    <% disabled = Rails.env.production? %>
+
+    <%= f.submit "저장",
+                 id: "submit-btn",
+                 class: "btn btn-lg btn-primary",
+                 disabled: disabled %>
   </div>
 <% end %>
+<% if Rails.env.production? %>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
     function turnstileSuccess() {
         document.getElementById("submit-btn").disabled = false;
     }
 </script>
+<% end %>

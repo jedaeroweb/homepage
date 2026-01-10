@@ -178,6 +178,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_15_065956) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_contents", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.text "content", null: false
+    t.index ["order_id"], name: "index_order_contents_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
     t.date "transaction_date", null: false
@@ -197,6 +203,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_15_065956) do
     t.integer "price", default: 0, null: false
     t.integer "quantity", default: 1, null: false
     t.boolean "enable", default: true, null: false
+    t.index ["order_id", "product_id"], name: "index_orders_products_on_order_id_and_product_id", unique: true
     t.index ["order_id"], name: "index_orders_products_on_order_id"
     t.index ["product_id"], name: "index_orders_products_on_product_id"
   end
