@@ -25,56 +25,56 @@
   <h2>주문정보</h2>
   <div class="card">
     <div class="card-body">
-  <%# 고객 정보 섹션 %>
-  <% if user_signed_in? %>
-    <div class="card mb-4">
-      <div class="card-header">
-        고객 정보
-      </div>
-      <div class="card-body">
-        <p class="mb-0">
-          <strong><%= current_user.name %></strong> (<%= current_user.email %>)
-        </p>
-        <div class="form-text text-muted">
-          로그인 상태에서는 이름/이메일이 변경되지 않습니다.
-        </div>
-      </div>
-    </div>
-  <% else %>
-    <div class="card mb-4">
-      <div class="card-header">
-        고객 정보
-      </div>
-      <div class="card-body">
-        <div class="form-group mb-3">
-          <%= f.label :name, "이름", class: "form-label" %>
-          <%= f.text_field :name,
-                           class: "form-control input-lg",
-                           required: true,
-                           placeholder: "홍길동" %>
-        </div>
-
-        <div class="form-group mb-3">
-          <%= f.label :email, "이메일", class: "form-label" %>
-          <%= f.email_field :email,
-                            class: "form-control input-lg",
-                            required: true,
-                            placeholder: "example@email.com" %>
-          <div class="form-text text-muted">
-            주문 확인 및 관련 정보를 받으실 이메일 주소를 입력해주세요
+      <%# 고객 정보 섹션 %>
+      <% if user_signed_in? %>
+        <div class="card mb-4">
+          <div class="card-header">
+            고객 정보
+          </div>
+          <div class="card-body">
+            <p class="mb-0">
+              <strong><%= current_user.name %></strong> (<%= current_user.email %>)
+            </p>
+            <div class="form-text text-muted">
+              로그인 상태에서는 이름/이메일이 변경되지 않습니다.
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  <% end %>
+      <% else %>
+        <div class="card mb-4">
+          <div class="card-header">
+            고객 정보
+          </div>
+          <div class="card-body">
+            <div class="form-group mb-3">
+              <%= f.label :name, "이름", class: "form-label" %>
+              <%= f.text_field :name,
+                               class: "form-control input-lg",
+                               required: true,
+                               placeholder: "홍길동" %>
+            </div>
+
+            <div class="form-group mb-3">
+              <%= f.label :email, "이메일", class: "form-label" %>
+              <%= f.email_field :email,
+                                class: "form-control input-lg",
+                                required: true,
+                                placeholder: "example@email.com" %>
+              <div class="form-text text-muted">
+                주문 확인 및 관련 정보를 받으실 이메일 주소를 입력해주세요
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
 
-  <%= f.fields_for :order_content do |c| %>
-    <div class="form-group">
-      <%= c.label :content ,:class => 'form-label' %>
-      <%= c.text_area :content, :class => 'form-control input-lg', :rows => 7 %>
-    </div>
-  <% end %>
+      <%= f.fields_for :order_content do |c| %>
+        <div class="form-group">
+          <%= c.label :content ,:class => 'form-label' %>
+          <%= c.text_area :content, :class => 'form-control input-lg', :rows => 7 %>
+        </div>
+      <% end %>
     </div>
   </div>
   <% if Rails.env.production? %>
@@ -83,14 +83,14 @@
   <div class="d-grid gap-2 mt-3">
     <% disabled = Rails.env.production? %>
 
-    <%= f.submit "저장",
-                 id: "submit-btn",
-                 class: "btn btn-lg btn-primary",
-                 disabled: disabled %>
+    <%= form.submit "저장",
+                    id: "submit-btn",
+                    class: "btn btn-lg btn-primary disabled" %>
   </div>
 <% end %>
 <% if Rails.env.production? %>
   <script>
+      // Turnstile 렌더
       window.turnstileLoaded = function () {
           const el = document.getElementById("turnstile-container");
           if (!el) return;
@@ -100,10 +100,25 @@
           turnstile.render(el, {
               sitekey: "<%= ENV['TURNSTILE_SITE_KEY'] %>",
               callback: function () {
-                  document.getElementById("submit-btn").disabled = false;
+                  // Turnstile 성공 시 버튼 활성화
+                  const btn = document.getElementById("submit-btn");
+                  btn.classList.remove("disabled");
               }
           });
       };
+
+      // disabled 스타일 클릭 시 안내 alert
+      document.addEventListener("DOMContentLoaded", function() {
+          const btn = document.getElementById("submit-btn");
+          btn.addEventListener("click", function(e) {
+              if (btn.classList.contains("disabled")) {
+                  e.preventDefault(); // form submit 막기
+                  alert("로봇 방지 인증을 먼저 완료해주세요.");
+                  document.getElementById("turnstile-container")?.scrollIntoView({behavior:'smooth', block:'center'});
+              }
+          });
+      });
   </script>
+
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=turnstileLoaded" async defer></script>
 <% end %>
