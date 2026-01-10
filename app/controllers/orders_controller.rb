@@ -12,12 +12,12 @@ class OrdersController < ApplicationController
       condition[:id]=params[:product]
       @product = Product.where(condition).first
     else
-    if params[:product_category].present?
-      condition[:product_category_id]=params[:product_category]
-      @products = Product.where(condition)
-    else
-      @product_categories = ProductCategory.where(condition)
-    end
+      if params[:product_category].present?
+        condition[:product_category_id]=params[:product_category]
+        @products = Product.where(condition)
+      else
+        @product_categories = ProductCategory.where(condition)
+      end
     end
   end
 
@@ -80,9 +80,9 @@ class OrdersController < ApplicationController
         end
       end
 
-        # 4) 주문 생성 + user 연결
-        @order = Order.new(order_attrs)
-        @order.user = user
+      # 4) 주문 생성 + user 연결
+      @order = Order.new(order_attrs)
+      @order.user = user
 
       count = Array(product_ids).size
 
@@ -101,20 +101,20 @@ class OrdersController < ApplicationController
           product: product,
           price: product.price
         )
-        end
+      end
 
-        if @order.save
-          redirect_to @order, notice: '주문이 생성되었습니다.'
-        else
-          render :new, status: :unprocessable_entity
-        end
+      if @order.save
+        redirect_to @order, notice: '주문이 생성되었습니다.'
+      else
+        render :new, status: :unprocessable_entity
+      end
 
 
-  rescue ActiveRecord::RecordInvalid => e
-    @order ||= Order.new(order_attrs)
-    @order.errors.add(:base, e.record.errors.full_messages.to_sentence)
-    render :new, status: :unprocessable_entity
-  end
+    rescue ActiveRecord::RecordInvalid => e
+      @order ||= Order.new(order_attrs)
+      @order.errors.add(:base, e.record.errors.full_messages.to_sentence)
+      render :new, status: :unprocessable_entity
+    end
   end
 
 

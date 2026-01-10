@@ -1,22 +1,19 @@
 <% breadcrumb :orders %>
 <section class="row">
   <% if @product_categories %>
-  <% @product_categories.each do |product_category| %>
-    <article class="col-12">
-      <div class="media mt-3 p-3 rounded-2">
-        <h3><%=link_to product_category.title,orders_path({product_category: product_category}) %></h3>
-        <p><%=simple_format(product_category.product_category_content.content) %></p>
-      </div>
-    </article>
-  <% end %>
-  <% end %>
-
-  <% if @products %>
-  <% @products.each do |product| %>
-      <%= render 'products/index' %>
-  <% end %>
+    <% @product_categories.each do |product_category| %>
+      <article class="col-12">
+        <div class="media mt-3 p-3 rounded-2">
+          <h3><%=link_to product_category.title,orders_path({product_category: product_category}) %></h3>
+          <p><%=simple_format(product_category.product_category_content.content) %></p>
+        </div>
+      </article>
+    <% end %>
   <% end %>
 
+  <% if @products.present? %>
+      <%= render partial: 'products/product', locals: { product: @products } %>
+  <% end %>
 
   <% if @product %>
     <%= render 'products/show' %>
