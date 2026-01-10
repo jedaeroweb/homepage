@@ -78,14 +78,12 @@
     </div>
   </div>
   <% if Rails.env.production? %>
-    <div class="form-group">
-      <div class="cf-turnstile"
+      <div class="cf-turnstile mt-3">
            data-sitekey="<%= ENV['TURNSTILE_SITE_KEY'] %>"
            data-callback="turnstileSuccess">
       </div>
-    </div>
   <% end %>
-  <div class="d-grid gap-2">
+  <div class="d-grid gap-2 mt-3">
     <%= f.submit "저장", disabled: true, id: "submit-btn", :class => 'btn btn-lg btn-primary' %>
   </div>
 <% end %>
