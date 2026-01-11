@@ -13,8 +13,8 @@
 
 @charset "utf-8";
 
-@import "bootstrap";
-@import "../fancybox";
+@use "bootstrap/scss/bootstrap" as *;
+@use "fancybox";
 
 @font-face {
   font-family: 'Nanum Gothic';
@@ -353,28 +353,30 @@ h1, .h1, h2, .h2, h3, .h3 {
   header,footer,.jumbotron,.media,.card-body,aside article,#faqList dt a.title,.modal-body, .modal-footer,.sl_content_header,.thead-default th,.breadcrumb,.box_content, header nav,.menu_back,,#faqList dd {background-color:var(--bs-secondary-bg)}
   .box_header {background: #666;border-color:var(--bs-border-color)}
   .box_header h2 {text-shadow: none;color:#ccc}
+  header nav .active > a {color:#0cf}
 }
 
 @include color-mode(light) {
   a {
-    color: #666
+    color: #999
   }
   a:hover {
     color: #333
   }
   a:visited {
-    color: #666
+    color: #999
   }
   a:active {
     color: #000
   }
 
-  footer a,footer a:visited {color:#333}
+  footer a,footer a:visited {color:#666}
   footer a:hover {text-decoration:none;}
 
-  header a {color:#333}
-  header a:visited {color:#333}
+  header a {color:#666}
+  header a:visited {color:#666}
   .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link,.nav-tabs {border-color:#ccc}
   .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {border-bottom-color:#f1f1f1}
   a.btn-primary,a.btn-primary:visited {color:#fff}
+  header nav .active > a {color:#000}
 }
