@@ -2,7 +2,7 @@
 <section class="row">
   <% if @product_categories %>
     <% @product_categories.each do |product_category| %>
-      <article class="col-12">
+      <article class="col-12"  data-controller="click-redirect" data-action="click->click-redirect#mediaClick">
         <div class="media mt-3 p-3 rounded-2">
           <h3><%=link_to product_category.title,orders_path({product_category: product_category}) %></h3>
           <p><%=simple_format(product_category.product_category_content.content) %></p>

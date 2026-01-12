@@ -9,7 +9,7 @@
   <section class="row">
     <% @programs.each do |program| %>
       <div class="col-12">
-      <article class="media rounded p-3 mb-3">
+      <article class="media rounded p-3 mb-3"  data-controller="click-redirect" data-action="click->click-redirect#mediaClick">
         <h2><%=link_to program_path(program.id) do %><%=program.title %><% end %></h2>
         <p><%=link_to program_path(program.id) do %><%=raw program.description %><% end %>
         </p>
