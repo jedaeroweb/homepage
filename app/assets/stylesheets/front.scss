@@ -355,28 +355,3 @@ h1, .h1, h2, .h2, h3, .h3 {
   .box_header h2 {text-shadow: none;color:#ccc}
   header nav .active > a {color:#0cf}
 }
-
-@include color-mode(light) {
-  a {
-    color: #999
-  }
-  a:hover {
-    color: #333
-  }
-  a:visited {
-    color: #999
-  }
-  a:active {
-    color: #000
-  }
-
-  footer a,footer a:visited {color:#666}
-  footer a:hover {text-decoration:none;}
-
-  header a {color:#666}
-  header a:visited {color:#666}
-  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link,.nav-tabs {border-color:#ccc}
-  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {border-bottom-color:#f1f1f1}
-  a.btn-primary,a.btn-primary:visited {color:#fff}
-  header nav .active > a {color:#000}
-}
