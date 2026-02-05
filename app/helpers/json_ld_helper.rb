@@ -91,4 +91,87 @@ module JsonLdHelper
     }
 
   end
+
+  def json_ld_for_programs(programs)
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": programs.each_with_index.map do |program, index|
+        {
+          "@type": "ListItem",
+          "position": index + 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": program.title,
+            "description": program.description,
+            "url": program.service_link
+          }
+        }
+      end
+    }
+  end
+
+  def json_ld_for_program(program)
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": program.title,
+      "description": program.description,
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": program.service_link,
+      "publisher": {
+        "@type": "Organization",
+        "name": "Jedaeroweb"
+      }
+    }
+  end
+
+  def json_ld_for_product_categories(product_categories)
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": product_categories.each_with_index.map do |category, index|
+        {
+          "@type": "ListItem",
+          "position": index + 1,
+          "item": {
+            "@type": "Thing",
+            "name": category.title,
+            "url": product_category_url(category)
+          }
+        }
+      end
+    }
+  end
+
+  def json_ld_for_products(products)
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": products.each_with_index.map do |product, index|
+        {
+          "@type": "ListItem",
+          "position": index + 1,
+          "item": json_ld_for_product(product)
+        }
+      end
+    }
+  end
+
+
+  def json_ld_for_product(product)
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": product.title,
+      "description": product.product_content.content,
+      "category": product.product_category.title,
+      "offers": {
+        "@type": "Offer",
+        "price": product.price,
+        "priceCurrency": "KRW"
+      }
+    }
+  end
 end

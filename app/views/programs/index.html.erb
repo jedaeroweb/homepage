@@ -29,7 +29,7 @@
           <% @program_link_category.each do |program_link_category| %>
             <% program.program_links.each do |program_link| %>
               <% if program_link.program_link_category_id==program_link_category.id %>
-          <dt><%=link_to program_link.title,program_link.link, target: "_blank" %></dt>
+              <dt><%=link_to program_link.title,program_link.link, target: "_blank" %></dt>
                 <% end %>
             <% end %>
           <% end %>
@@ -39,3 +39,8 @@
     <% end %>
   </section>
 </div>
+<% content_for :json_ld do %>
+  <script type="application/ld+json">
+    <%= raw(JSON.pretty_generate(json_ld_for_programs(@programs))) %>
+  </script>
+<% end %>

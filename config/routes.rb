@@ -22,12 +22,19 @@ Rails.application.routes.draw do
   resources :accounts
   resources :accounts_products
   resources :accounts_product_categories
-  resources :product_categories
   resources :products
   resources :orders
   resources :reports
   resources :notices
   resources :users, :sitemap
+
+  get "product_categories/:id",
+      to: redirect(status: 301) { |params, _|
+        "/orders?product_category=#{params[:id]}"
+      },
+      as: :product_category
+
+
 
   get 'install', :to=>'programs#install', as: 'program_install'
 

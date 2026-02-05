@@ -1,6 +1,6 @@
 <% breadcrumb :orders %>
 <section class="row">
-  <% if @product_categories %>
+  <% if @product_categories.present? %>
     <% @product_categories.each do |product_category| %>
       <article class="col-12"  data-controller="click-redirect" data-action="click->click-redirect#mediaClick">
         <div class="media mt-3 p-3 rounded-2">
@@ -15,7 +15,28 @@
       <%= render partial: 'products/product', locals: { product: @products } %>
   <% end %>
 
-  <% if @product %>
+  <% if @product.present? %>
     <%= render 'products/show' %>
   <% end %>
 </section>
+<% if @product_categories.present? %>
+<% content_for :json_ld do %>
+  <script type="application/ld+json">
+    <%= raw(JSON.pretty_generate(json_ld_for_product_categories(@product_categories))) %>
+  </script>
+<% end %>
+<% end %>
+<% if @products.present? %>
+  <% content_for :json_ld do %>
+    <script type="application/ld+json">
+      <%= raw(JSON.pretty_generate(json_ld_for_products(@products))) %>
+    </script>
+  <% end %>
+<% end %>
+<% if @product.present? %>
+  <% content_for :json_ld do %>
+    <script type="application/ld+json">
+      <%= raw(JSON.pretty_generate(json_ld_for_product(@product))) %>
+    </script>
+  <% end %>
+<% end %>
