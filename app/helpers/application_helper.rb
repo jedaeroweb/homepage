@@ -137,4 +137,22 @@ module ApplicationHelper
       return title[0..0]+'**';
     end
   end
+
+  def orders_canonical_url
+    base = orders_url
+
+    if params[:product_category].present?
+      "#{base}?product_category=#{params[:product_category]}"
+    elsif params[:product].present?
+      product = Product.find_by(id: params[:product])
+      if product&.product_category_id
+        "#{base}?product_category=#{product.product_category_id}"
+      else
+        base
+      end
+    else
+      base
+    end
+  end
+
 end

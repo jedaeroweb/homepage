@@ -161,11 +161,10 @@ module JsonLdHelper
 
 
   def json_ld_for_product(product)
-    {
+    json = {
       "@context": "https://schema.org",
       "@type": "Product",
       "name": product.title,
-      "description": product.product_content.content,
       "category": product.product_category.title,
       "offers": {
         "@type": "Offer",
@@ -173,5 +172,11 @@ module JsonLdHelper
         "priceCurrency": "KRW"
       }
     }
+
+    if product.product_content&.content.present?
+      json["description"] = product.product_content.content
+    end
+
+    json
   end
 end

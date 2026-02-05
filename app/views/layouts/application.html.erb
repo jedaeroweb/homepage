@@ -27,6 +27,9 @@
   <%= csp_meta_tag -%>
   <%= yield :json_ld %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <% if controller_name == "orders" && action_name == "index" %>
+    <link rel="canonical" href="<%= orders_canonical_url %>">
+  <% end %>
 </head>
 <body>
 <%= render :partial => 'layouts/header' %>
