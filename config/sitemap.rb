@@ -25,7 +25,14 @@ SitemapGenerator::Sitemap.create do
   Program.find_each do |program|
     add program_path(program), :lastmod => program.updated_at
   end
-  add products_path, :priority => 0.9, :changefreq => 'monthly'
+
+  add orders_path, priority: 0.9, changefreq: 'weekly'
+
+  ProductCategory.find_each do |category|
+    add orders_path(product_category: category.id),
+        priority: 0.8,
+        changefreq: 'weekly'
+  end
 
   add faqs_path, :priority => 0.9, :changefreq => 'monthly'
 
