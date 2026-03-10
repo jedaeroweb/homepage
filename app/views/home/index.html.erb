@@ -1,57 +1,78 @@
 <section class="row">
-  <div class="col-12">
-
-    <div id="carouselExample"
+  <div class="col-12  mt-3 mb-3">
+    <div id="programCarousel"
          class="carousel slide"
-         data-bs-touch="true"
-         data-bs-ride="carousel">
+         data-bs-touch="true">
+
+      <!-- indicators -->
+      <div class="carousel-indicators">
+        <% @programs.each_with_index do |program,index| %>
+          <button type="button"
+                  data-bs-target="#programCarousel"
+                  data-bs-slide-to="<%=index%>"
+                  class="<%= 'active' if index.zero? %>">
+          </button>
+        <% end %>
+      </div>
 
       <div class="carousel-inner">
 
-        <% @slides.each_with_index do |slide,index| %>
+        <% @programs.each_with_index do |program, index| %>
 
           <div class="carousel-item <%= 'active' if index.zero? %>">
 
-            <%= link_to program_path(id: slide.id) do %>
-              <%= image_tag slide.program_pictures[0].picture.large_thumb.url,
-                            class: "d-block w-100 img-fluid" %>
-            <% end %>
+            <article class="media rounded p-3 mb-3">
 
-            <div class="carousel-caption">
-              <h5>
-                <%= link_to slide.title, program_path(id: slide.id) %>
-              </h5>
+              <h2>
+                <%= link_to program.title, program_path(program.id) %>
+              </h2>
 
-              <% if slide.description.present? %>
-                <p><%= raw slide.description %></p>
+              <p>
+                <%= raw program.description %>
+              </p>
+
+              <% unless program.program_pictures_count.zero? %>
+                <ul class="row">
+                  <% program.program_pictures.each do |program_picture| %>
+                    <li class="col-6 col-lg-4 col-xxl-3">
+                      <!-- <picture>
+                        <source srcset="/logo-dark.png" media="(prefers-color-scheme: dark)">
+                        <img src="/logo-light.png" alt="logo">
+                      </picture> -->
+                      <figure>
+                        <%= image_tag program_picture.picture.small_thumb.url,
+                                      class: "img-dark" %>
+                      </figure>
+                    </li>
+                  <% end %>
+                </ul>
               <% end %>
-            </div>
+
+            </article>
 
           </div>
 
         <% end %>
 
       </div>
-      <div class="carousel-indicators">
-        <% @slides.each_with_index do |slide,index| %>
-          <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="<%=index %>" <% if index.zero? %>class="active" aria-current="true"<% end %> aria-label="Slide <%=index %>"></button>
-        <% end %>
-      </div>
+
+      <!-- controls -->
       <button class="carousel-control-prev d-none d-md-flex"
               type="button"
-              data-bs-target="#carouselExample"
+              data-bs-target="#programCarousel"
               data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
       </button>
 
       <button class="carousel-control-next d-none d-md-flex"
               type="button"
-              data-bs-target="#carouselExample"
+              data-bs-target="#programCarousel"
               data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
       </button>
 
     </div>
+
 
   </div>
 </section>

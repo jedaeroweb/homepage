@@ -1,73 +1,62 @@
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-xxl-3">
-        <h1><%= link_to root_path do %>
-            <span class="logo"><%= t(:service_name) %></span>
-          <% end %>
-        </h1>
-      </div>
-      <div class="col-12 col-xxl-9">
-        <nav>
-        <ul class="nav nav-pills">
-          <li class="sl-dropdown
+<header class="d-flex">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <h1 class="mb-0">
+      <%= link_to t(:service_name), '/', class: "navbar-brand" %>
+    </h1>
+
+    <nav class="navbar navbar-expand-lg p-0 mt-auto">
+
+      <!-- 모바일 토글 버튼 (오른쪽 끝) -->
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Offcanvas 메뉴 (모바일) -->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">매뉴</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+
+          <ul class="nav nav-pills ms-auto">
+            <li class="me-3 nav-item
             <% if params[:controller] == 'intro' %> active
             <% end %>">
-            <%= link_to intro_path do %>
-              <%= t(:menu_intro) %>
-            <% end %>
-            <ul class="sl-dropdown-menu intro_menu">
-              <li
-              <% if current_page?(intro_path) %> class="active"
-              <% end %>><%= link_to t(:submenu_intro1), intro_path %></li>
-              <li
-              <% if current_page?(intro_service_path) %> class="active"
-              <% end %>><%= link_to t(:submenu_intro2), intro_service_path %></li>
-            </ul>
-          </li>
-          <li class="sl-dropdown
+              <%= link_to intro_path do %>
+                <%= t(:menu_intro) %>
+              <% end %>
+            </li>
+            <li class="me-3 nav-item
             <% if params[:controller] == 'programs' %> active
             <% end %>">
-            <%= link_to programs_path do %>
-              <%= t(:menu_program) %>
-            <% end %>
-            <ul class="sl-dropdown-menu intro_menu">
-              <li
-                <% if current_page?(programs_path) %> class="active"
-                <% end %>><%= link_to t(:program,scope:[:activerecord,:models]), programs_path %></li>
-              <li
-                <% if current_page?(program_install_path) %> class="active"
-                <% end %>><%= link_to t(:install,scope:[:activerecord,:models]), program_install_path %></li>
-              <li
-                <% if current_page?(reports_path) %> class="active"
-                <% end %>><%= link_to t(:menu_report), reports_path %></li>
-            </ul>
-          </li>
+              <%= link_to programs_path do %>
+                <%= t(:menu_program) %>
+              <% end %>
+            </li>
 
-          <li class="dropdown
+            <li class="me-3 nav-item dropdown
             <% if params[:controller] == 'faqs' || params[:controller] == 'contacts' %> active
             <% end %>">
-            <%= link_to faqs_path, { class: 'dropdown-toggle',role:"button",'data-bs-toggle': "dropdown",'aria-expanded':"false"} do %>
-              <%= t(:menu_support) %>
-            <% end %>
-            <ul class="dropdown-menu">
-              <li
-                <% if current_page?(faqs_path) %> class="active"
-                <% end %>><%= link_to t(:menu_faq), faqs_path %></li>
-              <li
-                <% if current_page?(contacts_path) %> class="active"
-                <% end %>><%= link_to t(:menu_contact), contacts_path %></li>
-            </ul>
-          </li>
+              <%= link_to faqs_path, { class: 'dropdown-toggle',role:"button",'data-bs-toggle': "dropdown",'aria-expanded':"false"} do %>
+                <%= t(:menu_support) %>
+              <% end %>
+              <ul class="dropdown-menu">
+                <li class="ms-3 nav-item<% if current_page?(faqs_path) %> active <% end %>"><%= link_to t(:menu_faq), faqs_path %></li>
+                <li class="ms-3 nav-item<% if current_page?(contacts_path) %> active <% end %>"><%= link_to t(:menu_contact), contacts_path %></li>
+              </ul>
+            </li>
             <li class="red
               <% if params[:controller] == 'orders' %> active
               <% end %>" data-turbolinks="false">
               <%= link_to orders_path do %><%= t(:menu_order) %>
               <% end %>
             </li>
-        </ul>
-      </nav>
+          </ul>
+
+        </div>
       </div>
-    </div>
-  </div>
+  </nav>
 </header>
+

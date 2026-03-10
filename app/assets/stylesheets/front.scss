@@ -46,20 +46,16 @@
 }
 
 
-$default-bg : #f7f7f7;
+$default-bg : #eef1f4;;
 $default-color: $body-color;
 $secondary-bg :#fff;
 $color-mode-type: data;
 
 
-[data-bs-theme="light"] {
-  --bs-border-color : #ccc;
-  .media {background-color: #fff}
-}
 
 
 html,body {margin:0;padding:0; height:100%}
-body {background-color:$default-bg;color: $default-color; font-family: "Nanum Gothic", "나눔고딕", "Malgun Gothic", "맑은 고딕", "gulim","굴림","Dotum", "돋움", Arial, Helvetica, sans-serif}
+body {color: $default-color; font-family: "Nanum Gothic", "나눔고딕", "Malgun Gothic", "맑은 고딕", "gulim","굴림","Dotum", "돋움", Arial, Helvetica, sans-serif}
 
 label {vertical-align:middle;cursor:pointer}
 a img {border:none}
@@ -140,15 +136,18 @@ $blue_amicogen : #073683;
 .jumbotron {margin:30px 0}
 .sl_categories span.hidden-xs {display:inline!important}
 
+
 /* header */
 header {position:relative;border-bottom:3px solid var(--bs-primary);background-color:$secondary-bg}
-header h1 a {display:block;margin-top:1rem}
 header h1 a:hover {text-decoration:none}
-header nav {  z-index: 999; margin:0; padding:0}
-header nav ul { float: right; margin: 12px 0 0 0; padding: 0}
-header nav li { float: left; list-style: none; margin: 0 0 0 20px}
-header nav ul.nav > li + li {margin-left:20px}
-header nav a { float: left; font-size:1.3em; text-decoration: none;text-transform: capitalize}
+
+.navbar-brand, .navbar-brand:hover, .navbar-brand:focus
+{
+  color: var(--bs-link-color);
+}
+
+
+header nav a {  font-size:1.3em; text-decoration: none;text-transform: capitalize}
 header nav ul li ul {position:absolute;display:none}
 .nav > li > a {
   position: relative;
@@ -172,25 +171,11 @@ footer div {margin:0}
 
 .alert-success {clear:both}
 
-h1, .h1, h2, .h2, h3, .h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
 
-
-#carouselExample {margin-bottom: 60px}
-.carousel-item {text-align:center}
-.carousel-item img {width:100%;height:500px}
 .carousel-control-prev, .carousel-control-next { background : #999;top:45%;width:70px ;height:70px;border-radius: 15px}
-  .carousel-control-prev { left: -90px }
+.carousel-control-prev { left: -90px }
 .carousel-control-next { right: -90px }
-.carousel-indicators {position:absolute; z-index:999; bottom:-60px}
 .carousel-indicators [data-bs-target] {height:10px}
-
-#top-menu {position:absolute;top:10px;right:10px;margin:0;padding:0;list-style:none;z-index:9999}
-#top-menu li {float:left;margin:0;padding:0}
-#top-menu li a {text-decoration: none;vertical-align: bottom;}
-#top-menu li a i {text-align: center;vertical-align: bottom;}
 
 .page-header {float:left;width:100%;margin:1rem 0;padding-bottom:7px;border-bottom:1px solid var(--bs-border-color)}
 .page-header h2 {float:left;margin-top:0.5rem;margin-bottom:0.5rem;font-weight:bold;text-transform: capitalize}
@@ -219,83 +204,39 @@ h1, .h1, h2, .h2, h3, .h3 {
 #select_language_layer a.zh-CN {background-position:0 -60px}
 
 
-
-
 @media all and (min-width: 992px) {
   html,body {font-size:18px}
   header {position: relative}
-
-    #top-menu nav ul li.nav-item {display:block;width:50%;margin:0;padding:0}
-
     header {position:relative;z-index:8;height:86px;border-bottom:4px solid #4992c4}
     header.red {border-color:$red_default}
-    header nav {margin-top:31px}
-    header nav ul {position: absolute; bottom:0;margin:0;padding:0}
     header nav ul.nav-pills > li.active > a, header nav ul.nav-pills > li.active > a:hover, header nav ul.nav-pills > li.active > a:focus  {background:none}
     header nav ul.nav-pills li.red a, header nav ul.nav-pills > li.red > a:focus,header nav ul.nav-pills > li.active.red > a, {background:$red_default;border-bottom-left-radius:0;border-bottom-right-radius:0;color:#fff}
     header nav ul.nav-pills li.red a:hover {background-color:$red_hover;color:#fff}
-    header nav ul.nav-pills li.blue a, header nav ul.nav-pills > li.blue > a:focus,header nav ul.nav-pills > li.active.blue > a, {background:$blue_default;border-bottom-left-radius:0;border-bottom-right-radius:0}
-    header nav ul.nav-pills li.blue a:hover {background-color:$blue_hover}
-    header nav ul li.open ul.sl-dropdown-menu {display:block}
-    header nav ul li a {white-space:nowrap;font-weight:bold}
-    header nav ul li ul {top:70px;margin:0}
-    header nav ul li ul li {width:100%;margin-left:13px;margin-bottom:5px}
-    header nav ul li ul li a {font-size:16px}
-    header nav ul.nav li.sl-dropdown {margin-left:20px;margin-right:20px}
-
-  .menu_back {
-    display: none;
-    position: absolute;
-    top: 86px;
-    left: 0;
-    background: $secondary-bg;
-    width: 100%;
-    height: 120px;
-    z-index: 7;
-    box-shadow: 0 2px 4px #999;
-  }
-
   footer {height:100px;border-top:1px solid var(--bs-border-color)}
 }
 
 @media (max-width: 991px) {
-
+  header {padding:10px 0}
+  header .nav {flex-direction: column}
+  .nav-item {display:block}
+  .nav-item>a {display:block}
 }
 
 @media (min-width: 992px) {
-  header nav {
-    display: flex;
-    align-items: end;
-    justify-content: end
-  }
+  header h1 {margin-bottom:0;padding:10px}
+  header h1 a.navbar-brand {font-size:33px}
+  header .navbar {padding-bottom:0}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     #mom {clear:both;float:left;width:100%;padding:0;margin:-86px 0 -100px;min-height:100%}
     #main {padding-top:86px;padding-bottom:100px}
     .sub-main {margin-top:1em;margin-bottom:1em}
-    #top-menu nav ul li.nav-item {display:block;width:20%;margin:0;padding:0}
-    #top-menu { height: 92px;}
-    .top-menu {
-        z-index: 1015;
-        position:absolute;
-        bottom:0;
-        width:100%;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.14);
-    }
     #users .user_sub nav .nav-item {width:24%;text-align:center;margin:0 5px 5px 0}
 }
 
 @media (min-width: 1200px) {
   .container {width:1150px;}
-    .top-menu {
-        z-index: 1015;
-        position:absolute;
-        bottom:0;
-        width:100%;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.14);
-    }
-
     #mom {width:100%;padding:0;margin:-86px 0 -100px;min-height:100%}
     #main {padding-top:86px;padding-bottom:100px}
     .sub-main {margin-top:1em;margin-bottom:1em}
@@ -333,14 +274,17 @@ h1, .h1, h2, .h2, h3, .h3 {
   header { height: 5em;margin-bottom:0}
   header nav li a {font-size:20px}
   .sub-main {padding-bottom:3rem}
-  #top-menu li {display:inline-block;margin:0 0 0 20px;padding:0;line-height:40px}
-  #top-menu .material-icons {font-size:30px;vertical-align:middle}
   .section-header {margin-top:2rem;padding-top:1.5rem;margin-bottom:1rem}
 }
 
 .form-group {
   margin-bottom:1.5rem
 }
+
+[data-bs-theme="dark"] .img-light { display:none }
+[data-bs-theme="dark"] .img-dark { display:block }
+
+.img-dark { display:none }
 
 @include color-mode(dark) {
   body {
