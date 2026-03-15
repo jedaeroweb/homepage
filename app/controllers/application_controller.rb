@@ -1,54 +1,153 @@
 class ApplicationController < ActionController::Base
   layout :layout
-  before_action :set_locale
-  before_action :set_og_title
 
-  def initialize(*params)
-    super(*params)
-    before_init
-  end
+  before_action :set_locale
+  before_action :normalize_seo_query_params
+  before_action :before_init
+  before_action :set_og_title
+  before_action :prepare_default_meta_tags
+
+  helper_method :seo_noindex?
 
   def before_init
-    @meta_robot='all, index, follow'
-    @meta_description=t(:meta_description)
-    @meta_keywords=t(:meta_keywords)
-    @meta_image=t(:meta_image)
-    @meta_url=t(:meta_url)
+    @meta_description = t(:meta_description)
+    @meta_keywords    = t(:meta_keywords)
+    @meta_image       = t(:meta_image)
+    @meta_url         = t(:meta_url)
+  end
 
-    @resource ||= User.new
+  def prepare_default_meta_tags
+    meta_title = @title.presence || t(:default_title)
+    canonical  = canonical_url_for_current_page
+
+    set_meta_tags(
+      site: t(:application_name),
+      title: meta_title,
+      description: @meta_description,
+      keywords: @meta_keywords,
+      separator: t(:title_separator),
+      reverse: true,
+      canonical: canonical,
+      noindex: seo_noindex?,
+      follow: true,
+      viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+      og: {
+        title: @og_title.presence || meta_title,
+        description: @meta_description,
+        url: canonical,
+        image: @meta_image,
+        type: 'website',
+        site_name: t(:application_name),
+        locale: I18n.locale.to_s
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: @og_title.presence || meta_title,
+        description: @meta_description,
+        image: @meta_image
+      }
+    )
   end
 
   def set_og_title
-    if @title
-      @og_title=@title
+    @og_title = @title.presence || t(:default_title)
+  end
+
+  # 내부 링크에 locale 유지
+  # 단, 기본 언어는 URL에 붙이지 않음
+  def default_url_options(options = {})
+    opts = options ? options.dup : {}
+
+    locale = I18n.locale.to_s
+    if locale != I18n.default_locale.to_s
+      opts[:locale] ||= locale
+    end
+
+    opts
+  end
+
+  def layout
+    if params[:no_layout]
+      false
     else
-      @og_title=t(:default_title)
+      'application'
     end
   end
 
-    def set_locale
-      I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
-      session[:locale] = I18n.locale
-    end
-
-    #  def default_url_options(options={})
-    #    18n={ locale: I18n.locale }
-    #
-    #    return i18n
-    #  end
-
-    def layout
-      if params[:no_layout]
-        return false
-      else
-        return 'application'
-      end
-    end
-
-
   def set_locale
-    I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
-    session[:locale] = I18n.locale
+    locale = params[:locale].presence || session[:locale].presence || I18n.default_locale
+    locale = locale.to_s
+
+    allowed = I18n.available_locales.map(&:to_s)
+    locale = I18n.default_locale.to_s unless allowed.include?(locale)
+
+    I18n.locale = locale
+    session[:locale] = locale
+  end
+
+  private
+
+  # 기본 locale 제거 + page=1 제거
+  # 예:
+  # /products?locale=ko&page=2 -> /products?page=2
+  # /products?page=1&locale=en -> /products?locale=en
+  def normalize_seo_query_params
+    clean = request.query_parameters.deep_dup
+    changed = false
+
+    # 기본 locale 제거
+    if clean["locale"].to_s == I18n.default_locale.to_s
+      clean.delete("locale")
+      changed = true
+    end
+
+    # page=1 제거
+    if clean["page"].to_s == "1"
+      clean.delete("page")
+      changed = true
+    end
+
+    return unless changed
+
+    uri = URI.parse(request.path)
+    uri.query = clean.to_query.presence
+
+    redirect_to uri.to_s, status: :moved_permanently
+  end
+
+  # 공통 noindex 규칙
+  # 필요하면 각 컨트롤러에서 override 가능
+  def seo_noindex?
+    return true if params[:no_layout].present?
+    return true if params[:sort].present?
+    return true if params[:q].present?
+
+    # 흔한 facet/filter/UI 파라미터들
+    filter_keys = %w[
+      color size brand price_min price_max
+      tag tags search keyword order direction
+      per view tab commit utf8
+    ]
+
+    (params.keys.map(&:to_s) & filter_keys).any?
+  end
+
+  # canonical에는 locale(비기본 언어만) + page(2 이상만)만 허용
+  # 나머지 sort/filter/q 등은 제거
+  def canonical_url_for_current_page
+    allowed = {}
+
+    page = params[:page].to_i
+    allowed[:page] = page if page > 1
+
+    locale = params[:locale].presence&.to_s
+    if locale.present? && locale != I18n.default_locale.to_s
+      allowed[:locale] = locale
+    end
+
+    uri = URI.parse(request.base_url + request.path)
+    uri.query = allowed.to_query.presence
+    uri.to_s
   end
 
   protected
