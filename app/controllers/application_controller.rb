@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
 
   def before_init
     @meta_description = t(:meta_description)
-    @meta_keywords    = t(:meta_keywords)
     @meta_image       = t(:meta_image)
     @meta_url         = t(:meta_url)
   end
@@ -24,7 +23,6 @@ class ApplicationController < ActionController::Base
       site: t(:application_name),
       title: meta_title,
       description: @meta_description,
-      keywords: @meta_keywords,
       separator: t(:title_separator),
       reverse: true,
       canonical: canonical,
