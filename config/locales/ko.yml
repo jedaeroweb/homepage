@@ -1,7 +1,7 @@
 ko:
   application_name : '제대로웹'
   service_name : '제대로웹'
-  meta_description : '제대로웹 홈페이지입니다, 이제 제대로 된 웹페이지를 이용하세요'
+  meta_description : '제대로웹 공식 홈페이지. 웹개발에 필요한 무료 공개 소스 및 GitHub 코드, 커뮤니티 기반 질문·답변, 자료, Rails/PHP 등 웹 기술 강좌와 필요 시 맞춤 서비스 지원까지 제공하는 개발자 중심 플랫폼입니다'
   meta_image : 'https://assets.sleepinglion.pe.kr/sl.jpg'
   meta_url : 'https://www.jedaeroweb.co.kr'
 
@@ -16,7 +16,7 @@ ko:
   site_full_url: 'https://www.jedaeroweb.co.kr'
   email_webmaster: 'admin@jedaeroweb.co.kr'
   title_separator : '-'
-  default_title : '깨끗한 웹세상을 만들어가는 제대로웹'
+  default_title : '무료 공개 소스 기반 웹개발 솔루션, 깃허브 공개 코드 및 지원가능 커뮤니티와 자료'
 
   search : "검색"
   submit : "제출"
