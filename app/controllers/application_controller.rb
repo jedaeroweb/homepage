@@ -116,7 +116,7 @@ class ApplicationController < ActionController::Base
 
     return true if controller_name == "tags"
 
-    filter_keys = %w[list_type product locale tag tags search keyword order direction per view tab commit utf8]
+    filter_keys = %w[list_type faq_category_id product locale tag tags search keyword order direction per view tab commit utf8]
 
     (params.keys.map(&:to_s) & filter_keys).any?
   end
