@@ -46,13 +46,11 @@
 }
 
 
-$default-bg : #eef1f4;;
+$default-bg : #ddd;
 $default-color: $body-color;
-$secondary-bg :#fff;
+$secondary-bg :#f1f1f1;
 $color-mode-type: data;
-
-
-
+$header_light_default_color : #eee;
 
 html,body {margin:0;padding:0; height:100%}
 body {color: $default-color; font-family: "Nanum Gothic", "나눔고딕", "Malgun Gothic", "맑은 고딕", "gulim","굴림","Dotum", "돋움", Arial, Helvetica, sans-serif}
@@ -302,4 +300,19 @@ footer div {margin:0}
   .box_header {background: #666;border-color:var(--bs-border-color)}
   .box_header h2 {text-shadow: none;color:#ccc}
   header nav .active > a {color:#0cf}
+}
+
+
+@include color-mode(light) {
+  body {
+    background-color: $secondary-bg;
+  }
+
+  header {
+    background-color: #fff;
+  }
+
+  .media {
+    background-color: #fff;
+  }
 }
